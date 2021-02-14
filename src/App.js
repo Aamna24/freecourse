@@ -16,14 +16,13 @@ class App extends React.Component {
   state = {}
 
   componentDidMount() {
-    try {
+   
 
       const jwt = localStorage.getItem("token");
+      console.log(jwt)
       const user = jwtDecode(jwt);
-      this.setState({ user })
-    } catch (error) {
-
-    }
+      console.log(user)
+     
   }
   constructor(props) {
     super(props)
@@ -44,7 +43,7 @@ class App extends React.Component {
     return (
 
       <React.Fragment>
-        <NavBar />
+        <NavBar user={this.state.user}/>
         <main class="">
           <Switch>
             <Route path="/privacy" component={PrivacyPolicy} />

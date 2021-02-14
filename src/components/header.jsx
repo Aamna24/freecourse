@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 
-const NavBars = () => {
+const NavBars = ({user}) => {
     return (
         <Navbar collapseOnSelect expand="lg" id="header">
             <Navbar.Brand style={{"color": "orange"}} href="/home">Educational Site</Navbar.Brand>

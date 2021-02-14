@@ -19,7 +19,9 @@ class Login extends Form {
     doSubmit = async () => {
         try {
             const { data } = this.state;
-            const { data: jwt } = await login(data.username, data.password)
+            const { data: jwt } = await login(data.username, data.password);
+            localStorage.setItem("token",jwt.token);
+            this.props.history.push("/")
 
 
         } catch (ex) {
@@ -42,10 +44,10 @@ class Login extends Form {
                 <form onSubmit={this.handleSubmit}>
                     {this.renderInput('username', 'Username')}
                     {this.renderInput('password', 'Password', "password")}
-
+                    {this.renderButton("Login")}
 
                 </form>
-                {this.renderButton("Login")}
+                
             </div>
         );
     }
