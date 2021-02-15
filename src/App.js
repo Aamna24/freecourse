@@ -9,6 +9,7 @@ import LoginForm from './components/login'
 import SignUp from './components/signup'
 import LandingPage from './components/landingPage'
 import Courses from './components/Courses'
+import AdminPanel from './components/adminPage'
 import config from './config.json'
 import './App.css';
 
@@ -16,12 +17,14 @@ class App extends React.Component {
   state = {}
 
   componentDidMount() {
-   
-
+    try {
       const jwt = localStorage.getItem("token");
       console.log(jwt)
       const user = jwtDecode(jwt);
       console.log(user)
+    } catch (ex) {
+      
+    }
      
   }
   constructor(props) {
@@ -40,9 +43,12 @@ class App extends React.Component {
   }
 
   render() {
+    
     return (
 
       <React.Fragment>
+        
+       
         <NavBar user={this.state.user}/>
         <main class="">
           <Switch>
@@ -52,6 +58,7 @@ class App extends React.Component {
             <Route path="/register" component={SignUp} />
             <Route path="/courses" component={Courses} />
             <Route path="/home" component={LandingPage} />
+            <Route path="/admin" component={AdminPanel}/>
             <Redirect from="/" exact to="/home" />
 
 
@@ -59,7 +66,7 @@ class App extends React.Component {
           </Switch>
         </main>
         <Footer />
-
+        
       </React.Fragment>
 
     );

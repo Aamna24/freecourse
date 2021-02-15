@@ -13,7 +13,7 @@ code {
 }
 
 .about {
-  padding: 10px 10px 10px 55px;
+  padding: 50px;
 }
 .text-color a {
   color: white !important;
@@ -29,11 +29,13 @@ code {
   background-color: #161d6f;
   margin: 10px;
 }
+.footer-text {
+  text-align: end;
+}
 
 .footer-text a:hover {
   color: orange !important;
   font-size: 14px;
-  margin: 5px;
   text-decoration: none;
 }
 
@@ -46,6 +48,9 @@ code {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   color: black;
+}
+#header {
+  height: 100px;
 }
 #header a:hover {
   color: orange;
@@ -84,6 +89,9 @@ code {
   font-size: 40px;
   font-weight: bold;
 }
+.videosect {
+  height: 400px;
+}
 
 .profile {
   border-radius: 50%;
@@ -100,4 +108,20 @@ code {
   width: 80%;
   height: 80px;
   overflow: hidden;
+}
+
+.wrapper {
+  text-align: center;
+}
+* {
+  max-width: 100%;
+}
+
+.topBar {
+  height: 20px;
+}
+
+#footer .row {
+  margin: auto;
+  width: 1250px;
 }

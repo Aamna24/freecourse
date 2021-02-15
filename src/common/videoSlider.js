@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const VideoJumbotron = () => {
     return ( 
         <div>
-            <section class="jumbotron text-center">
+            <section class="jumbotron text-center videosect">
   <video id="video-background" preload="true" muted="true" autoplay="true" loop="true">
     <source src="http://james-allen.ca/brap.mp4" type="video/mp4"/>
   </video>

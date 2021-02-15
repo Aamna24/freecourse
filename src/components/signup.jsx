@@ -36,7 +36,7 @@ class Register extends Form {
 
         return (
             <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                <h1 style={{ marginTop: "100px" }}>Register</h1>
+                <h1 style={{ marginBottom: "37px" }}>Register</h1>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderInput('username', 'Username')}
                     {this.renderInput('password', 'Password', "password")}

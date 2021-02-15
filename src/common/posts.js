@@ -46,10 +46,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
+
 const Posts=(props)=>{
     const {posts} = props;
     const classes = useStyles();
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
+    
     return(
         <React.Fragment>
         <Container maxWidth="md" component="main">
