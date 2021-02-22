@@ -12,3 +12,11 @@ export function register(user) {
     })
 }
 
+const formPoint = apiEndpoint + "/form/submit"
+
+export function submit(user) {
+    return http.post(formPoint, {
+        name: user.name,
+        title: user.title
+    })
+}

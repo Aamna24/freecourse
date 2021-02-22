@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer id="footer" style={{ "background-color": "#161d6f" ,"marginTop":"20px"}}>
+        <footer id="footer" style={{ "backgroundColor": "#1f6f8b" ,"marginTop":"20px"}}>
             <div class="row">
                 <div class="text-left p-3 text-white col-md-6 copyright" >
                     &copy; {new Date().getFullYear()} All rights reserved by: Site

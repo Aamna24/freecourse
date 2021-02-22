@@ -9,7 +9,11 @@ import LoginForm from './components/login'
 import SignUp from './components/signup'
 import LandingPage from './components/landingPage'
 import Courses from './components/Courses'
-import AdminPanel from './components/adminPage'
+import AdminPanel from './components/adminLogin'
+import UserForm from './components/FormData/UserForm'
+import AdminLandingPage from './components/AdminMainPage'
+import AddCourse from './components/addCourse'
+
 import config from './config.json'
 import './App.css';
 
@@ -43,12 +47,12 @@ class App extends React.Component {
   }
 
   render() {
-    
+   
     return (
-
+      
       <React.Fragment>
         
-       
+      
         <NavBar user={this.state.user}/>
         <main class="">
           <Switch>
@@ -59,6 +63,9 @@ class App extends React.Component {
             <Route path="/courses" component={Courses} />
             <Route path="/home" component={LandingPage} />
             <Route path="/admin" component={AdminPanel}/>
+            <Route path="/adminhome" component={AdminLandingPage}/>
+            <Route path="/addCourse" component={AddCourse}/>
+            <Route path="/form" component={UserForm}/>
             <Redirect from="/" exact to="/home" />
 
 

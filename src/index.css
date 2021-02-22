@@ -12,9 +12,6 @@ code {
     monospace;
 }
 
-.about {
-  padding: 50px;
-}
 .text-color a {
   color: white !important;
   margin-left: 60px;
@@ -26,7 +23,7 @@ code {
 .footer-text a {
   color: white !important;
   font-size: 14px;
-  background-color: #161d6f;
+  background-color: "#1f6f8b";
   margin: 10px;
 }
 .footer-text {
@@ -84,10 +81,12 @@ code {
   z-index: 1;
 }
 #carouselCap {
-  color: orange;
-  margin-bottom: 150px;
+  color: black;
+  margin: auto;
   font-size: 40px;
   font-weight: bold;
+  padding: 170px;
+  text-align: left;
 }
 .videosect {
   height: 400px;
@@ -124,4 +123,55 @@ code {
 #footer .row {
   margin: auto;
   width: 1250px;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.about .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.about .col-md-6 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.dropdown .btn-primary {
+  background-color: white;
+  color: black;
+  border-color: white;
+  border-bottom-color: gray;
+  width: 100%;
+}
+.dropdown .btn-primary:hover {
+  background-color: white;
+  color: black;
+  border-bottom-color: darkgrey;
+  width: 100%;
+}
+.dropdown .btn-primary:current {
+  background-color: white;
+  color: black;
+  border-bottom-color: darkgrey;
+}
+.required:after {
+  content: " *";
+  color: red;
+}
+
+.required {
+  font-weight: bold;
+}
+
+.pBold {
+  font-weight: bold;
+}
+
+label.required {
+  padding: 6px;
+}
+label {
+  padding: 6px;
 }

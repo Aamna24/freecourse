@@ -6,8 +6,8 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 const NavBars = ({user}) => {
     return (
         <div>
-            <div class="topBar" style={{"backgroundColor":"#161d6f"}}>
-                        <p>Top Bar</p>
+            <div class="topBar" style={{"backgroundColor":"#1f6f8b"}}>
+                        <p>.</p>
         </div>
         <Navbar collapseOnSelect expand="lg" id="header">
             <Navbar.Brand style={{"color": "orange"}} href="/home">

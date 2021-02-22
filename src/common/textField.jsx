@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const Input = ({ name, label, error, ...rest }) => {
+const Text = ({ name, label, error, ...rest }) => {
   return (
     <div className="form-group">
       <div class="row">
@@ -8,7 +8,14 @@ const Input = ({ name, label, error, ...rest }) => {
           <label htmlFor={name}>{label}</label>
         </div>
         <div class="col-md-8">
-          <input {...rest} name={name} id={name} className="form-control" />
+          <textarea
+            {...rest}
+            name={name}
+            id={name}
+            cols={40}
+            rows={10}
+            className="form-control"
+          />
         </div>
       </div>
 
@@ -17,4 +24,4 @@ const Input = ({ name, label, error, ...rest }) => {
   );
 };
 
-export default Input;
+export default Text;

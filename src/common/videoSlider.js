@@ -8,7 +8,7 @@ const VideoJumbotron = () => {
     <source src="http://james-allen.ca/brap.mp4" type="video/mp4"/>
   </video>
   <div class="container">
-    <h1 class="jumbotron-heading">Video Tutorial for Campus</h1>
+    <h1 class="jumbotron-heading" style={{padding:"90px"}}>Video Tutorial for Campus</h1>
     
     
   </div>
