@@ -175,3 +175,15 @@ label.required {
 label {
   padding: 6px;
 }
+#icon.MuiSvgIcon-root {
+  fill: black;
+  cursor: pointer;
+}
+
+canvas.sigCanvas {
+  background-color: darkgrey;
+}
+
+span.MuiTypography-root {
+  background-color: greenyellow;
+}

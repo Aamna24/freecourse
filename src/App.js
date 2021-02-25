@@ -13,6 +13,8 @@ import AdminPanel from './components/adminLogin'
 import UserForm from './components/FormData/UserForm'
 import AdminLandingPage from './components/AdminMainPage'
 import AddCourse from './components/addCourse'
+import StudentsData from './components/studentsList'
+import Details from './common/details'
 
 import config from './config.json'
 import './App.css';
@@ -66,6 +68,8 @@ class App extends React.Component {
             <Route path="/adminhome" component={AdminLandingPage}/>
             <Route path="/addCourse" component={AddCourse}/>
             <Route path="/form" component={UserForm}/>
+            <Route path="/single" component={Details}/>
+            <Route path="/studentslist" component={StudentsData}/>
             <Redirect from="/" exact to="/home" />
 
 

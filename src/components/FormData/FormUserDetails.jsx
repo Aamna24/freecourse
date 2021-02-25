@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import { Tooltip, IconButton, Fab } from "@material-ui/core";
+import InfoIcon from "@material-ui/icons/Info";
 
 export class FormUserDetails extends Component {
   continue = (e) => {
@@ -12,19 +14,30 @@ export class FormUserDetails extends Component {
     return (
       <div class="container">
         <h3>Step 1- Eligibility Check</h3>
+
         <br />
-        <p>
+        <label>
           The courses provided are delivered online by UK colleges and are
           fully-funded by UK government at no cost to you.
-        </p>
-        <p>
+        </label>
+        <label>
           To see if you qualify for a FREE funded nationally recognised course,
           please answer the following questions.
-        </p>
+        </label>
 
         <div class="row">
           <div class="col-md-6">
-            <p class="required">1- Which course are you applying for?*</p>
+            <label class="required">
+              1- Which course are you applying for?
+            </label>
+            <Tooltip
+              title="If you want to do more than one course please choose your first
+          choice course in this section. During your enrolment call you can
+          confirm any additional courses you would like to complete."
+              placement="top"
+            >
+              <InfoIcon id="icon" />
+            </Tooltip>
           </div>
           <div class="col-md-6">
             <select
@@ -98,17 +111,20 @@ export class FormUserDetails extends Component {
             </select>
           </div>
         </div>
-        <p>
-          *If you want to do more than one course please choose your first
-          choice course in this section. During your enrolment call you can
-          confirm any additional courses you would like to complete.
-        </p>
+
         <div class="row">
           <div class="col-md-6">
-            <p class="required">
+            <label class="required">
               2- Please confirm that the highest qualification you hold for this
-              course is Level 2 or lower*
-            </p>
+              course is Level 2 or lower
+            </label>
+            <Tooltip
+              title="Example Level 1 qualification in GCSE grades 3,2,1 or grades D,E,F,G. 
+              Example Level 2 qualification in GCSE grades 9,8,7,6,5,4 or grades A*,A,B,C"
+              placement="top"
+            >
+              <InfoIcon id="icon" />
+            </Tooltip>
           </div>
           <div class="col-md-6">
             <select
@@ -126,7 +142,7 @@ export class FormUserDetails extends Component {
         </div>
         <div class="row">
           <div class="col-md-6">
-            <p class="required">3- Are you age 19 or older?</p>
+            <label class="required">3- Are you age 19 or older?</label>
           </div>
           <div class="col-md-6">
             <select
@@ -143,7 +159,7 @@ export class FormUserDetails extends Component {
 
         <div class="row">
           <div class="col-md-6">
-            <p class="required">4- What is your residency status?</p>
+            <label class="required">4- What is your residency status?</label>
           </div>
           <div class="col-md-6">
             <select
@@ -182,9 +198,9 @@ export class FormUserDetails extends Component {
 
         <div class="row">
           <div class="col-md-6">
-            <p class="required">
+            <label class="required">
               5- Have you lived in UK or EU for the past 3 years?
-            </p>
+            </label>
           </div>
           <div class="col-md-6">
             <select
@@ -199,16 +215,19 @@ export class FormUserDetails extends Component {
           </div>
         </div>
         <br />
-        <p>
+        <label>
           We work with a range of education providers to help you access fully
           funded UK government courses that lead to a nationally recognised
           qualification. Before enrolling onto your chosen course the education
           provider will need to confirm you meet the required qualification
           criteria for full funding. This is usually on the form of copies of
           original documents.
-        </p>
+        </label>
 
-        <p>Please confirm that you are able to provide the following:</p>
+        <label>
+          Please confirm that you are able to provide the following:
+        </label>
+        <br />
         <input
           type="checkbox"
           name="ageProof"
@@ -216,6 +235,14 @@ export class FormUserDetails extends Component {
           value="Age proof"
         />
         <label class="required">Age Proof</label>
+        <Tooltip
+          title="e.g a valid a copy of your passport / full driving licence (provisional driving licences
+            are not acceptable) / birth certificate /DWP/Jobcentre letter"
+          placement="top"
+        >
+          <InfoIcon id="icon" />
+        </Tooltip>
+
         <br />
         <input
           type="checkbox"
@@ -224,8 +251,11 @@ export class FormUserDetails extends Component {
           value="living And Working Proof"
         />
         <label class="required">
-          Proof of your right to live and work in the UK*
+          Proof of your right to live and work in the UK
         </label>
+        <Tooltip title="e.g valid UK/EU passport" placement="top">
+          <InfoIcon id="icon" />
+        </Tooltip>
         <br />
         <input
           type="checkbox"
@@ -233,7 +263,14 @@ export class FormUserDetails extends Component {
           onChange={handleChange}
           value="Home Address Proof"
         />
-        <label class="required">Proof of your home address*</label>
+        <label class="required">Proof of your home address</label>
+        <Tooltip
+          title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
+          bill, council tax bill or DWP/Jobcentre letter"
+          placement="top"
+        >
+          <InfoIcon id="icon" />
+        </Tooltip>
         <br />
         <input
           type="checkbox"
@@ -244,6 +281,13 @@ export class FormUserDetails extends Component {
         <label class="required">
           Proof of your employment or benefit status
         </label>
+        <Tooltip
+          title="e.g Employer payslips, Universal credit statement, Jobcentre benefits decision
+          notification letter"
+          placement="top"
+        >
+          <InfoIcon id="icon" />
+        </Tooltip>
         <br />
         <br />
 

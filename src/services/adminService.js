@@ -12,15 +12,16 @@ const addCoursePoint = apiEndpoint + "/course/registerCourse"
 console.log(addCoursePoint)
 export function addCourse(course) {
     return http.post(addCoursePoint, {
-        courseTitle: course.title,
-        courseDescription: course.description,
-        courseContent: course.content,
-        courseBenefits: course.benefits,
+        courseTitle: course.courseTitle,
+        courseDescription: course.courseDescription,
+        courseContent: course.courseContent,
+        courseBenefits: course.courseBenefits,
         courseLength: course.courseLength,
         awardingBody: course.awardingBody,
         courseLevel: course.courseLevel,
         funding: course.funding,
-        learningMethods: course.learningMethods
+        learningMethods: course.learningMethods,
+        img: course.file
 
 
 

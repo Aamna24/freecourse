@@ -1,4 +1,6 @@
 import React, { Component, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import FormUserDetails from "./FormUserDetails";
 import FormPersonalDetails from "./FormPersonalDetails";
 import FormEmployementDetails from "./FormEmploymentDetails";
@@ -63,6 +65,7 @@ export class UserForm extends Component {
     contactPref: "",
     contactMethodPref: [],
     marketingMethodPref: [],
+    trimmedDataURL: "",
   };
 
   // Proceed to next step
@@ -160,6 +163,7 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
+      trimmedDataURL,
     } = this.state;
 
     const form = {
@@ -213,6 +217,7 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
+      trimmedDataURL,
     };
 
     axios
@@ -323,10 +328,15 @@ export class UserForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleSubmit={this.handleSubmit}
+            saveURL={this.saveURL}
           />
         );
       case 8:
-        return <Success />;
+        return (
+          <div>
+            <Success />
+          </div>
+        );
       default:
         console.log("This is a multi-step form built with React.");
     }

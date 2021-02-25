@@ -45,6 +45,15 @@ class Form extends Component {
     this.setState({ data, errors });
   };
 
+  handleFileChange = ({ currentTarget: input }) => {
+    const errors = { ...this.state.errors };
+
+    const data = { ...this.state.data };
+    data[input.name] = input.value;
+    console.log(input.value);
+    this.setState({ data, errors });
+  };
+
   renderButton(label) {
     return (
       <button className="btn btn-warning" onClick>
@@ -66,6 +75,18 @@ class Form extends Component {
       />
     );
   }
+  renderInputFile(name, label, type = "file") {
+    const { data, errors } = this.state;
+    return (
+      <input
+        type={type}
+        name={name}
+        label={label}
+        onChange={this.handleFileChange}
+      />
+    );
+  }
+
   renderTextField(name, label, type = "text") {
     const { data, errors } = this.state;
     return (
