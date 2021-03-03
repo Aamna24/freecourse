@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Alert from "react-bootstrap/Alert";
 import FormUserDetails from "./FormUserDetails";
 import FormPersonalDetails from "./FormPersonalDetails";
 import FormEmployementDetails from "./FormEmploymentDetails";
@@ -12,10 +13,12 @@ import Confirm from "./Confirm";
 import Success from "./Success";
 import axios from "axios";
 import ProgressBar from "react-bootstrap/ProgressBar";
+toast.configure();
 
 export class UserForm extends Component {
   state = {
     step: 1,
+    uniqueFormNo: "",
     appliedCourse: "",
     highestQualificationLevel: "",
     age19orOlder: "",
@@ -65,7 +68,6 @@ export class UserForm extends Component {
     contactPref: "",
     contactMethodPref: [],
     marketingMethodPref: [],
-    trimmedDataURL: "",
   };
 
   // Proceed to next step
@@ -113,6 +115,7 @@ export class UserForm extends Component {
     e.preventDefault();
 
     const {
+      uniqueFormNo,
       appliedCourse,
       highestQualificationLevel,
       age19orOlder,
@@ -163,10 +166,10 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
-      trimmedDataURL,
     } = this.state;
 
     const form = {
+      uniqueFormNo,
       appliedCourse,
       highestQualificationLevel,
       age19orOlder,
@@ -217,14 +220,14 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
-      trimmedDataURL,
     };
 
     axios
       .post("http://localhost:61500/form/submit", form)
-      .then(() => console.log("Form Submitted"))
+      .then(() => toast.success("Form submitted successfully"))
       .catch((err) => {
         console.error(err);
+        toast.error("Error submitting form.");
       });
   };
 
@@ -328,7 +331,6 @@ export class UserForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleSubmit={this.handleSubmit}
-            saveURL={this.saveURL}
           />
         );
       case 8:

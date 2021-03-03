@@ -1,7 +1,8 @@
 import axios from 'axios';
 import logger from '../services/logService'
 import { toast } from 'react-toastify'
-
+import 'react-toastify/dist/ReactToastify.css'
+toast.configure();
 axios.interceptors.response.use(null, error => {
     const expectedError =
         error.response &&

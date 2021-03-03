@@ -15,15 +15,15 @@ export class FormEmploymentDetails extends Component {
     const { handleChange } = this.props;
 
     return (
-      <div class="container">
+      <div className="container" style={{ marginBottom: "28px" }}>
         <h3>Stage 3- Employement Details</h3>
         <br />
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Employment Status</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Employment Status</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="employmentStatus"
               defaultValue="[Please select one]"
@@ -43,13 +43,13 @@ export class FormEmploymentDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">
               If employed, please select how many hours you work per week?
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="hoursPerWeek"
               defaultValue="[Please select one]"
@@ -70,13 +70,13 @@ export class FormEmploymentDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">
               If employed, please select length of employment (months)
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="employmentLength"
               defaultValue="[Please select one]"
@@ -91,31 +91,31 @@ export class FormEmploymentDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">
               If Employed, please enter the name of your Employer
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input type="text" onChange={handleChange} name="employerName" />
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">Employers address</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">Employers address</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input type="text" onChange={handleChange} name="employerAddress" />
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">Employers Postcode</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">Employers Postcode</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -124,11 +124,11 @@ export class FormEmploymentDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">Employers Telephone Number</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">Employers Telephone Number</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input type="text" onChange={handleChange} name="employerTelNo" />
           </div>
         </div>

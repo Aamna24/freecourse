@@ -16,15 +16,15 @@ export class FormPersonalDetails extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <div class="container">
+      <div className="container">
         <h3>Step 2- Personal Details</h3>
         <br />
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Title</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Title</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="title"
               defaultValue="[Please select one]"
@@ -39,11 +39,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">First Name</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">First Name</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -53,11 +53,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Last Name</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Last Name</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -67,11 +67,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Gender</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Gender</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="gender"
               defaultValue="[Please select one]"
@@ -83,11 +83,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Date Of Birth</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Date Of Birth</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <TextField
               id="date"
               name="dob"
@@ -98,11 +98,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Address Line</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Address Line</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -112,20 +112,20 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Age</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Age</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input type="number" onChange={handleChange} name="age" />
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">City</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">City</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -134,11 +134,11 @@ export class FormPersonalDetails extends Component {
             />
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">County</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">County</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -148,11 +148,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Postcode</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Postcode</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -162,11 +162,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Years at address</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Years at address</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -176,11 +176,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Telephone</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Telephone</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="tel"
               pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
@@ -191,11 +191,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Mobile</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Mobile</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="tel"
               onChange={handleChange}
@@ -205,11 +205,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Email</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Email</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="email"
               onChange={handleChange}
@@ -219,11 +219,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Emergency Contact Name</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Emergency Contact Name</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -233,11 +233,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Emergency Telephone</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Emergency Telephone</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -247,11 +247,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">Nationality</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Nationality</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}
@@ -261,11 +261,11 @@ export class FormPersonalDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">National Insurance Number</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">National Insurance Number</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
               onChange={handleChange}

@@ -15,15 +15,17 @@ export class FormQualification extends Component {
   render() {
     const { handleChange } = this.props;
     return (
-      <div class="container">
+      <div className="container" style={{ marginBottom: "190px" }}>
         <h3>Step 4- Qualification Details</h3>
         <br />
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">What is your highest level of qualification?</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">
+              What is your highest level of qualification?
+            </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="qualification"
               defaultValue="[Please select one]"
@@ -37,24 +39,25 @@ export class FormQualification extends Component {
               <option value="Level 5">Level 5</option>
               <option value="Level 6">Level 6</option>
               <option value="Level 7">Level 7</option>
+              <option value="Entry Level">Entry Level</option>
             </select>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">Maths GCSE grades obtained:</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">Maths GCSE grades obtained:</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input type="text" onChange={handleChange} name="mathsGrades" />
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">English GCSE Grades:</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">English GCSE Grades:</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input type="text" onChange={handleChange} name="englishGrades" />
           </div>
         </div>

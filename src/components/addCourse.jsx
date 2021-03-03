@@ -35,8 +35,6 @@ class AddCourse extends Form {
   doSubmit = async () => {
     try {
       const response = await AdminService.addCourse(this.state.data);
-      console.log(response);
-      console.log(this.state.file);
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -49,7 +47,7 @@ class AddCourse extends Form {
 
   render() {
     return (
-      <div class=" mx-auto text-left form p-4 container">
+      <div className=" mx-auto text-left form p-4 container">
         <h1 style={{ marginBottom: "37px" }}>Add Course</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("courseTitle", "title")}

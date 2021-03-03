@@ -15,11 +15,11 @@ export class DeclarationForm extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <div class="container">
+      <div className="container">
         <h3>Step 6- Declaration</h3>
         <br />
 
-        <p class="required">Contact Preferences</p>
+        <p className="required">Contact Preferences</p>
         <input
           type="checkbox"
           name="contactPref"
@@ -31,7 +31,7 @@ export class DeclarationForm extends Component {
         </label>
         <br />
 
-        <label class="required">Preferred Contact Method</label>
+        <label className="required">Preferred Contact Method</label>
         <br />
         <input
           type="checkbox"
@@ -55,10 +55,10 @@ export class DeclarationForm extends Component {
           onChange={handleChange}
           value="Text"
         />
-        <label>Text</label>
+        <label>Post</label>
         <br />
 
-        <label class="required">Preferred Marketing Method</label>
+        <label className="required">Preferred Marketing Method</label>
         <br />
         <input
           type="checkbox"
@@ -85,7 +85,7 @@ export class DeclarationForm extends Component {
         <label>Text</label>
         <br />
 
-        <p class="pBold">Declaration</p>
+        <p className="pBold">Declaration</p>
 
         <input
           type="checkbox"
@@ -159,7 +159,7 @@ export class DeclarationForm extends Component {
         </label>
         <br />
 
-        <p class="pBold">Enrollment Call Availabilty</p>
+        <p className="pBold">Enrollment Call Availabilty</p>
 
         <input
           type="checkbox"

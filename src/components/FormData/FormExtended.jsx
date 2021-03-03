@@ -4,17 +4,17 @@ class FormExtended extends Component {
   render() {
     const { handleChange } = this.props;
     return (
-      <div class="container">
+      <div className="container">
         <br />
         <h3>Stage 3.5- UNEMPLOYED/LOW INCOME</h3>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">
               If Unemployed, please select how long you have been unemployed:
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="unemployedLength"
               defaultValue="[Please select one]"
@@ -26,18 +26,17 @@ class FormExtended extends Component {
               <option value="12-23 months">12-23 months</option>
               <option value="24-35 months">24-35 months</option>
               <option value="Over 36 months">Over 36 months</option>
-              <option value="Not Unemployed">Not Unemployed</option>
             </select>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">Are you in recipe of benefits?</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">Are you in recipe of benefits?</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
-              name="benefit"
+              name="benefits"
               defaultValue="[Please select one]"
               onChange={handleChange}
             >
@@ -62,7 +61,7 @@ class FormExtended extends Component {
           onChange={handleChange}
           value="true"
         />
-        <label class="required">
+        <label className="required">
           19-23 (on the first day of learning)and enrolling onto qualifications
           up to and including Level 2?
         </label>

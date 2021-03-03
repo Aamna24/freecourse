@@ -1,11 +1,8 @@
-import React, { Image } from "react";
-
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { Tabs, Tab, Card } from "react-bootstrap";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Tabs, Tab, Card, Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Table from "react-bootstrap/Table";
-import { NavLink } from "react-router-dom";
 
 const DetailedCourse = ({ product }) => {
   const [value, setValue] = React.useState(0);
@@ -14,9 +11,9 @@ const DetailedCourse = ({ product }) => {
     setValue(newValue);
   };
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8" style={{ color: "black" }}>
+    <div className="container" style={{ "margin-top": "-100px" }}>
+      <div className="row">
+        <div className="col-md-8" style={{ color: "black" }}>
           <h2>{product.courseTitle}</h2>
           <br />
           <p>{product.courseDescription}</p>
@@ -30,10 +27,10 @@ const DetailedCourse = ({ product }) => {
             </Tab>
           </Tabs>
         </div>
-        <div class="col-md-4">
+        <div className="col-md-4">
           <Card style={{ width: "18rem", color: "black" }}>
             <Card.Body>
-              <Card.Title>Key Information</Card.Title>
+              <Card.Title>KEY INFORMATION</Card.Title>
               <Table striped bordered>
                 <thead>
                   <tbody>
@@ -60,9 +57,9 @@ const DetailedCourse = ({ product }) => {
                   </tbody>
                 </thead>
               </Table>
-              <NavLink className="btn btn-primary " to="/form">
+              <Link className="btn btn-primary " to="/form">
                 Apply Now
-              </NavLink>
+              </Link>
             </Card.Body>
           </Card>
         </div>

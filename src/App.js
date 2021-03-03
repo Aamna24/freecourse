@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
 import jwtDecode from 'jwt-decode'
 import NavBar from './components/header'
 import Footer from './components/footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import Conditions from './components/TermsConditions'
 import LoginForm from './components/login'
+import Logout from './components/logout';
 import SignUp from './components/signup'
 import LandingPage from './components/landingPage'
 import Courses from './components/Courses'
@@ -15,19 +17,22 @@ import AdminLandingPage from './components/AdminMainPage'
 import AddCourse from './components/addCourse'
 import StudentsData from './components/studentsList'
 import Details from './common/details'
-
+import ProtectedRoutes from './components/ProtectedRoute'
 import config from './config.json'
 import './App.css';
 
+
 class App extends React.Component {
-  state = {}
+  state = {
+   
+  }
 
   componentDidMount() {
     try {
       const jwt = localStorage.getItem("token");
       console.log(jwt)
       const user = jwtDecode(jwt);
-      console.log(user)
+      this.setState({user})
     } catch (ex) {
       
     }
@@ -49,35 +54,38 @@ class App extends React.Component {
   }
 
   render() {
-   
+    const {user} = this.state;
+    
     return (
       
       <React.Fragment>
-        
+          <ToastContainer />
       
-        <NavBar user={this.state.user}/>
-        <main class="">
+        <NavBar user={user}/>
+        <main className="">
           <Switch>
+            <Route path="/home" component={LandingPage} />
             <Route path="/privacy" component={PrivacyPolicy} />
             <Route path="/terms-conditions" component={Conditions} />
+
             <Route path="/login" component={LoginForm} />
+            <Route path="/logout" component={Logout} />
             <Route path="/register" component={SignUp} />
+
             <Route path="/courses" component={Courses} />
-            <Route path="/home" component={LandingPage} />
-            <Route path="/admin" component={AdminPanel}/>
-            <Route path="/adminhome" component={AdminLandingPage}/>
-            <Route path="/addCourse" component={AddCourse}/>
             <Route path="/form" component={UserForm}/>
             <Route path="/single" component={Details}/>
+
+            <Route path="/admin" component={AdminPanel}/>
+            <Route path="/adminhome"  component={AdminLandingPage} />
+            <Route path="/addCourse" component={AddCourse}/>
             <Route path="/studentslist" component={StudentsData}/>
+
             <Redirect from="/" exact to="/home" />
-
-
 
           </Switch>
         </main>
-        <Footer />
-        
+        <Footer />  
       </React.Fragment>
 
     );

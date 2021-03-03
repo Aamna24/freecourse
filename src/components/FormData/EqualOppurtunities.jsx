@@ -13,15 +13,15 @@ export class FormEqualOppurtunities extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <div class="container">
+      <div className="container">
         <h3>Step 5- Equal Oppurtunities</h3>
         <br />
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">What is your ethnic origin?</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">What is your ethnic origin?</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="ethnicOrigin"
               defaultValue="[Please select one]"
@@ -38,7 +38,9 @@ export class FormEqualOppurtunities extends Component {
               <option value="Any other white background">
                 Any other white background
               </option>
-              <option value="Indian">White and Black Carribean</option>
+              <option value="White and Black Carribean">
+                White and Black Carribean
+              </option>
               <option value="White and Black African">
                 White and Black African
               </option>
@@ -66,11 +68,11 @@ export class FormEqualOppurtunities extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">Is english your first language?</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">Is english your first language?</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="firstLang"
               defaultValue="[Please select one]"
@@ -83,15 +85,15 @@ export class FormEqualOppurtunities extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">
               Have you been resident in England, or elsewhere in the European
               Economic Area, for at least three years, excluding Wales,
               Scotland, and Northern Ireland?
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="residentOfEngland"
               defaultValue="[Please select one]"
@@ -104,14 +106,14 @@ export class FormEqualOppurtunities extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">
               I am a non EEA citizen with permission from the UK government to
               live in the UK
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="nonEEACitizen"
               defaultValue="[Please select one]"
@@ -124,13 +126,13 @@ export class FormEqualOppurtunities extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="pBold">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">
               What is your current household situation? (one or more may apply)
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="checkbox"
               name="householdSituation"
@@ -138,7 +140,7 @@ export class FormEqualOppurtunities extends Component {
               value="No household member is in employment and the household includes
               one or more dependent children."
             />
-            <label class="required">
+            <label className="required">
               No household member is in employment and the household includes
               one or more dependent children.
             </label>
@@ -150,7 +152,7 @@ export class FormEqualOppurtunities extends Component {
               onChange={handleChange}
               value="true"
             />
-            <label class="required">
+            <label className="required">
               No household member is in employment and the household does not
               include any dependent children.
             </label>
@@ -162,7 +164,7 @@ export class FormEqualOppurtunities extends Component {
               onChange={handleChange}
               value="true"
             />
-            <label class="required">
+            <label className="required">
               Learner lives in a single adult household with dependent children.
             </label>
             <br />
@@ -172,7 +174,7 @@ export class FormEqualOppurtunities extends Component {
               onChange={handleChange}
               value="true"
             />
-            <label class="required">None of these statement apply</label>
+            <label className="required">None of these statement apply</label>
             <br />
             <input
               type="checkbox"
@@ -180,21 +182,21 @@ export class FormEqualOppurtunities extends Component {
               onChange={handleChange}
               value="true"
             />
-            <label class="required">
+            <label className="required">
               I can confirm that I wish to withhold this information
             </label>
             <br />
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <p class="required">
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">
               Do you have any criminal convictions, cautions or pending
               prosecutions?
             </p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="criminalConvictions"
               defaultValue="[Please select one]"

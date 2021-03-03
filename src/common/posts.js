@@ -1,13 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import Button from '@material-ui/core/Button';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import DetailedCourse from './DetailedCourse'
+import {Card,Button, CardContent,Grid,Typography,Container} from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -65,11 +58,7 @@ const Posts=(props)=>{
                         // Enterprise card is full width at sm breakpoint
                         <Grid item key={post.id} xs={12} md={4}>
                             <Card className={classes.card}>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    image="https://source.unsplash.com/random"
-                                    title="Image title"
-                                />
+                                
                                 <CardContent className={classes.cardContent}>
                                     <Typography
                                         gutterBottom
@@ -84,37 +73,32 @@ const Posts=(props)=>{
                                             component="p"
                                             color="textPrimary"
                                         ></Typography>
-                                        <Typography variant="p" >
+                                        <Typography >
                                             {}
                                         </Typography>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                        <div class="card-image-block">
-                                            <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="profile-image" class="profile"/>
-                    
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
+                                    <div className="row">
+                                        
+                                        <div className="col-md-4">
                                     <div className={classes.postText}>
                                         <Typography
                                             component="p"
                                             color="textPrimary"
                                            id="funding"
                                         ></Typography>
-                                        <Typography variant="p" >
+                                        <Typography  >
                                             
                                             {post.funding}
                                         </Typography>
                                     </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div className="col-md-4">
                                     <div className={classes.postPrice}>
                                         <Typography
                                             component="p"
                                             color="textPrimary"
                                         ></Typography>
-                                        <Typography variant="p" >
+                                        <Typography  >
                                             {post.coursePrice}
                                         </Typography>
                                     </div>

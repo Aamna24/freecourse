@@ -8,7 +8,7 @@ import logger from './services/logService'
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "react-toastify/dist/ReactToastify.css";
 
 logger.init()
 

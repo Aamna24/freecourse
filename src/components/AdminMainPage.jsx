@@ -9,12 +9,12 @@ const style = {
 };
 const AdminLandingPage = () => {
   return (
-    <div class="container">
+    <div className="container">
       <h3 className="text-center">Welcome Admin!</h3>
       <br />
       <br />
-      <div class="row">
-        <div class="col-md-4">
+      <div className="row">
+        <div className="col-md-4">
           <Card style={style}>
             <Card.Body>
               <Card.Title> Add Course</Card.Title>
@@ -29,7 +29,7 @@ const AdminLandingPage = () => {
             </Card.Body>
           </Card>
         </div>
-        <div class="col-md-4 ">
+        <div className="col-md-4 ">
           <Card style={style}>
             <Card.Body>
               <Card.Title>Students Listing</Card.Title>
@@ -48,7 +48,7 @@ const AdminLandingPage = () => {
           </Card>
         </div>
 
-        <div class="col-md-4">
+        <div className="col-md-4">
           <Card style={style}>
             <Card.Body>
               <Card.Title>Card Title</Card.Title>

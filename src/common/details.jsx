@@ -1,6 +1,5 @@
 import React from "react";
 import DetailedCourse from "../common/DetailedCourse";
-
 import axios from "axios";
 
 const Details = () => {

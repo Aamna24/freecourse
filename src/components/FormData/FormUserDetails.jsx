@@ -12,7 +12,7 @@ export class FormUserDetails extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <div class="container">
+      <div className="container">
         <h3>Step 1- Eligibility Check</h3>
 
         <br />
@@ -25,9 +25,9 @@ export class FormUserDetails extends Component {
           please answer the following questions.
         </label>
 
-        <div class="row">
-          <div class="col-md-6">
-            <label class="required">
+        <div className="row">
+          <div className="col-md-6">
+            <label className="required">
               1- Which course are you applying for?
             </label>
             <Tooltip
@@ -39,7 +39,7 @@ export class FormUserDetails extends Component {
               <InfoIcon id="icon" />
             </Tooltip>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="appliedCourse"
               defaultValue="[Please select one]"
@@ -112,9 +112,9 @@ export class FormUserDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <label class="required">
+        <div className="row">
+          <div className="col-md-6">
+            <label className="required">
               2- Please confirm that the highest qualification you hold for this
               course is Level 2 or lower
             </label>
@@ -126,7 +126,7 @@ export class FormUserDetails extends Component {
               <InfoIcon id="icon" />
             </Tooltip>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="highestQualificationLevel"
               defaultValue="[Please select one]"
@@ -140,11 +140,11 @@ export class FormUserDetails extends Component {
             </select>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label class="required">3- Are you age 19 or older?</label>
+        <div className="row">
+          <div className="col-md-6">
+            <label className="required">3- Are you age 19 or older?</label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="age19orOlder"
               defaultValue="[Please select one]"
@@ -157,11 +157,13 @@ export class FormUserDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <label class="required">4- What is your residency status?</label>
+        <div className="row">
+          <div className="col-md-6">
+            <label className="required">
+              4- What is your residency status?
+            </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="residencyStatus"
               defaultValue="[Please select one]"
@@ -196,13 +198,13 @@ export class FormUserDetails extends Component {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <label class="required">
+        <div className="row">
+          <div className="col-md-6">
+            <label className="required">
               5- Have you lived in UK or EU for the past 3 years?
             </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
               name="livingStatus"
               defaultValue="[Please select one]"
@@ -234,7 +236,7 @@ export class FormUserDetails extends Component {
           onChange={handleChange}
           value="Age proof"
         />
-        <label class="required">Age Proof</label>
+        <label className="required">Age Proof</label>
         <Tooltip
           title="e.g a valid a copy of your passport / full driving licence (provisional driving licences
             are not acceptable) / birth certificate /DWP/Jobcentre letter"
@@ -250,7 +252,7 @@ export class FormUserDetails extends Component {
           onChange={handleChange}
           value="living And Working Proof"
         />
-        <label class="required">
+        <label className="required">
           Proof of your right to live and work in the UK
         </label>
         <Tooltip title="e.g valid UK/EU passport" placement="top">
@@ -263,7 +265,7 @@ export class FormUserDetails extends Component {
           onChange={handleChange}
           value="Home Address Proof"
         />
-        <label class="required">Proof of your home address</label>
+        <label className="required">Proof of your home address</label>
         <Tooltip
           title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
           bill, council tax bill or DWP/Jobcentre letter"
@@ -278,7 +280,7 @@ export class FormUserDetails extends Component {
           onChange={handleChange}
           value="Employment proof"
         />
-        <label class="required">
+        <label className="required">
           Proof of your employment or benefit status
         </label>
         <Tooltip
@@ -297,7 +299,7 @@ export class FormUserDetails extends Component {
           onChange={handleChange}
           value="true"
         />
-        <label class="required">
+        <label className="required">
           I understand that the course is provided at no cost to myself, and
           agree to make every effort to complete the course
         </label>

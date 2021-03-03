@@ -3,11 +3,11 @@ import React, { Component } from "react";
 const Text = ({ name, label, error, ...rest }) => {
   return (
     <div className="form-group">
-      <div class="row">
-        <div class="col-md-4">
+      <div className="row">
+        <div className="col-md-4">
           <label htmlFor={name}>{label}</label>
         </div>
-        <div class="col-md-8">
+        <div className="col-md-8">
           <textarea
             {...rest}
             name={name}

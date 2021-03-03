@@ -1,12 +1,20 @@
 import React, { Component, useRef } from "react";
 import Button from "@material-ui/core/Button";
 import SignaturePad from "react-signature-canvas";
+import { toast } from "react-toastify";
+import Popup from "reactjs-popup";
+import * as SignatureService from "../../services/userServices";
+
+toast.configure();
 
 export class Confirm extends Component {
   constructor(props) {
     super(props);
   }
-  state = { trimmedDataURL: null };
+  state = {
+    trimmedDataURL: null,
+    nationalInsNo: "",
+  };
 
   continue = (e) => {
     e.preventDefault();
@@ -30,55 +38,110 @@ export class Confirm extends Component {
     this.setState({
       trimmedDataURL: this.sigPad.getTrimmedCanvas().toDataURL("image/png"),
     });
-    console.log("prop", this.props.trimmedDataURL);
   };
 
   render() {
-    let { trimmedDataURL } = this.state;
+    let { trimmedDataURL, nationalInsNo } = this.state;
 
-    const { values, handleSubmit, saveURL } = this.props;
+    const { handleSubmit } = this.props;
     return (
-      <div class="container text-center">
+      <div className="container text-center">
         <h1>Confirm Submission? </h1>
         <br />
         <br />
-        <SignaturePad
-          id="canvas"
-          penColor="green"
-          ref={(ref) => {
-            this.sigPad = ref;
-          }}
-          canvasProps={{
-            width: 500,
-            height: 200,
-            backgroundColor: "yellow",
-            className: "sigCanvas",
-          }}
-        />
-        <div class="row">
-          <div class="col-md-6 text-right">
-            <button className="btn btn-success" onClick={this.clearSig}>
-              Clear
-            </button>
+        <Popup
+          modal
+          trigger={
+            <button className="btn btn-success">Click to add signature</button>
+          }
+        >
+          <SignaturePad
+            id="canvas"
+            penColor="green"
+            ref={(ref) => {
+              this.sigPad = ref;
+            }}
+            canvasProps={{
+              width: 500,
+              height: 200,
+              backgroundColor: "yellow",
+              className: "sigCanvas",
+            }}
+          />
+          <div className="row">
+            <div className="col-md">
+              <label>Please enter your insurance number</label>
+              <input
+                type="text"
+                name="nationalInsuranceNo"
+                onChange={(e) => {
+                  this.setState({
+                    nationalInsNo: e.target.value,
+                  });
+                }}
+              />
+              
+            </div>
           </div>
-          <div class="col-md-6 text-left">
-            <button className="btn btn-success" onClick={this.trim}>
-              Trim
-            </button>
+          <div className="row">
+            <div className="col-md-4 text-right">
+              <button className="btn btn-success" onClick={this.clearSig}>
+                Clear
+              </button>
+            </div>
+            <div className="col-md-4 text-left">
+              <button
+                className="btn btn-success"
+                name="trimmedDataURL"
+                onClick={this.trim}
+              >
+                Trim
+              </button>
+            </div>
+            <div className="col-md-4 text-left">
+              <button
+                className="btn btn-success"
+                name="trimmedDataURL"
+                onClick={(e) => {
+                  console.log("in click", trimmedDataURL);
+                  SignatureService.submitSigns({
+                    trimmedDataURL,
+                    nationalInsNo,
+                  })
+                    .then((data) => {
+                      console.log(data);
+                      toast.success("Successfully Added", {
+                        position: toast.POSITION.TOP_CENTER,
+                      });
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                      toast.error("Fail", {
+                        position: toast.POSITION.TOP_CENTER,
+                      });
+                    });
+                }}
+              >
+                Save Signature
+              </button>
+            </div>
           </div>
-        </div>
-        <br />
-        {trimmedDataURL ? <img src={trimmedDataURL} /> : null}
-        <button>Save</button>
+          {trimmedDataURL ? <img src={trimmedDataURL} /> : null}
+          <br /> <br />
+        </Popup>
         <br /> <br />
-        <div class="row">
-          <div class="col-md-6 text-right">
-            <Button color="secondary" variant="contained" onClick={this.back}>
+        <div className="row">
+          <div className="col-md-6 text-right">
+            <Button
+              color="secondary"
+              variant="contained"
+              onClick={() => this.back}
+            >
               Back
             </Button>
           </div>
-          <div class="col-md-6 text-left">
-            <button class="btn btn-warning" onClick={handleSubmit}>
+          <div className="col-md-6 text-left">
+            <button className="btn btn-warning" onClick={handleSubmit}>
               Submit
             </button>
           </div>

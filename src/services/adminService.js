@@ -11,6 +11,7 @@ export function adminlogin(email, password) {
 const addCoursePoint = apiEndpoint + "/course/registerCourse"
 console.log(addCoursePoint)
 export function addCourse(course) {
+    console.log(course)
     return http.post(addCoursePoint, {
         courseTitle: course.courseTitle,
         courseDescription: course.courseDescription,
@@ -21,7 +22,7 @@ export function addCourse(course) {
         courseLevel: course.courseLevel,
         funding: course.funding,
         learningMethods: course.learningMethods,
-        img: course.file
+        img: course.files[0]
 
 
 
