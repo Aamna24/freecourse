@@ -12,7 +12,7 @@ const Courses = () => {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiURL = "https://consulting-backend.herokuapp.com/course/";
+    const apiURL = "/course/";
 
     fetch(apiURL)
       .then((data) => data.json())
