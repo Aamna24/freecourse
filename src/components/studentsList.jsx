@@ -12,7 +12,7 @@ const StudentsList = () => {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiURL = "/form/";
+    const apiURL = "https://consulting-backend.herokuapp.com/form/";
 
     fetch(apiURL)
       .then((data) => data.json())

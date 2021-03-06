@@ -11,7 +11,7 @@ const Formdata=(props)=>{
 
 
     const handleChange=(e)=>{
-       const apiUrl = apiEndpoint +"/form/print/"+e;
+       const apiUrl = "https://consulting-backend.herokuapp.com/form/print/"+e;
        console.log(apiUrl)
        axios(apiUrl, {
         method: "GET",
@@ -34,7 +34,7 @@ const Formdata=(props)=>{
  }
 
  const handleSignChange=(e)=>{
-    const apiUrl = apiEndpoint +"/form/watermark/"+e;
+    const apiUrl = "https://consulting-backend.herokuapp.com/form/watermark/"+e;
     console.log(apiUrl)
     axios(apiUrl, {
         method: "GET",
@@ -56,7 +56,7 @@ const Formdata=(props)=>{
         });
      }
      const handleDownload=(e)=>{
-        const apiUrl = apiEndpoint +"/form/getFiles";
+        const apiUrl ="https://consulting-backend.herokuapp.com/form/getFiles";
         axios(apiUrl, {
         method: "GET",
         responseType: "blob"
