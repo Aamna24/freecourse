@@ -36,7 +36,7 @@ const Formdata=(props)=>{
  const handleSignChange=(e)=>{
     const apiUrl = "https://consulting-backend.herokuapp.com/form/watermark/"+e;
     console.log(apiUrl)
-    axios(apiUrl, {
+    axios(apiUrl, { mode: "no-cors" }, {
         method: "GET",
         responseType: "blob"
         //Force to receive data in a Blob Format
