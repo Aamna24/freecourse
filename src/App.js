@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   callAPI() {
-    fetch(config.apiEndpoint)
+    fetch(process.env.REACT_APP_API_URL)
       .then(res => res.text())
       .then(res => this.setState({ apiResponse: res }));
   }
