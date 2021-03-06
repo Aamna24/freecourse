@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import jwtDecode from 'jwt-decode'
 
-const apiPoint = "/users/login"
+const apiPoint = "https://consulting-backend.herokuapp.com/users/login"
 const tokenKey = "token"
 
 export async function login(email, password) {

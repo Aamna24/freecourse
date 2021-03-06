@@ -2,7 +2,7 @@ import http from './httpService';
 
 import jwtDecode from 'jwt-decode'
 
-const apiPoint = "/admin/login"
+const apiPoint = "https://consulting-backend.herokuapp.com/admin/login"
 const tokenKey = "token"
 
 export async function adminlogin(email, password) {
@@ -22,7 +22,7 @@ export function getCurrentUser(){
       }
 }
 
-const addCoursePoint = "/course/registerCourse"
+const addCoursePoint = "https://consulting-backend.herokuapp.com/course/registerCourse"
 console.log(addCoursePoint)
 
 export function addCourse(course) {
