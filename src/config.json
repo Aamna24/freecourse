@@ -1,3 +1,3 @@
 {
-    "apiEndpoint": "mongodb+srv://consultingadmin:consultingadmin123@cluster0.diwmc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "apiEndpoint": "https://consulting-backend.herokuapp.com"
 }
