@@ -80,7 +80,6 @@ export class Confirm extends Component {
                   });
                 }}
               />
-              
             </div>
           </div>
           <div className="row">
@@ -132,11 +131,7 @@ export class Confirm extends Component {
         <br /> <br />
         <div className="row">
           <div className="col-md-6 text-right">
-            <Button
-              color="secondary"
-              variant="contained"
-              onClick={() => this.back}
-            >
+            <Button color="secondary" variant="contained" onClick={this.back}>
               Back
             </Button>
           </div>

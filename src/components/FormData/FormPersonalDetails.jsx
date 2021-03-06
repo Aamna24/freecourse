@@ -30,6 +30,7 @@ export class FormPersonalDetails extends Component {
               defaultValue="[Please select one]"
               onChange={handleChange}
             >
+              <option value="">[Please select one]</option>
               <option value="Mr">Mr</option>
               <option value="Mrs">Mrs</option>
               <option value="Miss">Miss</option>
@@ -77,6 +78,7 @@ export class FormPersonalDetails extends Component {
               defaultValue="[Please select one]"
               onChange={handleChange}
             >
+              <option value="">[Please select one]</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
