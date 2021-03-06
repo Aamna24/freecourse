@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   callAPI() {
-    fetch("/")
+    fetch("https://consulting-backend.herokuapp.com")
       .then(res => res.text())
       .then(res => this.setState({ apiResponse: res }));
   }
