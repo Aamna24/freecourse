@@ -20,7 +20,7 @@ export function submit(user) {
   });
 }
 
-const sigPoint = apiEndpoint + "/form/signs";
+const sigPoint = "/form/signs";
 
 export function submitSigns(sign) {
   console.log("sub", sign.trimmedDataURL);
