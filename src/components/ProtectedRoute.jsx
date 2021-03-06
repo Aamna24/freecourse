@@ -1,8 +1,16 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-
-const ProtectedRoutes = ({ user, component }) => {
-  return <div>{user.name}</div>;
+import { Redirect, Route } from "react-router-dom";
+import auth from "../services/adminService";
+const ProtectedRoute = ({ path, component: Component, render, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        if (!auth.getCurrentUser()) return <Redirect to="/admin" />;
+        return Component ? <Component {...props} /> : render(props);
+      }}
+    />
+  );
 };
 
-export default ProtectedRoutes;
+export default ProtectedRoute;

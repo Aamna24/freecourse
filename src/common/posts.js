@@ -1,13 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Card,Button, CardContent,Grid,Typography,Container} from '@material-ui/core/';
+import {Card,Button, CardContent,Grid,Typography,Container, CardMedia} from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
     card: {
         marginBottom: "20px"
     },
 	cardMedia: {
-		paddingTop: '80%', // 16:9
+		paddingTop: "80%",
+        marginTop: "20px"
         
     },
 	link: {
@@ -58,7 +59,11 @@ const Posts=(props)=>{
                         // Enterprise card is full width at sm breakpoint
                         <Grid item key={post.id} xs={12} md={4}>
                             <Card className={classes.card}>
-                                
+                            <CardMedia
+                                    className={classes.cardMedia}
+                                    image={post.img}
+                                    title="Image title"
+                                />
                                 <CardContent className={classes.cardContent}>
                                     <Typography
                                         gutterBottom

@@ -15,7 +15,6 @@ class AddCourse extends Form {
       courseLevel: "",
       funding: "",
       learningMethods: "",
-      file: "",
     },
     errors: {},
   };
@@ -34,7 +33,9 @@ class AddCourse extends Form {
 
   doSubmit = async () => {
     try {
-      const response = await AdminService.addCourse(this.state.data);
+      const responses = await AdminService.addCourse(this.state.data);
+      console.log("indosubmit");
+      console.log(responses);
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -59,7 +60,6 @@ class AddCourse extends Form {
           {this.renderInput("courseLevel", "courseLevel")}
           {this.renderInput("funding", "funding")}
           {this.renderInput("learningMethods", "learningMethods")}
-          {this.renderInputFile("file", "Course Logo")}
           {this.renderButton("Add Course")}
         </form>
       </div>

@@ -14,7 +14,15 @@ const DetailedCourse = ({ product }) => {
     <div className="container" style={{ "margin-top": "-100px" }}>
       <div className="row">
         <div className="col-md-8" style={{ color: "black" }}>
-          <h2>{product.courseTitle}</h2>
+          <div class="row">
+            <div class="col-md-2">
+              <img src={product.img} />
+            </div>
+            <div class="col-md-10">
+              <h2>{product.courseTitle}</h2>
+            </div>
+          </div>
+
           <br />
           <p>{product.courseDescription}</p>
           <br />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
-import jwtDecode from 'jwt-decode'
+import auth from './services/authService'
 import NavBar from './components/header'
 import Footer from './components/footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
@@ -17,7 +17,7 @@ import AdminLandingPage from './components/AdminMainPage'
 import AddCourse from './components/addCourse'
 import StudentsData from './components/studentsList'
 import Details from './common/details'
-import ProtectedRoutes from './components/ProtectedRoute'
+import ProtectedRoute from './components/ProtectedRoute'
 import config from './config.json'
 import './App.css';
 
@@ -28,14 +28,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    try {
-      const jwt = localStorage.getItem("token");
-      console.log(jwt)
-      const user = jwtDecode(jwt);
-      this.setState({user})
-    } catch (ex) {
-      
-    }
+   const user = auth.getCurrentUser();
+   this.setState({user})
      
   }
   constructor(props) {
@@ -77,9 +71,9 @@ class App extends React.Component {
             <Route path="/single" component={Details}/>
 
             <Route path="/admin" component={AdminPanel}/>
-            <Route path="/adminhome"  component={AdminLandingPage} />
-            <Route path="/addCourse" component={AddCourse}/>
-            <Route path="/studentslist" component={StudentsData}/>
+            <ProtectedRoute path="/adminhome"  component={AdminLandingPage} />
+            <ProtectedRoute path="/addCourse" component={AddCourse}/>
+            <ProtectedRoute path="/studentslist" component={StudentsData}/>
 
             <Redirect from="/" exact to="/home" />
 

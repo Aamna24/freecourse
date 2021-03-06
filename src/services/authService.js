@@ -2,11 +2,33 @@ import http from './httpService';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { apiEndpoint } from '../config.json'
+import jwtDecode from 'jwt-decode'
 
 const apiPoint = apiEndpoint + "/users/login"
-console.log(apiPoint)
+const tokenKey = "token"
 
-export function login(email, password) {
-    return http.post(apiPoint, { email, password });
+export async function login(email, password) {
+    const {data: jwt} = await http.post(apiPoint, { email, password });
+    localStorage.setItem(tokenKey, jwt.token);
     
+}
+
+export function logout(){
+    localStorage.removeItem(tokenKey);
+}
+
+export function getCurrentUser(){
+    try {
+        const jwt = localStorage.getItem(tokenKey);
+
+       return jwtDecode(jwt);
+       
+      } catch (ex) {
+        return null
+      }
+}
+export default{
+    login,
+    logout,
+    getCurrentUser
 }

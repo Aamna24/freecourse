@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Form from "../common/form";
 import Joi from "joi-browser";
-import { adminlogin } from "../services/adminService";
+import auth from "../services/adminService";
 
 class AdminPanel extends Form {
   state = {
@@ -17,9 +17,7 @@ class AdminPanel extends Form {
   doSubmit = async () => {
     try {
       const { data } = this.state;
-      const { data: jwt } = await adminlogin(data.username, data.password);
-
-      localStorage.setItem("token", jwt.token);
+      await auth.adminlogin(data.username, data.password);
       window.location = "/adminhome";
     } catch (ex) {
       if (ex.response && ex.respone.status === 400) {

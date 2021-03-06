@@ -1,17 +1,31 @@
 import http from './httpService';
 import { apiEndpoint } from '../config.json'
+import jwtDecode from 'jwt-decode'
 
 const apiPoint = apiEndpoint + "/admin/login"
-console.log(apiPoint)
+const tokenKey = "token"
 
-export function adminlogin(email, password) {
-    return http.post(apiPoint, { email, password })
+export async function adminlogin(email, password) {
+    const {data: jwt} = await http.post(apiPoint, { email, password })
+    localStorage.setItem(tokenKey, jwt.token);
+}
+
+
+export function getCurrentUser(){
+    try {
+        const jwt = localStorage.getItem(tokenKey);
+
+       return jwtDecode(jwt);
+       
+      } catch (ex) {
+        return null
+      }
 }
 
 const addCoursePoint = apiEndpoint + "/course/registerCourse"
 console.log(addCoursePoint)
+
 export function addCourse(course) {
-    console.log(course)
     return http.post(addCoursePoint, {
         courseTitle: course.courseTitle,
         courseDescription: course.courseDescription,
@@ -22,9 +36,12 @@ export function addCourse(course) {
         courseLevel: course.courseLevel,
         funding: course.funding,
         learningMethods: course.learningMethods,
-        img: course.files[0]
-
-
-
+      
     })
+}
+
+export default{
+    adminlogin,
+    getCurrentUser,
+    addCourse
 }

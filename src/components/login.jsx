@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Form from "../common/form";
 import Joi from "joi-browser";
-import { login } from "../services/authService";
+import auth from "../services/authService";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
@@ -20,8 +20,7 @@ class Login extends Form {
   doSubmit = async () => {
     try {
       const { data } = this.state;
-      const { data: jwt } = await login(data.username, data.password);
-      localStorage.setItem("token", jwt.token);
+      await auth.login(data.username, data.password);
       window.location = "/";
       toast.success("Successful Login");
     } catch (ex) {

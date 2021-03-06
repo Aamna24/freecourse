@@ -26,7 +26,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log("handle");
     const errors = this.validate();
     this.setState({ errors: errors || {} });
     if (errors) return;
@@ -49,8 +49,8 @@ class Form extends Component {
     const errors = { ...this.state.errors };
 
     const data = { ...this.state.data };
-    data[input.name] = input.value;
-    console.log(input.value);
+    data[input.name] = input.files[0];
+
     this.setState({ data, errors });
   };
 
@@ -81,7 +81,7 @@ class Form extends Component {
     return (
       <input
         type={type}
-        name={name}
+        name="file"
         label={label}
         onChange={this.handleFileChange}
       />
