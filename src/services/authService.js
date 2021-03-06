@@ -1,10 +1,10 @@
 import http from './httpService';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import { apiEndpoint } from '../config.json'
+
 import jwtDecode from 'jwt-decode'
 
-const apiPoint = apiEndpoint + "/users/login"
+const apiPoint = "/users/login"
 const tokenKey = "token"
 
 export async function login(email, password) {

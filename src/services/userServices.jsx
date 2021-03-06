@@ -1,7 +1,6 @@
 import http from "./httpService";
-import { apiEndpoint } from "../config.json";
 
-const apiPoint = apiEndpoint + "/users/register";
+const apiPoint = "/users/register";
 console.log(apiPoint);
 
 export function register(user) {
@@ -12,7 +11,7 @@ export function register(user) {
   });
 }
 
-const formPoint = apiEndpoint + "/form/submit";
+const formPoint = "/form/submit";
 
 export function submit(user) {
   return http.post(formPoint, {

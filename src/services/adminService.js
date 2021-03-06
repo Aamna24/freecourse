@@ -1,8 +1,8 @@
 import http from './httpService';
-import { apiEndpoint } from '../config.json'
+
 import jwtDecode from 'jwt-decode'
 
-const apiPoint = apiEndpoint + "/admin/login"
+const apiPoint = "/admin/login"
 const tokenKey = "token"
 
 export async function adminlogin(email, password) {
@@ -22,7 +22,7 @@ export function getCurrentUser(){
       }
 }
 
-const addCoursePoint = apiEndpoint + "/course/registerCourse"
+const addCoursePoint = "/course/registerCourse"
 console.log(addCoursePoint)
 
 export function addCourse(course) {
