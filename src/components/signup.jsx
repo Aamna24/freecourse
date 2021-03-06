@@ -2,6 +2,8 @@ import React, { useState, Component } from "react";
 import Joi from "joi-browser";
 import Form from "../common/form";
 import * as UserService from "../services/userServices";
+import { toast } from "react-toastify";
+toast.configure();
 
 class Register extends Form {
   state = {
@@ -20,6 +22,7 @@ class Register extends Form {
       const response = await UserService.register(this.state.data);
       console.log(response);
       window.location = "/";
+      toast.success("User uccessfully registered");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
