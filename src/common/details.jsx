@@ -13,7 +13,7 @@ const Details = () => {
 
   const getData = () => {
     axios
-      .get("http://localhost:61500/course/")
+      .get("/course/")
       .then((res) => {
         setProducts(res.data);
       })
