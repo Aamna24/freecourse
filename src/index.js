@@ -10,6 +10,8 @@ import { Integrations } from "@sentry/tracing";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-toastify/dist/ReactToastify.css";
 
+console.log(process.env)
+
 logger.init()
 
 ReactDOM.render(

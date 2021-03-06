@@ -10,6 +10,29 @@ const DetailedCourse = ({ product }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const Benefits = (props) => {
+    const text = props.text;
+
+    const newText = text.split(/(?=[A-Z])/).map((str) => (
+      <ul>
+        <li>{str}</li>
+      </ul>
+    ));
+    return newText;
+  };
+
+  const Content = (props) => {
+    const text = props.text;
+
+    const newText = text.split("Unit").map((str) => (
+      <p>
+        <b>Unit</b>
+        {str}
+      </p>
+    ));
+    return newText;
+  };
   return (
     <div className="container" style={{ "margin-top": "-100px" }}>
       <div className="row">
@@ -28,10 +51,11 @@ const DetailedCourse = ({ product }) => {
           <br />
           <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
             <Tab eventKey="home" title="Content">
-              <p>{product.courseContent}</p>
+              <Content text={product.courseContent} />
             </Tab>
             <Tab eventKey="benefits" title="Benefits">
-              <p>{product.courseBenefits}</p>
+              <p>The benefits of this course includes:</p>
+              <Benefits text={product.courseBenefits} />
             </Tab>
           </Tabs>
         </div>
