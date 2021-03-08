@@ -34,7 +34,7 @@ const DetailedCourse = ({ product }) => {
     return newText;
   };
   return (
-    <div className="container" xs={12} style={{ "margin-top": "-100px" }}>
+    <div className="container-sm" xs={12}>
       <div className="row">
         <div className="col-md-8" style={{ color: "black" }}>
           <div class="row">

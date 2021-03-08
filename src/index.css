@@ -103,23 +103,6 @@ code {
   height: 400px;
 }
 
-.profile {
-  border-radius: 50%;
-  position: absolute;
-  top: -10px;
-  left: 35%;
-  max-width: 60px;
-  border: 3px solid rgba(255, 255, 255, 1);
-  -webkit-transform: translate(-50%, 0%);
-  transform: translate(-50%, 0%);
-}
-.profile .card-img-block {
-  float: left;
-  width: 80%;
-  height: 80px;
-  overflow: hidden;
-}
-
 .wrapper {
   text-align: center;
 }
@@ -206,6 +189,12 @@ canvas.sigCanvas {
   }
   #responsive-navbar-nav {
     background: rgb(31, 111, 139) !important;
+  }
+  #details {
+    margin: -10px;
+  }
+  #pBar {
+    margin-top: 50px;
   }
 }
 img.card-img-top {

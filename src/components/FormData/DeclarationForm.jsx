@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import ScrollToTopOnMount from "../../common/ScrollToMount";
 
 export class DeclarationForm extends Component {
   continue = (e) => {
@@ -16,6 +17,7 @@ export class DeclarationForm extends Component {
     const { values, handleChange } = this.props;
     return (
       <div className="container">
+        <ScrollToTopOnMount />
         <h3>Step 6- Declaration</h3>
         <br />
 

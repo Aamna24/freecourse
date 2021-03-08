@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import ScrollToTopOnMount from "../../common/ScrollToMount";
 
 export class FormEqualOppurtunities extends Component {
   continue = (e) => {
@@ -14,6 +15,7 @@ export class FormEqualOppurtunities extends Component {
     const { values, handleChange } = this.props;
     return (
       <div className="container">
+        <ScrollToTopOnMount />
         <h3>Step 5- Equal Oppurtunities</h3>
         <br />
 

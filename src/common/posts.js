@@ -2,48 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Card,Button, CardContent,Grid,Typography,Container, CardMedia} from '@material-ui/core/';
 
-const useStyles = makeStyles((theme) => ({
-    card: {
-        marginBottom: "20px"
-    },
-	cardMedia: {
-		paddingTop: "60%",
-        marginTop: "20px",
-       
-        
-    },
-	link: {
-		margin: theme.spacing(1, 1.5),
-	},
-	cardHeader: {
-		backgroundColor:"",
-        borderColor: "black"
-			
-	},
-	postTitle: {
-		fontSize: '16px',
-		textAlign: 'center',
-        fontWeight: 'bold',
-        textWrap: "no-wrap"
-	},
-	postText: {
-		display: 'flex',
-		justifyContent: 'left',
-		alignItems: 'baseline',
-		fontSize: '12px',
-		textAlign: 'left',
-		marginBottom: theme.spacing(2),
-        color: "black",
-        
-	},
-    
-}));
-
-
 
 const Posts=(props)=>{
     const {posts} = props;
-    const classes = useStyles();
+    //const classes = useStyles();
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
 
 
@@ -55,7 +17,7 @@ const Posts=(props)=>{
                     return (
                         // Enterprise card is full width at sm breakpoint
                         <Grid item key={post.id} xs={12} md={4}>
-                             <div class="card" style={{"width": "18rem"}}>
+                             <div class="card " >
                                 <img class="card-img-top" src={post.img} alt="Card image cap"/>
                                 <div class="card-body">
                                      <h5 class="card-title">{post.courseTitle}</h5>

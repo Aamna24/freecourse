@@ -238,7 +238,7 @@ export class UserForm extends Component {
       case 1:
         return (
           <div className="container">
-            <ProgressBar now={(step / 6) * 100} />
+            <ProgressBar now={(step / 6) * 100} id="pBar" />
             <br />
             <FormUserDetails
               nextStep={this.nextStep}
@@ -249,7 +249,7 @@ export class UserForm extends Component {
       case 2:
         return (
           <div className="container">
-            <ProgressBar now={(step / 6) * 100} />
+            <ProgressBar now={(step / 6) * 100} id="pBar" />
             <br />
             <FormPersonalDetails
               nextStep={this.nextStep}
@@ -261,7 +261,7 @@ export class UserForm extends Component {
       case 3:
         return (
           <div className="container">
-            <ProgressBar now={(step / 6) * 100} />
+            <ProgressBar now={(step / 6) * 100} id="pBar" />
             <br />
             <FormEmployementDetails
               nextStep={this.nextStep}
@@ -274,7 +274,7 @@ export class UserForm extends Component {
         if (employmentStatus === "Employed but on less than £17,004 per year") {
           return (
             <div className="container">
-              <ProgressBar now={(step / 6) * 100} />
+              <ProgressBar now={(step / 6) * 100} id="pBar" />
               <br />
               <FormExtended
                 nextStep={this.nextStep}
@@ -291,7 +291,7 @@ export class UserForm extends Component {
         }
         return (
           <div className="container">
-            <ProgressBar now={(step / 6) * 100} />
+            <ProgressBar now={(step / 6) * 100} id="pBar" />
             <br />
             <FormQualification
               nextStep={this.nextStep}
@@ -303,7 +303,7 @@ export class UserForm extends Component {
       case 5:
         return (
           <div className="container">
-            <ProgressBar now={(step / 6) * 100} />
+            <ProgressBar now={(step / 6) * 100} id="pBar" />
             <br />
             <FormEqualOppurtunities
               nextStep={this.nextStep}
@@ -315,7 +315,7 @@ export class UserForm extends Component {
       case 6:
         return (
           <div className="container">
-            <ProgressBar now={(step / 6) * 100} />
+            <ProgressBar now={(step / 6) * 100} id="pBar" />
             <br />
             <DeclarationForm
               nextStep={this.nextStep}

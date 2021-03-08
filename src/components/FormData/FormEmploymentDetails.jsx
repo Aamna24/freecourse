@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import ScrollToTopOnMount from "../../common/ScrollToMount";
 
 export class FormEmploymentDetails extends Component {
   continue = (e) => {
@@ -16,6 +17,7 @@ export class FormEmploymentDetails extends Component {
 
     return (
       <div className="container" style={{ marginBottom: "28px" }}>
+        <ScrollToTopOnMount />
         <h3>Stage 3- Employement Details</h3>
         <br />
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import ScrollToTop from "../../common/ScrollToMount";
 
 export class FormPersonalDetails extends Component {
   continue = (e) => {
@@ -17,6 +18,7 @@ export class FormPersonalDetails extends Component {
     const { values, handleChange } = this.props;
     return (
       <div className="container">
+        <ScrollToTop />
         <h3>Step 2- Personal Details</h3>
         <br />
 

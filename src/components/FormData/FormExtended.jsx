@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import ScrollToTopOnMount from "../../common/ScrollToMount";
 
 class FormExtended extends Component {
   render() {
     const { handleChange } = this.props;
     return (
       <div className="container">
+        <ScrollToTopOnMount />
         <br />
         <h3>Stage 3.5- UNEMPLOYED/LOW INCOME</h3>
 

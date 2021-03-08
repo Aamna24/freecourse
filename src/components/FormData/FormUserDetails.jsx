@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { Tooltip, IconButton, Fab } from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
-
+import ScrollToTop from "../../common/ScrollToMount";
 export class FormUserDetails extends Component {
   continue = (e) => {
     e.preventDefault();
@@ -13,6 +13,7 @@ export class FormUserDetails extends Component {
     const { values, handleChange } = this.props;
     return (
       <div className="container">
+        <ScrollToTop />
         <h3>Step 1- Eligibility Check</h3>
 
         <br />

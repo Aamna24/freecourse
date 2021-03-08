@@ -31,7 +31,7 @@ const Details = () => {
       {products.length == 0 ? (
         <p>There are no Products</p>
       ) : (
-        <div style={{ margin: "150px", color: "white" }}>
+        <div style={{ color: "white" }}>
           {products.data
             .filter((x) => x.courseTitle === b)
             .map((product, index) => (

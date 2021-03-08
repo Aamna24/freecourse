@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import ScrollToTop from "../../common/ScrollToMount";
 
 export class FormQualification extends Component {
   continue = (e) => {
@@ -16,6 +17,7 @@ export class FormQualification extends Component {
     const { handleChange } = this.props;
     return (
       <div className="container" style={{ marginBottom: "190px" }}>
+        <ScrollToTop />
         <h3>Step 4- Qualification Details</h3>
         <br />
 
