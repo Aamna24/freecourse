@@ -55,58 +55,19 @@ const Posts=(props)=>{
                     return (
                         // Enterprise card is full width at sm breakpoint
                         <Grid item key={post.id} xs={12} md={4}>
-                            <Card className={classes.card}>
-                            <CardMedia
-                                    className={classes.cardMedia}
-                                    image={post.img}
-                                    title="Image title"
-                                    id="imageCard"
-                                />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography
-                                        gutterBottom
-                                        variant="h6"
-                                        component="h2"
-                                        className={classes.postTitle}
-                                    >
-                                        {post.courseTitle}
-                                    </Typography>
-                                    <div className={classes.postText}>
-                                        <Typography
-                                            component="p"
-                                            color="textPrimary"
-                                        ></Typography>
-                                        <Typography >
-                                            {}
-                                        </Typography>
-                                    </div>
-                                    <div className="row">
-                                        
-                                        <div className="col-md-4">
-                                    <div className={classes.postText}>
-                                        <Typography
-                                            component="p"
-                                            color="textPrimary"
-                                           id="funding"
-                                        ></Typography>
-                                        <Typography  >
-                                            
-                                            {post.funding}
-                                        </Typography>
-                                    </div>
-                                    </div>
-                                    
-                                    </div>
-                                </CardContent>
-                                <Button className="btn btn-course" onClick={
-                                     e=>{
+                             <div class="card" style={{"width": "18rem"}}>
+                                <img class="card-img-top" src={post.img} alt="Card image cap"/>
+                                <div class="card-body">
+                                     <h5 class="card-title">{post.courseTitle}</h5>
+                                     <p class="card-text">{post.funding}</p>
+                                <Button className="btn btn-course" onClick={e=>{
+                                         window.location.href="/single?id="+post.courseTitle
+                                    }}>
+                                    View Course 
+                                </Button>
+                                </div>
+                            </div>
 
-                                        window.location.href="/single?id="+post.courseTitle
-                                    }
-                                } >
-                                    View Course </Button>
-                            </Card>
-                          
                         </Grid>
                     );
                 })}
