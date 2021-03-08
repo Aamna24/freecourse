@@ -195,6 +195,13 @@ canvas.sigCanvas {
   background-color: darkgrey;
 }
 
-/*span.MuiTypography-root {
-  background-color: greenyellow;
-}*/
+.MuiCardMedia-root {
+  background-size: auto;
+  padding-top: 60%;
+}
+
+@media only screen and (max-width: 768px) {
+  #responsive {
+    width: 100%;
+  }
+}

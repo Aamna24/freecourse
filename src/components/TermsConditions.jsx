@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ScrollToMount from "./PrivacyPolicy";
+import ScrollToMount from "../common/ScrollToMount";
 
 const Conditions = () => {
   return (
-    <div style={{ margin: "80px 80px 230px 80px" }}>
+    <div className="container" id="responsive" style={{ marginTop: "10px" }}>
       <ScrollToMount />
       <h2>TERMS AND CONDITIONS</h2>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias impedit

@@ -7,8 +7,9 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "20px"
     },
 	cardMedia: {
-		paddingTop: "80%",
-        marginTop: "20px"
+		paddingTop: "60%",
+        marginTop: "20px",
+       
         
     },
 	link: {
@@ -35,11 +36,7 @@ const useStyles = makeStyles((theme) => ({
         color: "black",
         
 	},
-    postPrice: {
-        textAlign: "right",
-        color: "orange",
-        fontWeight: "bold"
-    }
+    
 }));
 
 
@@ -63,6 +60,7 @@ const Posts=(props)=>{
                                     className={classes.cardMedia}
                                     image={post.img}
                                     title="Image title"
+                                    id="imageCard"
                                 />
                                 <CardContent className={classes.cardContent}>
                                     <Typography
@@ -97,17 +95,7 @@ const Posts=(props)=>{
                                         </Typography>
                                     </div>
                                     </div>
-                                    <div className="col-md-4">
-                                    <div className={classes.postPrice}>
-                                        <Typography
-                                            component="p"
-                                            color="textPrimary"
-                                        ></Typography>
-                                        <Typography  >
-                                            {post.coursePrice}
-                                        </Typography>
-                                    </div>
-                                    </div>
+                                    
                                     </div>
                                 </CardContent>
                                 <Button className="btn btn-course" onClick={
