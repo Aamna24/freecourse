@@ -13,7 +13,7 @@ const Formdata=(props)=>{
     const handleChange=(e)=>{
        const apiUrl = "https://consulting-backend.herokuapp.com/form/print/"+e;
        console.log(apiUrl)
-       axios(apiUrl, {
+       axios(apiUrl, { mode: "no-cors" }, {
         method: "GET",
         responseType: "blob"
         //Force to receive data in a Blob Format
