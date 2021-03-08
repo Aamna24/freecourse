@@ -65,7 +65,7 @@ code {
 }
 
 .jumbotron {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKjGjdqA0KJSaRCoC8ImZvF5l05gTN4bu6hA&usqp=CAU");
+  /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKjGjdqA0KJSaRCoC8ImZvF5l05gTN4bu6hA&usqp=CAU");*/
   background-size: cover;
   color: white;
   font-size: large;
