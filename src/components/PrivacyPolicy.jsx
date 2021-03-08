@@ -12,7 +12,7 @@ class ScrollToTopOnMount extends React.Component {
 
 const PrivacyPolicy = () => {
   return (
-    <div className="container" style={{ margin: "80px 80px 210px 80px" }}>
+    <div style={{ margin: "80px 80px 230px 80px" }}>
       <ScrollToTopOnMount />
       <h2>PRIVACY POLICY</h2>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis

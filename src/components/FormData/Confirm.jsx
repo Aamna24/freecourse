@@ -94,7 +94,7 @@ export class Confirm extends Component {
                 name="trimmedDataURL"
                 onClick={this.trim}
               >
-                Trim
+                Save A
               </button>
             </div>
             <div className="col-md-4 text-left">
