@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import {apiEndpoint} from '../config.json'
 import Pagination from './pagination'
-import download from 'js-file-download';
+//import ListGroup from './listGroup'
 import axios from 'axios'
+import ListGroup from 'react-bootstrap/ListGroup'
+
 const Formdata=(props)=>{
     const {posts} = props;
    const [currentPage,setcurrentPage]=useState(1);
@@ -13,7 +15,7 @@ const Formdata=(props)=>{
     const handleChange=(e)=>{
        const apiUrl = "https://consulting-backend.herokuapp.com/form/print/"+e;
        console.log(apiUrl)
-       axios(apiUrl, { mode: "no-cors" }, {
+       axios(apiUrl, {
         method: "GET",
         responseType: "blob"
         //Force to receive data in a Blob Format
@@ -36,9 +38,10 @@ const Formdata=(props)=>{
  const handleSignChange=(e)=>{
     const apiUrl = "https://consulting-backend.herokuapp.com/form/watermark/"+e;
     console.log(apiUrl)
-    axios(apiUrl, { mode: "no-cors" }, {
+    axios(apiUrl, {
         method: "GET",
-        responseType: "blob"
+        responseType: "blob",
+        mode: 'no-cors' 
         //Force to receive data in a Blob Format
       })
         .then(response => {
@@ -84,57 +87,64 @@ const Formdata=(props)=>{
     setcurrentPage(page)
     
  }
+ 
     return(
-        <React.Fragment>
-        <Container maxWidth="md" component="main">
+        <div className="row">
+          <div className="col-2">
+           <ListGroup />
+          </div>
+          <div className="col">
+          <Container maxWidth="md" component="main">
             
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th>Student Name</th>
-                                    <th>City</th>
-                                    <th>Course Title</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {posts.data.map((post)=>{
-                                return(
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>City</th>
+                        <th>Course Title</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {posts.data.map((post)=>{
+                    return(
 <tr>
-   
-                                    <td>{post.firstName}</td>
-                                    <td>{post.city}</td>
-                                    <td>{post.appliedCourse}</td>
-                                    <td><button className="btn btn-success btn-sm" onClick={
-                                      ()=>{handleChange(post._id)}
-                                    }>Fill PDF</button>
-                                        
-                                    </td>
-                                    <td><button className="btn btn-warning btn-sm" onClick={
-                                      ()=>{handleSignChange(post._id)}
-                                    }>Sign PDF</button>
-                                        
-                                    </td>
-                                    
-                                    
-                                </tr>
-                                )
-                            })}
-                                
-                            
-                            </tbody>
-                        </table>
 
+                        <td>{post.firstName}</td>
+                        <td>{post.city}</td>
+                        <td>{post.appliedCourse}</td>
+                        <td><button className="btn btn-success btn-sm" onClick={
+                          ()=>{handleChange(post._id)}
+                        }>Fill PDF</button>
+                            
+                        </td>
+                        <td><button className="btn btn-warning btn-sm" onClick={
+                          ()=>{handleSignChange(post._id)}
+                        }>Sign PDF</button>
+                            
+                        </td>
+                        
+                        
+                    </tr>
+                    )
+                })}
                     
                 
+                </tbody>
+            </table>
 
-        </Container>
-        <Pagination 
-        itemsCount={posts.data.length} 
-        pageSize={4}
-         onPageChange={handlePageChange}
-         currentPage={currentPage}/>
-    </React.Fragment>
+        
+    
+
+</Container>
+<Pagination 
+itemsCount={posts.data.length} 
+pageSize={4}
+onPageChange={handlePageChange}
+currentPage={currentPage}/>
+          </div>
+        
+    </div>
     )
 }
 
