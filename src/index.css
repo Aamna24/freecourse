@@ -175,7 +175,8 @@ label {
 }
 
 canvas.sigCanvas {
-  background-color: darkgrey;
+  background-color: white;
+  margin: 20px 20px 20px 70px;
 }
 
 .MuiCardMedia-root {
@@ -196,10 +197,26 @@ canvas.sigCanvas {
   #pBar {
     margin-top: 50px;
   }
+  #sigBtn {
+    margin: 10px;
+  }
+  canvas.sigCanvas {
+    margin: 0px;
+  }
+  #btns {
+    margin: 5px;
+  }
 }
 img.card-img-top {
   background-size: auto;
   height: 20%;
   width: 50%;
   margin: auto;
+}
+
+.popup-content {
+  margin: auto;
+  background: wheat;
+  width: 50%;
+  padding: 5px;
 }

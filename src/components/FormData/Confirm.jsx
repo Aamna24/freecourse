@@ -4,6 +4,7 @@ import SignaturePad from "react-signature-canvas";
 import { toast } from "react-toastify";
 import Popup from "reactjs-popup";
 import * as SignatureService from "../../services/userServices";
+import ScrollToTopOnMount from "../../common/ScrollToMount";
 
 toast.configure();
 
@@ -45,7 +46,8 @@ export class Confirm extends Component {
 
     const { handleSubmit } = this.props;
     return (
-      <div className="container text-center">
+      <div className="container text-center" style={{ marginBottom: "150px" }}>
+        <ScrollToTopOnMount />
         <h1>Confirm Submission? </h1>
         <br />
         <br />
@@ -64,7 +66,6 @@ export class Confirm extends Component {
             canvasProps={{
               width: 500,
               height: 200,
-              backgroundColor: "yellow",
               className: "sigCanvas",
             }}
           />
@@ -83,23 +84,29 @@ export class Confirm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-4 text-right">
-              <button className="btn btn-success" onClick={this.clearSig}>
+            <div className="col-md-4 ">
+              <button
+                className="btn btn-success"
+                onClick={this.clearSig}
+                id="sigBtn"
+              >
                 Clear
               </button>
             </div>
-            <div className="col-md-4 text-left">
+            <div className="col-md-4 ">
               <button
                 className="btn btn-success"
                 name="trimmedDataURL"
+                id="sigBtn"
                 onClick={this.trim}
               >
                 Save A
               </button>
             </div>
-            <div className="col-md-4 text-left">
+            <div className="col-md-4 ">
               <button
                 className="btn btn-success"
+                id="sigBtn"
                 name="trimmedDataURL"
                 onClick={(e) => {
                   console.log("in click", trimmedDataURL);
@@ -129,17 +136,23 @@ export class Confirm extends Component {
           <br /> <br />
         </Popup>
         <br /> <br />
-        <div className="row">
-          <div className="col-md-6 text-right">
-            <Button color="secondary" variant="contained" onClick={this.back}>
-              Back
-            </Button>
-          </div>
-          <div className="col-md-6 text-left">
-            <button className="btn btn-warning" onClick={handleSubmit}>
-              Submit
-            </button>
-          </div>
+        <div className="row" style={{ paddingLeft: "43%" }}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={this.back}
+            style={{ margin: "5px" }}
+          >
+            Back
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={handleSubmit}
+            style={{ margin: "5px" }}
+          >
+            Submit
+          </Button>
         </div>
       </div>
     );

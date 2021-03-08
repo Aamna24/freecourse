@@ -134,12 +134,22 @@ export class FormEmploymentDetails extends Component {
             <input type="text" onChange={handleChange} name="employerTelNo" />
           </div>
         </div>
-
-        <Button color="secondary" variant="contained" onClick={this.back}>
+        <br></br>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.back}
+          id="btns"
+        >
           Back
         </Button>
 
-        <Button color="primary" variant="contained" onClick={this.continue}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.continue}
+          id="btns"
+        >
           Continue
         </Button>
       </div>

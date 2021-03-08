@@ -196,10 +196,20 @@ export class DeclarationForm extends Component {
           due to the number of applicants please confirm when would most be
           appropriate.
         </p>
-        <Button color="primary" variant="contained" onClick={this.back}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.back}
+          id="btns"
+        >
           Back
         </Button>
-        <Button color="primary" variant="contained" onClick={this.continue}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.continue}
+          id="btns"
+        >
           Continue
         </Button>
       </div>

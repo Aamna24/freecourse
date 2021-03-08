@@ -63,12 +63,22 @@ export class FormQualification extends Component {
             <input type="text" onChange={handleChange} name="englishGrades" />
           </div>
         </div>
-
-        <Button color="primary" variant="contained" onClick={this.back}>
+        <br></br>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.back}
+          id="btns"
+        >
           Back
         </Button>
 
-        <Button color="primary" variant="contained" onClick={this.continue}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.continue}
+          id="btns"
+        >
           Continue
         </Button>
       </div>
