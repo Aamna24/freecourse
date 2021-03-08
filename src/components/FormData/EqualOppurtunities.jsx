@@ -134,59 +134,69 @@ export class FormEqualOppurtunities extends Component {
               What is your current household situation? (one or more may apply)
             </p>
           </div>
+
           <div className="col-md-6">
-            <input
-              type="checkbox"
-              name="householdSituation"
-              onChange={handleChange}
-              value="No household member is in employment and the household includes
+            <div id="checkStmts">
+              <input
+                type="checkbox"
+                name="householdSituation"
+                onChange={handleChange}
+                value="No household member is in employment and the household includes
               one or more dependent children."
-            />
-            <label className="required">
-              No household member is in employment and the household includes
-              one or more dependent children.
-            </label>
+              />
+              <label className="required">
+                No household member is in employment and the household includes
+                one or more dependent children.
+              </label>
+              <br />
+            </div>
+            <div id="checkStmts">
+              <input
+                type="checkbox"
+                name="householdSituation"
+                onChange={handleChange}
+                value="true"
+              />
+              <label className="required">
+                No household member is in employment and the household does not
+                include any dependent children.
+              </label>
+            </div>
             <br />
-
-            <input
-              type="checkbox"
-              name="householdSituation"
-              onChange={handleChange}
-              value="true"
-            />
-            <label className="required">
-              No household member is in employment and the household does not
-              include any dependent children.
-            </label>
+            <div id="checkStmts">
+              <input
+                type="checkbox"
+                name="householdSituation"
+                onChange={handleChange}
+                value="true"
+              />
+              <label className="required">
+                Learner lives in a single adult household with dependent
+                children.
+              </label>
+            </div>
             <br />
-
-            <input
-              type="checkbox"
-              name="householdSituation"
-              onChange={handleChange}
-              value="true"
-            />
-            <label className="required">
-              Learner lives in a single adult household with dependent children.
-            </label>
+            <div id="checkStmts">
+              <input
+                type="checkbox"
+                name="householdSituation"
+                onChange={handleChange}
+                value="true"
+              />
+              <label className="required">None of these statement apply</label>
+            </div>
             <br />
-            <input
-              type="checkbox"
-              name="householdSituation"
-              onChange={handleChange}
-              value="true"
-            />
-            <label className="required">None of these statement apply</label>
-            <br />
-            <input
-              type="checkbox"
-              name="householdSituation"
-              onChange={handleChange}
-              value="true"
-            />
-            <label className="required">
-              I can confirm that I wish to withhold this information
-            </label>
+            <div id="checkStmts">
+              <input
+                type="checkbox"
+                name="householdSituation"
+                onChange={handleChange}
+                value="true"
+              />
+              <label className="required">
+                I can confirm that I wish to withhold this information
+              </label>
+            </div>
             <br />
           </div>
         </div>

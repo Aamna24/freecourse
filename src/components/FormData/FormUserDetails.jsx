@@ -247,63 +247,70 @@ export class FormUserDetails extends Component {
         </Tooltip>
 
         <br />
-        <input
-          type="checkbox"
-          name="livingAndWorkingProof"
-          onChange={handleChange}
-          value="living And Working Proof"
-        />
-        <label className="required">
-          Proof of your right to live and work in the UK
-        </label>
-        <Tooltip title="e.g valid UK/EU passport" placement="top">
-          <InfoIcon id="icon" />
-        </Tooltip>
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="livingAndWorkingProof"
+            onChange={handleChange}
+            value="living And Working Proof"
+          />
+          <label className="required">
+            Proof of your right to live and work in the UK
+          </label>
+          <Tooltip title="e.g valid UK/EU passport" placement="top">
+            <InfoIcon id="icon" />
+          </Tooltip>
+        </div>
         <br />
-        <input
-          type="checkbox"
-          name="homeAddProof"
-          onChange={handleChange}
-          value="Home Address Proof"
-        />
-        <label className="required">Proof of your home address</label>
-        <Tooltip
-          title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="homeAddProof"
+            onChange={handleChange}
+            value="Home Address Proof"
+          />
+          <label className="required">Proof of your home address</label>
+          <Tooltip
+            title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
           bill, council tax bill or DWP/Jobcentre letter"
-          placement="top"
-        >
-          <InfoIcon id="icon" />
-        </Tooltip>
+            placement="top"
+          >
+            <InfoIcon id="icon" />
+          </Tooltip>
+        </div>
         <br />
-        <input
-          type="checkbox"
-          name="employmentProof"
-          onChange={handleChange}
-          value="Employment proof"
-        />
-        <label className="required">
-          Proof of your employment or benefit status
-        </label>
-        <Tooltip
-          title="e.g Employer payslips, Universal credit statement, Jobcentre benefits decision
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="employmentProof"
+            onChange={handleChange}
+            value="Employment proof"
+          />
+          <label className="required">
+            Proof of your employment or benefit status
+          </label>
+          <Tooltip
+            title="e.g Employer payslips, Universal credit statement, Jobcentre benefits decision
           notification letter"
-          placement="top"
-        >
-          <InfoIcon id="icon" />
-        </Tooltip>
+            placement="top"
+          >
+            <InfoIcon id="icon" />
+          </Tooltip>
+        </div>
         <br />
         <br />
-
-        <input
-          type="checkbox"
-          name="declarationStmt1"
-          onChange={handleChange}
-          value="true"
-        />
-        <label className="required">
-          I understand that the course is provided at no cost to myself, and
-          agree to make every effort to complete the course
-        </label>
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="declarationStmt1"
+            onChange={handleChange}
+            value="true"
+          />
+          <label className="required">
+            I understand that the course is provided at no cost to myself, and
+            agree to make every effort to complete the course
+          </label>
+        </div>
         <br />
         <Button color="primary" variant="contained" onClick={this.continue}>
           Continue

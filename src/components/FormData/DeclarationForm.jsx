@@ -22,15 +22,17 @@ export class DeclarationForm extends Component {
         <br />
 
         <p className="required">Contact Preferences</p>
-        <input
-          type="checkbox"
-          name="contactPref"
-          onChange={handleChange}
-          value="Consent to Contact Preference"
-        />
-        <label>
-          I consent to being contacted regarding my enrolment and course
-        </label>
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="contactPref"
+            onChange={handleChange}
+            value="Consent to Contact Preference"
+          />
+          <label>
+            I consent to being contacted regarding my enrolment and course
+          </label>
+        </div>
         <br />
 
         <label className="required">Preferred Contact Method</label>
@@ -88,77 +90,84 @@ export class DeclarationForm extends Component {
         <br />
 
         <p className="pBold">Declaration</p>
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>
-          I confirm that the information provided in this application is correct
-          and complete.
-        </label>
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="marketingMethodPref"
+            onChange={handleChange}
+            value="Text"
+          />
+          <label>
+            I confirm that the information provided in this application is
+            correct and complete.
+          </label>
+        </div>
+        <br />
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="marketingMethodPref"
+            onChange={handleChange}
+            value="Text"
+          />
+          <label>
+            I agree to My Free Course processing the information provided in
+            accordance with current Data Protection legislation.
+          </label>
+        </div>
+        <br />
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="marketingMethodPref"
+            onChange={handleChange}
+            value="Text"
+          />
+          <label>
+            I agree that I will inform My Free Course if any information
+            supplied in my application changes in any way.
+          </label>
+        </div>
+        <br />
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="marketingMethodPref"
+            onChange={handleChange}
+            value="Text"
+          />
+          <label>
+            I declare that I have correct and fully identified my prior
+            qualifications.
+          </label>
+        </div>
+        <br />
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="marketingMethodPref"
+            onChange={handleChange}
+            value="Text"
+          />
+          <label>
+            I agree to abide by My Free Course policies and procedures.
+          </label>
+        </div>
         <br />
 
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>
-          I agree to My Free Course processing the information provided in
-          accordance with current Data Protection legislation.
-        </label>
-        <br />
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>
-          I agree that I will inform My Free Course if any information supplied
-          in my application changes in any way.
-        </label>
-        <br />
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>
-          I declare that I have correct and fully identified my prior
-          qualifications.
-        </label>
-        <br />
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>
-          I agree to abide by My Free Course policies and procedures.
-        </label>
-        <br />
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>
-          I agree to make every effort to complete the course, and understand
-          that by withdrawing from the course I may be required to pay £100
-          administration fee.
-        </label>
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="marketingMethodPref"
+            onChange={handleChange}
+            value="Text"
+          />
+          <label>
+            I agree to make every effort to complete the course, and understand
+            that by withdrawing from the course I may be required to pay £100
+            administration fee.
+          </label>
+        </div>
         <br />
 
         <p className="pBold">Enrollment Call Availabilty</p>

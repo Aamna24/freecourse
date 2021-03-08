@@ -100,7 +100,7 @@ export class Confirm extends Component {
                 id="sigBtn"
                 onClick={this.trim}
               >
-                Save A
+                Save Signature
               </button>
             </div>
             <div className="col-md-4 ">
@@ -128,7 +128,7 @@ export class Confirm extends Component {
                     });
                 }}
               >
-                Save Signature
+                Submit Signature
               </button>
             </div>
           </div>
