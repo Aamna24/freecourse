@@ -1,8 +1,20 @@
 import React from "react";
+import React from "react";
+
+class ScrollToTopOnMount extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  render() {
+    return null;
+  }
+}
 
 const PrivacyPolicy = () => {
   return (
     <div className="container" style={{ margin: "80px 80px 210px 80px" }}>
+      <ScrollToTopOnMount />
       <h2>PRIVACY POLICY</h2>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
       perspiciatis debitis voluptates, illo, alias facere eligendi laudantium
