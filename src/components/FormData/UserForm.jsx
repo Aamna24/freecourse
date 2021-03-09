@@ -166,6 +166,7 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
+      date,
     } = this.state;
 
     const form = {
@@ -220,6 +221,7 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
+      date: Date.now(),
     };
 
     axios
