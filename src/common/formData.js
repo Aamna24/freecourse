@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import {apiEndpoint} from '../config.json'
 import Pagination from './pagination'
-//import ListGroup from './listGroup'
+import {paginate} from './paginate'
 import axios from 'axios'
 import ListGroup from 'react-bootstrap/ListGroup'
 
 const Formdata=(props)=>{
     const {posts} = props;
    const [currentPage,setcurrentPage]=useState(1);
+   const PageSize = 4;
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
 
+  const forms = paginate(posts, currentPage , PageSize);
+  
 
     const handleChange=(e)=>{
        const apiUrl = "https://consulting-backend.herokuapp.com/form/print/"+e;
-       console.log(apiUrl)
+      
        axios(apiUrl, {
         method: "GET",
         responseType: "blob"
@@ -37,7 +40,6 @@ const Formdata=(props)=>{
 
  const handleSignChange=(e)=>{
     const apiUrl = "https://consulting-backend.herokuapp.com/form/watermark/"+e;
-    console.log(apiUrl)
     axios(apiUrl, {
         method: "GET",
         responseType: "blob",
@@ -58,40 +60,24 @@ const Formdata=(props)=>{
           console.log(error);
         });
      }
-     const handleDownload=(e)=>{
-        const apiUrl ="https://consulting-backend.herokuapp.com/form/getFiles";
-        axios(apiUrl, {
-        method: "GET",
-        responseType: "blob"
-        //Force to receive data in a Blob Format
-      })
-        .then(response => {
-          //Create a Blob from the PDF Stream
-          const file = new Blob([response.data], {
-            type: "application/pdf"
-          });
-          //Build a URL from the file
-          const fileURL = URL.createObjectURL(file);
-          //Open the URL on new Window
-          window.open(fileURL);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-     }
-     
-     
+    
 
  const handlePageChange=page=>{
      
     setcurrentPage(page)
     
  }
+ const handleClick=(e)=>{
+   console.log(e)
+ }
  
     return(
         <div className="row">
           <div className="col-2">
-           <ListGroup />
+           <ListGroup>
+             <ListGroup.Item onClick={handleClick}>London</ListGroup.Item>
+             <ListGroup.Item>Manchester</ListGroup.Item>
+           </ListGroup>
           </div>
           <div className="col">
           <Container maxWidth="md" component="main">
@@ -106,7 +92,7 @@ const Formdata=(props)=>{
                     </tr>
                 </thead>
                 <tbody>
-                {posts.data.map((post)=>{
+                {forms.map((post)=>{
                     return(
 <tr>
 
