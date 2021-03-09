@@ -8,6 +8,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 const Formdata=(props)=>{
     const {posts} = props;
+    
    const [currentPage,setcurrentPage]=useState(1);
    const PageSize = 4;
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
@@ -73,6 +74,7 @@ const Formdata=(props)=>{
  
     return(
         <div className="row">
+         
           <div className="col-2">
            <ListGroup>
              <ListGroup.Item onClick={handleClick}>London</ListGroup.Item>
@@ -81,7 +83,6 @@ const Formdata=(props)=>{
           </div>
           <div className="col">
           <Container maxWidth="md" component="main">
-            
             <table className="table">
                 <thead>
                     <tr>
