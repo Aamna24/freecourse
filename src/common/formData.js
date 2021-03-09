@@ -16,7 +16,7 @@ const Formdata=(props)=>{
   const forms = paginate(posts, currentPage , PageSize);
   
 
-    const handleChange=(e)=>{
+    const handleChange=()=>{
        const apiUrl = "https://consulting-backend.herokuapp.com/form/test/";
       
        axios(apiUrl, {
@@ -39,7 +39,7 @@ const Formdata=(props)=>{
         });    
  }
 
- const handleSignChange=(e)=>{
+ const handleSignChange=()=>{
     const apiUrl = "https://consulting-backend.herokuapp.com/form/testsign/";
     axios(apiUrl, {
         method: "GET",
@@ -101,12 +101,12 @@ const Formdata=(props)=>{
                         <td>{post.city}</td>
                         <td>{post.appliedCourse}</td>
                         <td><button className="btn btn-success btn-sm" onClick={
-                          ()=>{handleChange(post._id)}
+                          ()=>{handleChange()}
                         }>Fill PDF</button>
                             
                         </td>
                         <td><button className="btn btn-warning btn-sm" onClick={
-                          ()=>{handleSignChange(post._id)}
+                          ()=>{handleSignChange()}
                         }>Sign PDF</button>
                             
                         </td>
