@@ -74,21 +74,16 @@ const Formdata=(props)=>{
  
     return(
         <div className="row">
-         
-          <div className="col-2">
-           <ListGroup>
-             <ListGroup.Item onClick={handleClick}>London</ListGroup.Item>
-             <ListGroup.Item>Manchester</ListGroup.Item>
-           </ListGroup>
-          </div>
           <div className="col">
           <Container maxWidth="md" component="main">
+            <p>Total Forms: {posts.data.length} </p>
             <table className="table">
                 <thead>
                     <tr>
                         <th>Student Name</th>
                         <th>City</th>
                         <th>Course Title</th>
+                        <th>Date</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -100,6 +95,7 @@ const Formdata=(props)=>{
                         <td>{post.firstName}</td>
                         <td>{post.city}</td>
                         <td>{post.appliedCourse}</td>
+                        <td>{post.date}</td>
                         <td><button className="btn btn-success btn-sm" onClick={
                           ()=>{handleChange(post._id)}
                         }>Fill PDF</button>

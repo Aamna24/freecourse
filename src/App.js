@@ -17,6 +17,7 @@ import AdminLandingPage from './components/AdminMainPage'
 import AddCourse from './components/addCourse'
 import StudentsData from './components/studentsList'
 import Details from './common/details'
+import Colleges from './components/colleges'
 import ProtectedRoute from './components/ProtectedRoute'
 import config from './config.json'
 import './App.css';
@@ -72,7 +73,7 @@ class App extends React.Component {
 
             <Route path="/admin" component={AdminPanel}/>
             <ProtectedRoute path="/adminhome"  component={AdminLandingPage} />
-            <ProtectedRoute path="/addCourse" component={AddCourse}/>
+            <ProtectedRoute path="/colleges" component={Colleges}/>
             <ProtectedRoute path="/studentslist" component={StudentsData}/>
 
             <Redirect from="/" exact to="/home" />

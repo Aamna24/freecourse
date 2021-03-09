@@ -17,15 +17,12 @@ const AdminLandingPage = () => {
         <div className="col-md-6 ">
           <Card style={style}>
             <Card.Body>
-              <Card.Title> Add Course</Card.Title>
+              <Card.Title> Colleges</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                Add Course
+                View submitions of each college
               </Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Card.Link href="/addCourse">Click here to Add Course</Card.Link>
+              <Card.Text></Card.Text>
+              <Card.Link href="/colleges">Click here to View data</Card.Link>
             </Card.Body>
           </Card>
         </div>
@@ -34,16 +31,12 @@ const AdminLandingPage = () => {
             <Card.Body>
               <Card.Title>Students Listing</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
+                View tabular data
               </Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
+              <Card.Text></Card.Text>
               <Card.Link href="/studentslist">
                 Click to view Students Data
               </Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
             </Card.Body>
           </Card>
         </div>
