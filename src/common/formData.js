@@ -91,7 +91,8 @@ const Formdata=(props)=>{
                 </thead>
                 <tbody>
                 {forms.map((post)=>{
-                  
+                  var id=`?x=${encodeURI(post._id)}`
+                  console.log(id)
                     return(
 <tr>
 
@@ -111,7 +112,9 @@ const Formdata=(props)=>{
                         
                         <td><button className="btn btn-warning btn-sm" onClick={
                           ()=>{handleSignChange(post._id)}
-                        }>Sign PDF</button>
+                        }>Sign PDF</button></td>
+                        <td><button className="btn btn-warning btn-sm"
+                        >Test</button>
                             
                         </td>
                         
