@@ -4,10 +4,7 @@ import axios from "axios";
 
 const Details = () => {
   let a = window.location.search;
-  console.log(a);
   let b = new URLSearchParams(a).get("id");
-  console.log("b", b);
-  //let em=a.slice(7,)
 
   const [products, setProducts] = React.useState([]);
 
@@ -26,8 +23,6 @@ const Details = () => {
 
   return (
     <div>
-      <div></div>
-
       {products.length == 0 ? (
         <p>There are no Products</p>
       ) : (

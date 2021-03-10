@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import Container from '@material-ui/core/Container';
-import {apiEndpoint} from '../config.json'
+import {Container,Link} from '@material-ui/core';
 import Pagination from './pagination'
 import {paginate} from './paginate'
 import axios from 'axios'
-import ListGroup from 'react-bootstrap/ListGroup'
 
 const Formdata=(props)=>{
     const {posts} = props;
     
    const [currentPage,setcurrentPage]=useState(1);
-   const PageSize = 4;
+   const PageSize = 10;
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
-
+  
   const forms = paginate(posts, currentPage , PageSize);
   
 
@@ -62,20 +60,22 @@ const Formdata=(props)=>{
         });
      }
     
+    const handleShowData=(e)=>{
+     
+
+    }
 
  const handlePageChange=page=>{
      
     setcurrentPage(page)
     
  }
- const handleClick=(e)=>{
-   console.log(e)
- }
+ 
  
     return(
         <div className="row">
           <div className="col">
-          <Container maxWidth="md" component="main">
+          <Container maxWidth="lg" component="main">
             <p>Total Forms: {posts.data.length} </p>
             <table className="table">
                 <thead>
@@ -85,10 +85,13 @@ const Formdata=(props)=>{
                         <th>Course Title</th>
                         <th>Date</th>
                         <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {forms.map((post)=>{
+                  
                     return(
 <tr>
 
@@ -96,11 +99,16 @@ const Formdata=(props)=>{
                         <td>{post.city}</td>
                         <td>{post.appliedCourse}</td>
                         <td>{post.date}</td>
+                        <td><button className="btn btn-danger btn-sm" onClick={
+                           e=>{
+                            window.location.href="/show-data?id="+post._id}}>Show Data
+                          </button></td>
                         <td><button className="btn btn-success btn-sm" onClick={
                           ()=>{handleChange(post._id)}
                         }>Fill PDF</button>
                             
                         </td>
+                        
                         <td><button className="btn btn-warning btn-sm" onClick={
                           ()=>{handleSignChange(post._id)}
                         }>Sign PDF</button>

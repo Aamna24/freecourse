@@ -68,6 +68,7 @@ export class UserForm extends Component {
     contactPref: "",
     contactMethodPref: [],
     marketingMethodPref: [],
+    collegeName: ["West College", "North College"],
   };
 
   // Proceed to next step
@@ -166,8 +167,11 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
-      date,
+      collegeName,
     } = this.state;
+
+    var randomIndex = Math.floor(Math.random() * collegeName.length);
+    var randomElement = collegeName[randomIndex];
 
     const form = {
       uniqueFormNo,
@@ -222,6 +226,7 @@ export class UserForm extends Component {
       contactMethodPref,
       marketingMethodPref,
       date: Date.now(),
+      collegeName: randomElement,
     };
 
     axios

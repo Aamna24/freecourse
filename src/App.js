@@ -14,7 +14,7 @@ import Courses from './components/Courses'
 import AdminPanel from './components/adminLogin'
 import UserForm from './components/FormData/UserForm'
 import AdminLandingPage from './components/AdminMainPage'
-import AddCourse from './components/addCourse'
+import getStudentData from './common/getStudentData'
 import StudentsData from './components/studentsList'
 import Details from './common/details'
 import Colleges from './components/colleges'
@@ -70,6 +70,7 @@ class App extends React.Component {
             <Route path="/courses" component={Courses} />
             <Route path="/form" component={UserForm}/>
             <Route path="/single" component={Details}/>
+            <Route path="/show-data" component={getStudentData}/>
 
             <Route path="/admin" component={AdminPanel}/>
             <ProtectedRoute path="/adminhome"  component={AdminLandingPage} />

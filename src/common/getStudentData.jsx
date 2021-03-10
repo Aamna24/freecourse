@@ -1,9 +1,11 @@
 import React from "react";
-
+import StudentFormData from "../common/StudentFormData";
 import axios from "axios";
-import Card from "react-bootstrap/Card";
 
-const Colleges = () => {
+const GetStudentData = () => {
+  let a = window.location.search;
+  let b = new URLSearchParams(a).get("id");
+  console.log(b);
   const [products, setProducts] = React.useState([]);
 
   const getData = () => {
@@ -18,25 +20,24 @@ const Colleges = () => {
   };
   //getData();
   React.useEffect(getData, []);
-  console.log(products);
-  //var filtered = products.data.filter((x) => x.firstName == "Aamna").length;
 
   return (
-    <div className="container">
+    <div>
       {products.length == 0 ? (
         <p>There are no Products</p>
       ) : (
         <div>
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Nottinghamshire College</Card.Title>
-              <Card.Subtitle>Total Forms Submitted: </Card.Subtitle>
-            </Card.Body>
-          </Card>
+          {products.data
+            .filter((x) => x._id === b)
+            .map((product, index) => (
+              <div>
+                <StudentFormData key={index} product={product} />
+              </div>
+            ))}
         </div>
       )}
     </div>
   );
 };
 
-export default Colleges;
+export default GetStudentData;
