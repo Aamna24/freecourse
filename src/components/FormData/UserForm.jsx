@@ -111,7 +111,31 @@ export class UserForm extends Component {
       console.log(e.target.value);
     }
   };
+  handleDetails = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
+  handleSubmitDetails = (e) => {
+    const { lastName, firstName, email, mobile } = this.state;
+    const details = {
+      firstName,
+      lastName,
+      email,
+      mobile,
+    };
+
+    axios
+      .post(
+        "https://consulting-backend.herokuapp.com/users/registerDetails",
+
+        details
+      )
+      .then(() => toast.success("Form submitted successfully"))
+      .catch((err) => {
+        console.error(err);
+        toast.error("Error submitting form.");
+      });
+  };
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -254,6 +278,8 @@ export class UserForm extends Component {
             <FormUserDetails
               nextStep={this.nextStep}
               handleChange={this.handleChange}
+              handleDetails={this.handleDetails}
+              handleSubmit={this.handleSubmitDetails}
             />
           </div>
         );

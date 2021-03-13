@@ -10,7 +10,7 @@ export class FormUserDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const { handleSubmit, handleDetails, handleChange } = this.props;
     return (
       <div className="container">
         <ScrollToTop />
@@ -143,7 +143,7 @@ export class FormUserDetails extends Component {
         </div>
         <div className="row">
           <div className="col-md-6">
-            <label className="required">3- Are you age 19 or older?</label>
+            <label className="required">3- Are you age 24 or older?</label>
           </div>
           <div className="col-md-6">
             <select
@@ -219,9 +219,7 @@ export class FormUserDetails extends Component {
         </div>
         <br />
         <label>
-          We work with a range of education providers to help you access fully
-          funded UK government courses that lead to a nationally recognised
-          qualification. Before enrolling onto your chosen course the education
+          Before enrolling onto your chosen online course the college/education
           provider will need to confirm you meet the required qualification
           criteria for full funding. This is usually on the form of copies of
           original documents.
@@ -312,6 +310,62 @@ export class FormUserDetails extends Component {
           </label>
         </div>
         <br />
+
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">First Name</p>
+          </div>
+          <div className="col-md-6">
+            <input
+              type="text"
+              onChange={handleDetails}
+              name="firstName"
+              placeholder="first name"
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Last Name</p>
+          </div>
+          <div className="col-md-6">
+            <input
+              type="text"
+              onChange={handleDetails}
+              name="lastName"
+              placeholder="first name"
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Mobile No</p>
+          </div>
+          <div className="col-md-6">
+            <input
+              type="text"
+              onChange={handleDetails}
+              name="mobile"
+              placeholder="first name"
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="required">Email</p>
+          </div>
+          <div className="col-md-6">
+            <input
+              type="text"
+              onChange={handleDetails}
+              name="email"
+              placeholder="first name"
+            />
+          </div>
+        </div>
+        <Button color="primary" variant="contained" onClick={handleSubmit}>
+          Submit
+        </Button>
         <Button color="primary" variant="contained" onClick={this.continue}>
           Continue
         </Button>
