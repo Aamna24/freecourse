@@ -1,19 +1,35 @@
 import React, { useState } from 'react';
-import {Container,Link} from '@material-ui/core';
+import {TextField} from '@material-ui/core';
+import ListGroup from './listGroup'
 import Pagination from './pagination'
 import {paginate} from './paginate'
 import axios from 'axios'
 
+
 const Formdata=(props)=>{
     const {posts} = props;
+    const cities = ['London','Lahore']
     
-   const [currentPage,setcurrentPage]=useState(1);
-   const PageSize = 10;
-    if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
-  
-  const forms = paginate(posts, currentPage , PageSize);
-  
+    const [city, setCurrentCity]= useState(cities)
+    const [s_date, setDate] = useState()
+    const [currentPage,setcurrentPage]=useState(1);
+    const PageSize = 10;
 
+    if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
+    
+    
+     if(s_date){
+      var filtered = s_date? posts.data.filter(m => m.date === s_date): posts;
+      console.log("filterw",filtered)
+     }
+     if(city){
+      filtered = city? posts.data.filter(m => m.city === city): posts;
+     }
+   
+    
+     const  forms = paginate(filtered, currentPage , PageSize);
+    console.log("forms",s_date)
+   
     const handleChange=(e)=>{
        const apiUrl =  "https://consulting-backend.herokuapp.com/form/print/"+e;
       
@@ -60,10 +76,14 @@ const Formdata=(props)=>{
         });
      }
     
-    const handleShowData=(e)=>{
+    const handleCitySelect=city=>{
+     setCurrentCity(city)
      
-
     }
+    const handleDate=selectedDate=>{
+      setDate(selectedDate.target.value)
+     
+     }
 
  const handlePageChange=page=>{
      
@@ -71,12 +91,31 @@ const Formdata=(props)=>{
     
  }
  
- 
     return(
-        <div className="row">
-          <div className="col">
-          <Container maxWidth="lg" component="main">
-            <p>Total Forms: {posts.data.length} </p>
+     
+       
+      
+      <div className="  row">
+         
+         
+      <div className="col-2">
+      <h5>Filter by City:</h5>
+      <ListGroup items={cities} onItemSelect={handleCitySelect} selectedItem={city} /><br/>
+      <h5>Filter by Date:</h5>
+      <TextField
+                id="date"
+                name="dob"
+                type="date"
+                format="MM/dd/yyyy"
+                onChange={handleDate}
+              />
+    
+    </div>
+            
+            
+            <div className="col">
+            Showing {filtered.length} movies in database
+            <br/>
             <table className="table">
                 <thead>
                     <tr>
@@ -91,8 +130,7 @@ const Formdata=(props)=>{
                 </thead>
                 <tbody>
                 {forms.map((post)=>{
-                  var id=`?x=${encodeURI(post._id)}`
-                  console.log(id)
+                  
                     return(
 <tr>
 
@@ -113,10 +151,7 @@ const Formdata=(props)=>{
                         <td><button className="btn btn-warning btn-sm" onClick={
                           ()=>{handleSignChange(post._id)}
                         }>Sign PDF</button></td>
-                        <td><button className="btn btn-warning btn-sm"
-                        >Test</button>
-                            
-                        </td>
+                        
                         
                         
                     </tr>
@@ -127,18 +162,17 @@ const Formdata=(props)=>{
                 </tbody>
             </table>
 
-        
+            </div>
     
 
-</Container>
+
 <Pagination 
-itemsCount={posts.data.length} 
+itemsCount={filtered.length} 
 pageSize={4}
 onPageChange={handlePageChange}
 currentPage={currentPage}/>
-          </div>
+         </div>
         
-    </div>
     )
 }
 

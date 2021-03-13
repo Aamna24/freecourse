@@ -230,7 +230,13 @@ export class UserForm extends Component {
     };
 
     axios
-      .post("https://consulting-backend.herokuapp.com/form/submit", form)
+      .post(
+        "https://consulting-backend.herokuapp.com/form/submit",
+        {
+          mode: "no-cors",
+        },
+        form
+      )
       .then(() => toast.success("Form submitted successfully"))
       .catch((err) => {
         console.error(err);
