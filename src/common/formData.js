@@ -8,7 +8,7 @@ import axios from 'axios'
 
 const Formdata=(props)=>{
     const {posts} = props;
-    const cities = ['London','Lahore']
+    const cities = ['All','London','Lahore']
     
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
@@ -16,18 +16,12 @@ const Formdata=(props)=>{
     const PageSize = 10;
 
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
-    const formData = posts.data;
-    var  forms = paginate(formData, currentPage , PageSize);
-     
-     if(city){
-      var filtered = city? posts.data.filter(m => m.city === city): posts;
-      forms = paginate(filtered, currentPage , PageSize);
-     }
-   
+  
+      var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
+     const forms = paginate(filtered, currentPage , PageSize);
     
-      
     
-   
+    
     const handleChange=(e)=>{
        const apiUrl =  "https://consulting-backend.herokuapp.com/form/print/"+e;
       
