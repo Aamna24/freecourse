@@ -16,19 +16,17 @@ const Formdata=(props)=>{
     const PageSize = 10;
 
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
-    
-    
-     if(s_date){
-      var filtered = s_date? posts.data.filter(m => m.date === s_date): posts;
-      console.log("filterw",filtered)
-     }
+    const formData = posts.data;
+    var  forms = paginate(formData, currentPage , PageSize);
+     
      if(city){
-      filtered = city? posts.data.filter(m => m.city === city): posts;
+      var filtered = city? posts.data.filter(m => m.city === city): posts;
+      forms = paginate(filtered, currentPage , PageSize);
      }
    
     
-     const  forms = paginate(filtered, currentPage , PageSize);
-    console.log("forms",s_date)
+      
+    
    
     const handleChange=(e)=>{
        const apiUrl =  "https://consulting-backend.herokuapp.com/form/print/"+e;

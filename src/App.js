@@ -19,7 +19,6 @@ import StudentsData from './components/studentsList'
 import Details from './common/details'
 import Colleges from './components/colleges'
 import ProtectedRoute from './components/ProtectedRoute'
-import config from './config.json'
 import './App.css';
 
 
