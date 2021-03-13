@@ -225,6 +225,7 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
+
       collegeName: randomElement,
     };
 
