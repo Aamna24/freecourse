@@ -14,7 +14,7 @@ const AdminLandingPage = () => {
       <br />
       <br />
       <div className="row">
-        <div className="col-md-6 ">
+        <div className="col-md-4 ">
           <Card style={style}>
             <Card.Body>
               <Card.Title> Colleges</Card.Title>
@@ -26,7 +26,21 @@ const AdminLandingPage = () => {
             </Card.Body>
           </Card>
         </div>
-        <div className="col-md-6 ">
+        <div className="col-md-4 ">
+          <Card style={style}>
+            <Card.Body>
+              <Card.Title> Incomplete Forms</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                View list of students with incomplete form
+              </Card.Subtitle>
+              <Card.Text></Card.Text>
+              <Card.Link href="/incompleteForms">
+                Click here to View List
+              </Card.Link>
+            </Card.Body>
+          </Card>
+        </div>
+        <div className="col-md-4 ">
           <Card style={style}>
             <Card.Body>
               <Card.Title>Students Listing</Card.Title>

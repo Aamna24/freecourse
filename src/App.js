@@ -18,6 +18,7 @@ import getStudentData from './common/getStudentData'
 import StudentsData from './components/studentsList'
 import Details from './common/details'
 import Colleges from './components/colleges'
+import IncompleteForms from './components/incompleteForms'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css';
 
@@ -72,6 +73,7 @@ class App extends React.Component {
             
 
             <Route path="/admin" component={AdminPanel}/>
+            <Route path="/incompleteForms" component={IncompleteForms}/>
             <ProtectedRoute path="/adminhome"  component={AdminLandingPage} />
             <ProtectedRoute path="/colleges" component={Colleges}/>
             <ProtectedRoute path="/studentslist" component={StudentsData}/>

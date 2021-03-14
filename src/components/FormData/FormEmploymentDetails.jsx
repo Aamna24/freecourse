@@ -44,10 +44,12 @@ export class FormEmploymentDetails extends Component {
             </select>
           </div>
         </div>
-
+        <p>
+          If unemployed please skip the following fields. And fill section 3.5
+        </p>
         <div className="row">
           <div className="col-md-6">
-            <p className="pBold">
+            <p className="pBold required">
               If employed, please select how many hours you work per week?
             </p>
           </div>
@@ -74,7 +76,7 @@ export class FormEmploymentDetails extends Component {
 
         <div className="row">
           <div className="col-md-6">
-            <p className="pBold">
+            <p className="pBold required">
               If employed, please select length of employment (months)
             </p>
           </div>
@@ -95,7 +97,7 @@ export class FormEmploymentDetails extends Component {
 
         <div className="row">
           <div className="col-md-6">
-            <p className="pBold">
+            <p className="pBold required">
               If Employed, please enter the name of your Employer
             </p>
           </div>
@@ -106,7 +108,7 @@ export class FormEmploymentDetails extends Component {
 
         <div className="row">
           <div className="col-md-6">
-            <p className="pBold">Employers address</p>
+            <p className="pBold required">Employers address</p>
           </div>
           <div className="col-md-6">
             <input type="text" onChange={handleChange} name="employerAddress" />
@@ -115,7 +117,7 @@ export class FormEmploymentDetails extends Component {
 
         <div className="row">
           <div className="col-md-6">
-            <p className="pBold">Employers Postcode</p>
+            <p className="pBold required">Employers Postcode</p>
           </div>
           <div className="col-md-6">
             <input
@@ -128,7 +130,7 @@ export class FormEmploymentDetails extends Component {
 
         <div className="row">
           <div className="col-md-6">
-            <p className="pBold">Employers Telephone Number</p>
+            <p className="pBold required">Employers Telephone Number</p>
           </div>
           <div className="col-md-6">
             <input type="text" onChange={handleChange} name="employerTelNo" />

@@ -144,7 +144,7 @@ export class UserForm extends Component {
       .then(() => toast.success("Form submitted successfully"))
       .catch((err) => {
         console.error(err);
-        toast.error("Error submitting form.");
+        toast.error("User already registered");
       });
   };
   handleSubmit = (e) => {
@@ -311,7 +311,10 @@ export class UserForm extends Component {
           </div>
         );
       case 4:
-        if (employmentStatus === "Employed but on less than £17,004 per year") {
+        if (
+          employmentStatus === "Employed but on less than £17,004 per year" ||
+          employmentStatus === "Not in paid employment, looking for work"
+        ) {
           return (
             <div className="container">
               <ProgressBar now={(step / 6) * 100} id="pBar" />
