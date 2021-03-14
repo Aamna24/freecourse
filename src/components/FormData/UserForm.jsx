@@ -1,7 +1,6 @@
 import React, { Component, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Alert from "react-bootstrap/Alert";
 import FormUserDetails from "./FormUserDetails";
 import FormPersonalDetails from "./FormPersonalDetails";
 import FormEmployementDetails from "./FormEmploymentDetails";
@@ -24,11 +23,7 @@ export class UserForm extends Component {
     age19orOlder: "",
     residencyStatus: "",
     livingStatus: "",
-    ageProof: "",
-    livingAndWorkingProof: "",
-    homeAddProof: "",
-    employmentProof: "",
-    declarationStmt1: "",
+    proof: "",
     title: "",
     firstName: "",
     lastName: "",
@@ -73,10 +68,13 @@ export class UserForm extends Component {
 
   // Proceed to next step
   nextStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + 1,
-    });
+    if (this.state.firstName == "Yes") {
+      const { step } = this.state;
+      this.setState({
+        step: step + 1,
+      });
+    } else {
+    }
   };
 
   // Go back to prev step
@@ -116,6 +114,14 @@ export class UserForm extends Component {
   };
 
   handleSubmitDetails = (e) => {
+    if (
+      this.state.highestQualificationLevel == "No- Level 3 or above" ||
+      this.state.age19orOlder == "No" ||
+      this.state.livingStatus == "No" ||
+      this.state.proof == "No"
+    ) {
+      toast.error("You do not qualify for this course.");
+    }
     const { lastName, firstName, email, mobile } = this.state;
     const details = {
       firstName,
@@ -146,11 +152,7 @@ export class UserForm extends Component {
       age19orOlder,
       residencyStatus,
       livingStatus,
-      ageProof,
-      livingAndWorkingProof,
-      homeAddProof,
-      employmentProof,
-      declarationStmt1,
+      proof,
       title,
       firstName,
       lastName,
@@ -204,11 +206,7 @@ export class UserForm extends Component {
       age19orOlder,
       residencyStatus,
       livingStatus,
-      ageProof,
-      livingAndWorkingProof,
-      homeAddProof,
-      employmentProof,
-      declarationStmt1,
+      proof,
       title,
       firstName,
       lastName,

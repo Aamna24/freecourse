@@ -6,6 +6,7 @@ import ScrollToTop from "../../common/ScrollToMount";
 export class FormUserDetails extends Component {
   continue = (e) => {
     e.preventDefault();
+
     this.props.nextStep();
   };
 
@@ -229,13 +230,8 @@ export class FormUserDetails extends Component {
           Please confirm that you are able to provide the following:
         </label>
         <br />
-        <input
-          type="checkbox"
-          name="ageProof"
-          onChange={handleChange}
-          value="Age proof"
-        />
-        <label className="required">Age Proof</label>
+
+        <label className="required">Proof of Age</label>
         <Tooltip
           title="e.g a valid a copy of your passport / full driving licence (provisional driving licences
             are not acceptable) / birth certificate /DWP/Jobcentre letter"
@@ -245,72 +241,40 @@ export class FormUserDetails extends Component {
         </Tooltip>
 
         <br />
-        <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="livingAndWorkingProof"
-            onChange={handleChange}
-            value="living And Working Proof"
-          />
-          <label className="required">
-            Proof of your right to live and work in the UK
-          </label>
-          <Tooltip title="e.g valid UK/EU passport" placement="top">
-            <InfoIcon id="icon" />
-          </Tooltip>
-        </div>
-        <br />
-        <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="homeAddProof"
-            onChange={handleChange}
-            value="Home Address Proof"
-          />
-          <label className="required">Proof of your home address</label>
-          <Tooltip
-            title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
-          bill, council tax bill or DWP/Jobcentre letter"
-            placement="top"
-          >
-            <InfoIcon id="icon" />
-          </Tooltip>
-        </div>
-        <br />
-        <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="employmentProof"
-            onChange={handleChange}
-            value="Employment proof"
-          />
-          <label className="required">
-            Proof of your employment or benefit status
-          </label>
-          <Tooltip
-            title="e.g Employer payslips, Universal credit statement, Jobcentre benefits decision
-          notification letter"
-            placement="top"
-          >
-            <InfoIcon id="icon" />
-          </Tooltip>
-        </div>
-        <br />
-        <br />
-        <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="declarationStmt1"
-            onChange={handleChange}
-            value="true"
-          />
-          <label className="required">
-            I understand that the course is provided at no cost to myself, and
-            agree to make every effort to complete the course
-          </label>
-        </div>
+
+        <label className="required">
+          Proof of your right to live and work in the UK
+        </label>
+        <Tooltip title="e.g valid UK/EU passport" placement="top">
+          <InfoIcon id="icon" />
+        </Tooltip>
+
         <br />
 
+        <label className="required">Proof of your home address</label>
+        <Tooltip
+          title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
+          bill, council tax bill or DWP/Jobcentre letter"
+          placement="top"
+        >
+          <InfoIcon id="icon" />
+        </Tooltip>
+
+        <br />
+
+        <div className="col-md-6">
+          <select
+            name="proof"
+            defaultValue="[Please select one]"
+            onChange={handleChange}
+          >
+            <option value="">[Please Select One]</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <br />
+        <br />
         <div className="row">
           <div className="col-md-6">
             <p className="required">First Name</p>
@@ -324,6 +288,7 @@ export class FormUserDetails extends Component {
             />
           </div>
         </div>
+
         <div className="row">
           <div className="col-md-6">
             <p className="required">Last Name</p>
