@@ -13,6 +13,7 @@ import Success from "./Success";
 import axios from "axios";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Popup from "reactjs-popup";
+import Button from "@material-ui/core/Button";
 toast.configure();
 
 export class UserForm extends Component {
@@ -69,13 +70,10 @@ export class UserForm extends Component {
 
   // Proceed to next step
   nextStep = () => {
-    if (this.state.firstName == "Yes") {
-      const { step } = this.state;
-      this.setState({
-        step: step + 1,
-      });
-    } else {
-    }
+    const { step } = this.state;
+    this.setState({
+      step: step + 1,
+    });
   };
 
   // Go back to prev step
@@ -123,6 +121,10 @@ export class UserForm extends Component {
     ) {
       toast.error(
         "Unfortunately it doesn’t look like you qualify for one of our government funded courses"
+      );
+    } else {
+      toast.success(
+        "Congratulations, it looks like you qualify for one of our FREE government funded courses Places are limited, so please complete your application promptly. "
       );
     }
     const { lastName, firstName, email, mobile } = this.state;

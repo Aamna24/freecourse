@@ -6,7 +6,6 @@ import ScrollToTop from "../../common/ScrollToMount";
 export class FormUserDetails extends Component {
   continue = (e) => {
     e.preventDefault();
-
     this.props.nextStep();
   };
 
@@ -16,7 +15,6 @@ export class FormUserDetails extends Component {
       <div className="container">
         <ScrollToTop />
         <h3>Step 1- Eligibility Check</h3>
-
         <br />
         <label>
           The courses provided are delivered online by UK colleges and are
@@ -26,7 +24,6 @@ export class FormUserDetails extends Component {
           To see if you qualify for a FREE funded nationally recognised course,
           please answer the following questions.
         </label>
-
         <div className="row">
           <div className="col-md-6">
             <label className="required">
@@ -113,7 +110,6 @@ export class FormUserDetails extends Component {
             </select>
           </div>
         </div>
-
         <div className="row">
           <div className="col-md-6">
             <label className="required">
@@ -158,7 +154,6 @@ export class FormUserDetails extends Component {
             </select>
           </div>
         </div>
-
         <div className="row">
           <div className="col-md-6">
             <label className="required">
@@ -199,7 +194,6 @@ export class FormUserDetails extends Component {
             </select>
           </div>
         </div>
-
         <div className="row">
           <div className="col-md-6">
             <label className="required">
@@ -225,12 +219,10 @@ export class FormUserDetails extends Component {
           criteria for full funding. This is usually on the form of copies of
           original documents.
         </label>
-
         <label>
           Please confirm that you are able to provide the following:
         </label>
         <br />
-
         <label className="required">Proof of Age</label>
         <Tooltip
           title="e.g a valid a copy of your passport / full driving licence (provisional driving licences
@@ -239,18 +231,14 @@ export class FormUserDetails extends Component {
         >
           <InfoIcon id="icon" />
         </Tooltip>
-
         <br />
-
         <label className="required">
           Proof of your right to live and work in the UK
         </label>
         <Tooltip title="e.g valid UK/EU passport" placement="top">
           <InfoIcon id="icon" />
         </Tooltip>
-
         <br />
-
         <label className="required">Proof of your home address</label>
         <Tooltip
           title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
@@ -259,9 +247,7 @@ export class FormUserDetails extends Component {
         >
           <InfoIcon id="icon" />
         </Tooltip>
-
         <br />
-
         <div className="col-md-6">
           <select
             name="proof"
@@ -288,7 +274,6 @@ export class FormUserDetails extends Component {
             />
           </div>
         </div>
-
         <div className="row">
           <div className="col-md-6">
             <p className="required">Last Name</p>
@@ -328,6 +313,11 @@ export class FormUserDetails extends Component {
             />
           </div>
         </div>
+        <br />
+        <p>
+          Please submit your form first to check if you qualify or not. Thank
+          You
+        </p>
         <Button color="primary" variant="contained" onClick={handleSubmit}>
           Submit
         </Button>
