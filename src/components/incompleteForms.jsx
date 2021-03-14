@@ -15,6 +15,7 @@ const IncompleteForms = () => {
   };
   //getData();
   React.useEffect(getData, []);
+  console.log(forms.length);
   return (
     <div>
       {forms.length == 0 ? (
@@ -32,7 +33,7 @@ const IncompleteForms = () => {
               </tr>
             </thead>
             <tbody>
-              {forms.map((post) => {
+              {forms.data.map((post) => {
                 return (
                   <tr>
                     <td>{post.firstName}</td>
