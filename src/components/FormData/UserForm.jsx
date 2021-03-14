@@ -12,6 +12,7 @@ import Confirm from "./Confirm";
 import Success from "./Success";
 import axios from "axios";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import Popup from "reactjs-popup";
 toast.configure();
 
 export class UserForm extends Component {
@@ -120,7 +121,9 @@ export class UserForm extends Component {
       this.state.livingStatus == "No" ||
       this.state.proof == "No"
     ) {
-      toast.error("You do not qualify for this course.");
+      toast.error(
+        "Unfortunately it doesn’t look like you qualify for one of our government funded courses"
+      );
     }
     const { lastName, firstName, email, mobile } = this.state;
     const details = {
