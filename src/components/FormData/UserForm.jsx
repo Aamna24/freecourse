@@ -83,9 +83,25 @@ export class UserForm extends Component {
     });
   };
 
+  //validate email
+  validateEmail(email) {
+    const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+    const result = pattern.test(email);
+    if (result === true) {
+      this.setState({
+        emailError: false,
+        email: email,
+      });
+    } else {
+      this.setState({
+        emailError: true,
+      });
+    }
+  }
+
   // Handle fields change
   handleChange = (e) => {
-    if (e.target.name === "email") {
+    if ([e.target.name] == "email") {
       this.validateEmail(e.target.value);
     }
     if ([e.target.name] == "householdSituation") {
@@ -111,24 +127,11 @@ export class UserForm extends Component {
     }
   };
   handleDetails = (e) => {
+    if ([e.target.name] == "email") {
+      this.validateEmail(e.target.value);
+    }
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  //validate email
-  validateEmail(email) {
-    const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
-    const result = pattern.test(email);
-    if (result === true) {
-      this.setState({
-        emailError: false,
-        email: email,
-      });
-    } else {
-      this.setState({
-        emailError: true,
-      });
-    }
-  }
 
   handleSubmitDetails = (e) => {
     if (
@@ -320,6 +323,7 @@ export class UserForm extends Component {
               nextStep={this.nextStep}
               prevStep={this.prevStep}
               handleChange={this.handleChange}
+              error={this.state.emailError}
             />
           </div>
         );

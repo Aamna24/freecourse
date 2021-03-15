@@ -15,7 +15,7 @@ export class FormPersonalDetails extends Component {
   };
 
   render() {
-    const { handleChange } = this.props;
+    const { handleChange, error } = this.props;
     return (
       <div className="container">
         <ScrollToTop />
@@ -51,7 +51,6 @@ export class FormPersonalDetails extends Component {
                 type="text"
                 onChange={handleChange}
                 name="firstName"
-                placeholder="First Name"
                 required
               />
             </div>
@@ -62,12 +61,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">Last Name</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="lastName"
-                placeholder="Last Name"
-              />
+              <input type="text" onChange={handleChange} name="lastName" />
             </div>
           </div>
 
@@ -108,12 +102,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">Address Line</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="addLine1"
-                placeholder="Address Line"
-              />
+              <input type="text" onChange={handleChange} name="addLine1" />
             </div>
           </div>
 
@@ -131,12 +120,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">City</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="city"
-                placeholder="City"
-              />
+              <input type="text" onChange={handleChange} name="city" />
             </div>
           </div>
           <div className="row">
@@ -144,12 +128,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">County</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="county"
-                placeholder="County"
-              />
+              <input type="text" onChange={handleChange} name="county" />
             </div>
           </div>
 
@@ -158,12 +137,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">Postcode</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="postcode"
-                placeholder="Postcode"
-              />
+              <input type="text" onChange={handleChange} name="postcode" />
             </div>
           </div>
 
@@ -172,12 +146,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">Years at address</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="yearsAtAdd"
-                placeholder="years at address"
-              />
+              <input type="text" onChange={handleChange} name="yearsAtAdd" />
             </div>
           </div>
 
@@ -191,7 +160,6 @@ export class FormPersonalDetails extends Component {
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 onChange={handleChange}
                 name="telephone"
-                placeholder="Telephone"
               />
             </div>
           </div>
@@ -201,12 +169,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">Mobile</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="tel"
-                onChange={handleChange}
-                name="mobile"
-                placeholder="Mobile"
-              />
+              <input type="tel" onChange={handleChange} name="mobile" />
             </div>
           </div>
 
@@ -219,10 +182,16 @@ export class FormPersonalDetails extends Component {
                 type="email"
                 onChange={handleChange}
                 name="email"
-                placeholder="email"
                 pattern="[^ @]*@[^ @]*"
-                required
+                required="required"
               />
+              {error ? (
+                <span style={{ color: "red", marginLeft: "3px" }}>
+                  Please enter valid email address
+                </span>
+              ) : (
+                ""
+              )}
             </div>
           </div>
 
@@ -235,7 +204,6 @@ export class FormPersonalDetails extends Component {
                 type="text"
                 onChange={handleChange}
                 name="emergencyContactName"
-                placeholder="emergency contact name"
               />
             </div>
           </div>
@@ -249,7 +217,6 @@ export class FormPersonalDetails extends Component {
                 type="text"
                 onChange={handleChange}
                 name="emergencyTelephone"
-                placeholder="emergency telephone"
               />
             </div>
           </div>
@@ -259,12 +226,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">Nationality</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="nationality"
-                placeholder="Nationality"
-              />
+              <input type="text" onChange={handleChange} name="nationality" />
             </div>
           </div>
 
@@ -273,12 +235,7 @@ export class FormPersonalDetails extends Component {
               <p className="required">National Insurance Number</p>
             </div>
             <div className="col-md-6">
-              <input
-                type="text"
-                onChange={handleChange}
-                name="nationalInsNo"
-                placeholder="NationalInsurance Number"
-              />
+              <input type="text" onChange={handleChange} name="nationalInsNo" />
             </div>
           </div>
         </form>

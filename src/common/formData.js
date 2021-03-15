@@ -3,7 +3,7 @@ import ListGroup from './listGroup'
 import Pagination from './pagination'
 import {paginate} from './paginate'
 import axios from 'axios'
-
+import _ from 'lodash'
 
 const Formdata=(props)=>{
     const {posts} = props;
@@ -13,11 +13,13 @@ const Formdata=(props)=>{
     const [s_date, setDate] = useState()
     const [currentPage,setcurrentPage]=useState(1);
     const PageSize = 10;
-
+  const sortColumn={path: 'Title', order:'asc'}
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
   
       var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
-     const forms = paginate(filtered, currentPage , PageSize);
+
+     const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
+     const forms = paginate(sorted, currentPage , PageSize);
     
     
     
@@ -82,7 +84,7 @@ const Formdata=(props)=>{
     
  }
  const handleSort = path=>{
-   console.log(path)
+   this.setState({sortColumn: path, order:'asc'})
  }
  
     return(
@@ -108,7 +110,7 @@ const Formdata=(props)=>{
                     <tr>
                         <th>Student Name</th>
                         <th  onClick={()=>handleSort('City')}>City</th>
-                        <th>Course Title</th>
+                        <th onClick={()=>handleSort('Title')}>Course Title</th>
                         <th>Date</th>
                         <th></th>
                         <th></th>

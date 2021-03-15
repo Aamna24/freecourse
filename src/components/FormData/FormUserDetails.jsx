@@ -266,12 +266,7 @@ export class FormUserDetails extends Component {
             <p className="required">First Name</p>
           </div>
           <div className="col-md-6">
-            <input
-              type="text"
-              onChange={handleDetails}
-              name="firstName"
-              placeholder="first name"
-            />
+            <input type="text" onChange={handleDetails} name="firstName" />
           </div>
         </div>
         <div className="row">
@@ -279,12 +274,7 @@ export class FormUserDetails extends Component {
             <p className="required">Last Name</p>
           </div>
           <div className="col-md-6">
-            <input
-              type="text"
-              onChange={handleDetails}
-              name="lastName"
-              placeholder="first name"
-            />
+            <input type="text" onChange={handleDetails} name="lastName" />
           </div>
         </div>
         <div className="row">
@@ -292,12 +282,7 @@ export class FormUserDetails extends Component {
             <p className="required">Mobile No</p>
           </div>
           <div className="col-md-6">
-            <input
-              type="text"
-              onChange={handleDetails}
-              name="mobile"
-              placeholder="first name"
-            />
+            <input type="text" onChange={handleDetails} name="mobile" />
           </div>
         </div>
         <div className="row">
@@ -306,13 +291,14 @@ export class FormUserDetails extends Component {
           </div>
 
           <div className="col-md-6">
-            <input
-              type="text"
-              onChange={handleDetails}
-              name="email"
-              placeholder="first name"
-            />
-            {error ? <span>Please enter valid email address</span> : ""}
+            <input type="text" onChange={handleDetails} name="email" />
+            {error ? (
+              <span style={{ color: "red", marginLeft: "3px" }}>
+                Please enter valid email address
+              </span>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <br />
@@ -320,10 +306,20 @@ export class FormUserDetails extends Component {
           Please submit your form first to check if you qualify or not. Thank
           You
         </p>
-        <Button color="primary" variant="contained" onClick={handleSubmit}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={handleSubmit}
+          id="btns"
+        >
           Submit
         </Button>
-        <Button color="primary" variant="contained" onClick={this.continue}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.continue}
+          id="btns"
+        >
           Continue
         </Button>
       </div>
