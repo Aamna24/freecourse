@@ -85,6 +85,9 @@ export class UserForm extends Component {
 
   // Handle fields change
   handleChange = (e) => {
+    if (e.target.name === "email") {
+      this.validateEmail(e.target.value);
+    }
     if ([e.target.name] == "householdSituation") {
       let newArray = [...this.state.householdSituation, e.target.value];
       this.setState({
@@ -110,6 +113,22 @@ export class UserForm extends Component {
   handleDetails = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  //validate email
+  validateEmail(email) {
+    const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+    const result = pattern.test(email);
+    if (result === true) {
+      this.setState({
+        emailError: false,
+        email: email,
+      });
+    } else {
+      this.setState({
+        emailError: true,
+      });
+    }
+  }
 
   handleSubmitDetails = (e) => {
     if (
@@ -288,6 +307,7 @@ export class UserForm extends Component {
               handleChange={this.handleChange}
               handleDetails={this.handleDetails}
               handleSubmit={this.handleSubmitDetails}
+              error={this.state.emailError}
             />
           </div>
         );

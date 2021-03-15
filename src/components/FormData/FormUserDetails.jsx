@@ -10,7 +10,7 @@ export class FormUserDetails extends Component {
   };
 
   render() {
-    const { handleSubmit, handleDetails, handleChange } = this.props;
+    const { handleSubmit, handleDetails, handleChange, error } = this.props;
     return (
       <div className="container">
         <ScrollToTop />
@@ -304,6 +304,7 @@ export class FormUserDetails extends Component {
           <div className="col-md-6">
             <p className="required">Email</p>
           </div>
+          {error ? <span>Please enter valid email address</span> : ""}
           <div className="col-md-6">
             <input
               type="text"
