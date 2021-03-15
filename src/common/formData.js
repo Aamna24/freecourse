@@ -85,7 +85,7 @@ const Formdata=(props)=>{
  }
  const handleSort = path=>{
    console.log("p",path)
-   setSortColumn({path: path, order:'asc'})
+   setSortColumn({path, order:'asc'})
    console.log("sp",sortColumn)
  }
  
