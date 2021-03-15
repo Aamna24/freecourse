@@ -17,8 +17,10 @@ const Formdata=(props)=>{
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
   
       var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
-
+      console.log("sp",sortColumn.path)
+      console.log("so",sortColumn.order)
      const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
+     console.log(sorted)
      const forms = paginate(sorted, currentPage , PageSize);
     
     
