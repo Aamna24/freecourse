@@ -148,7 +148,7 @@ export class Confirm extends Component {
           <Button
             color="primary"
             variant="contained"
-            onClick={handleSubmit}
+            onClick={(handleSubmit, this.continue)}
             style={{ margin: "5px" }}
           >
             Submit

@@ -40,11 +40,6 @@ const IncompleteForms = () => {
                     <td>{post.lastName}</td>
                     <td>{post.email}</td>
                     <td>{post.mobile}</td>
-                    <td>
-                      <button className="btn btn-danger btn-sm">
-                        Show Data
-                      </button>
-                    </td>
                   </tr>
                 );
               })}

@@ -93,14 +93,7 @@ const Formdata=(props)=>{
       <div className="col-2">
       <h5>Filter by City:</h5>
       <ListGroup items={cities} onItemSelect={handleCitySelect} selectedItem={city} /><br/>
-      <h5>Filter by Date:</h5>
-      <TextField
-                id="date"
-                name="dob"
-                type="date"
-                format="MM/dd/yyyy"
-                onChange={handleDate}
-              />
+    
     
     </div>
             
@@ -160,7 +153,7 @@ const Formdata=(props)=>{
 
 <Pagination 
 itemsCount={filtered.length} 
-pageSize={4}
+pageSize={10}
 onPageChange={handlePageChange}
 currentPage={currentPage}/>
          </div>
