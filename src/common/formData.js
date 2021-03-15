@@ -107,7 +107,7 @@ const Formdata=(props)=>{
                 <thead>
                     <tr>
                         <th>Student Name</th>
-                        <th  onClick={handleSort('City')}>City</th>
+                        <th  onClick={()=>handleSort('City')}>City</th>
                         <th>Course Title</th>
                         <th>Date</th>
                         <th></th>
