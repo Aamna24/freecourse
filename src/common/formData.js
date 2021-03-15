@@ -13,7 +13,7 @@ const Formdata=(props)=>{
     const [s_date, setDate] = useState()
     const [currentPage,setcurrentPage]=useState(1);
     const PageSize = 10;
-  const [sortColumn,setSortColumn]=useState({path: 'title', order:'asc'});
+  const sortColumn = {path: 'title', order:'asc'}
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
   
       var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
@@ -84,9 +84,7 @@ const Formdata=(props)=>{
     
  }
  const handleSort = path=>{
-   console.log("p",path)
-   setSortColumn({path, order:'asc'})
-   console.log("sp",sortColumn)
+   this.setState({sortColumn:{path, order:'asc'}})
  }
  
     return(
