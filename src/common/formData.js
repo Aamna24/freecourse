@@ -81,6 +81,9 @@ const Formdata=(props)=>{
     setcurrentPage(page)
     
  }
+ const handleSort = path=>{
+   console.log(path)
+ }
  
     return(
      
@@ -104,7 +107,7 @@ const Formdata=(props)=>{
                 <thead>
                     <tr>
                         <th>Student Name</th>
-                        <th>City</th>
+                        <th  onClick={handleSort('City')}>City</th>
                         <th>Course Title</th>
                         <th>Date</th>
                         <th></th>
@@ -136,7 +139,17 @@ const Formdata=(props)=>{
                           ()=>{handleSignChange(post._id)}
                         }>Sign PDF</button></td>
                         
-                        
+                        <td>
+                        <select
+              name="wheelchair"
+              defaultValue="[Please select one]"
+              onChange={handleChange}
+            >
+              <option value="[Please select one]">[Please select one]</option>
+              <option value="Yes">College A</option>
+              <option value="No">College B</option>
+            </select>
+                        </td>
                         
                     </tr>
                     )

@@ -30,7 +30,10 @@ const Colleges = () => {
           <Card style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>Nottinghamshire College</Card.Title>
-              <Card.Subtitle>Total Forms Submitted: </Card.Subtitle>
+              <Card.Subtitle>
+                Total Forms Submitted: {products.length}
+              </Card.Subtitle>
+              <Card.Subtitle>Add Limit</Card.Subtitle>
             </Card.Body>
           </Card>
         </div>

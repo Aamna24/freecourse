@@ -17,7 +17,7 @@ const IncompleteForms = () => {
   React.useEffect(getData, []);
   console.log(forms.length);
   return (
-    <div>
+    <div className="container">
       {forms.length == 0 ? (
         <p>There are no forms</p>
       ) : (
