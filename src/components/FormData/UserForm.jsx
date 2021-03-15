@@ -12,8 +12,7 @@ import Confirm from "./Confirm";
 import Success from "./Success";
 import axios from "axios";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import Popup from "reactjs-popup";
-import Button from "@material-ui/core/Button";
+
 toast.configure();
 
 export class UserForm extends Component {
@@ -199,6 +198,9 @@ export class UserForm extends Component {
       contactMethodPref,
       marketingMethodPref,
       collegeName,
+      wheelchair,
+      disabilities,
+      disabilitiesValues,
     } = this.state;
 
     var randomIndex = Math.floor(Math.random() * collegeName.length);
@@ -252,8 +254,11 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
-      date: Date.now(),
+      date: new Date(),
       collegeName: randomElement,
+      wheelchair,
+      disabilities,
+      disabilitiesValues,
     };
 
     axios

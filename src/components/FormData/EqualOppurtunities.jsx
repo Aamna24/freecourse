@@ -72,6 +72,200 @@ export class FormEqualOppurtunities extends Component {
 
         <div className="row">
           <div className="col-md-6">
+            <p className="pBold">
+              Do you have any disabilities or learning difficulties?
+            </p>
+          </div>
+          <div className="col-md-6">
+            <select
+              name="disabilities"
+              defaultValue="[Please select one]"
+              onChange={handleChange}
+            >
+              <option value="[Please select one]">[Please select one]</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <br />
+            If Yes then mark from followings. If No, then skip this part.
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="04"
+            />
+            <label>Vision Impairment</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="05"
+            />
+            <label>Hearing Impairment</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="06"
+            />
+            <label>Disability affecting mobility</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="07"
+            />
+            <label>Profound complex disabilities</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="08"
+            />
+            <label>Social and emotional difficulties</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="09"
+            />
+            <label>Mental Health Difficulties</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="10"
+            />
+            <label>Moderate Learning Difficulties</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="11"
+            />
+            <label>Severe Learning Difficulties</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="12"
+            />
+            <label>Dyslexia</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="13"
+            />
+            <label>Dyscalculia</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="14"
+            />
+            <label>Autism Spectrum Disorder</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="15"
+            />
+            <label>Asperger's Syndrome</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="16"
+            />
+            <label>
+              Temporary disability after illness (for example post-viral) or
+              accident
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="17"
+            />
+            <label>Speech, Language and Communication Needs</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="93"
+            />
+            <label>Other physical disability</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="94"
+            />
+            <label>Other specific learning difficulty (e.g. Dyspraxia)</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="95"
+            />
+            <label>
+              Other medical condition (for example epilepsy, asthma, diabetes)
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="96"
+            />
+            <label>Other learning difficulty</label>
+            <br />
+            <input
+              type="checkbox"
+              name="disabilitiesValues"
+              onChange={handleChange}
+              value="97"
+            />
+            <label>Other disability</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <p className="pBold">Are you a wheelchair user?</p>
+          </div>
+          <div className="col-md-6">
+            <select
+              name="wheelchair"
+              defaultValue="[Please select one]"
+              onChange={handleChange}
+            >
+              <option value="[Please select one]">[Please select one]</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-6">
             <p className="pBold">Is english your first language?</p>
           </div>
           <div className="col-md-6">

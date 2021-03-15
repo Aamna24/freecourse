@@ -15,7 +15,7 @@ export class FormPersonalDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const { handleChange } = this.props;
     return (
       <div className="container">
         <ScrollToTop />
@@ -220,6 +220,8 @@ export class FormPersonalDetails extends Component {
                 onChange={handleChange}
                 name="email"
                 placeholder="email"
+                pattern="[^ @]*@[^ @]*"
+                required
               />
             </div>
           </div>
