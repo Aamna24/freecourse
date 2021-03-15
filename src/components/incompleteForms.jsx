@@ -29,7 +29,7 @@ const IncompleteForms = () => {
                 <th>Last lastName</th>
                 <th>Email</th>
                 <th>Mobile</th>
-                <th></th>
+                <th>Days Passed</th>
               </tr>
             </thead>
             <tbody>
@@ -40,6 +40,7 @@ const IncompleteForms = () => {
                     <td>{post.lastName}</td>
                     <td>{post.email}</td>
                     <td>{post.mobile}</td>
+                    <td>{post.daysPassed}</td>
                   </tr>
                 );
               })}
