@@ -15,6 +15,7 @@ const Formdata=(props)=>{
         .get("https://consulting-backend.herokuapp.com/form/getCitiesName/")
         .then((res) => {
           setCities(res.data);
+          console.log(res.data)
         })
         .catch((err) => {
           console.log(err);
@@ -23,7 +24,7 @@ const Formdata=(props)=>{
     //getData();
     React.useEffect(getData, []);
 
-  console.log("cities",cities)
+  console.log("cities",setCities)
   console.log("cities",cities.data)
     
     const [city, setCurrentCity]= useState(cities)
