@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import ListGroup from './listGroup'
 import Pagination from './pagination'
 import {paginate} from './paginate'
 import axios from 'axios'
 import _ from 'lodash'
-import getCitiesName from './getCities'
 
 const Formdata=(props)=>{
     const {posts} = props;
     const [cities, setCities] = React.useState([]);
-  const abortController = new AbortController();
+  
+    useEffect(()=> {
+      const abortController = new AbortController();
   const signal = abortController.signal
-    const getData = () => {
       fetch("https://consulting-backend.herokuapp.com/form/getCitiesName/", {signal: signal})
         .then((res) => {
           setCities(res.data);
@@ -22,9 +22,9 @@ const Formdata=(props)=>{
          return function cleanup(){
            abortController.abort()
          }
-    };
+    },[]);
     //getData();
-    React.useEffect(getData, []);
+    //React.useEffect(getData, []);
 
   
   console.log("cities",cities)
