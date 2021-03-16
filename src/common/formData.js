@@ -10,18 +10,15 @@ const Formdata=(props)=>{
     const [cities, setCities] = React.useState([]);
   
     useEffect(()=> {
-      const abortController = new AbortController();
-  const signal = abortController.signal
-      fetch("https://consulting-backend.herokuapp.com/form/getCitiesName/", {signal: signal})
+     
+      fetch("https://consulting-backend.herokuapp.com/form/getCitiesName/")
         .then((res) => {
           setCities(res.data);
         })
         .catch((err) => {
           console.log(err);
         });
-         return function cleanup(){
-           abortController.abort()
-         }
+        
     },[]);
     //getData();
     //React.useEffect(getData, []);
