@@ -23,6 +23,8 @@ const Formdata=(props)=>{
         });
         
     };
+     //getData();
+  React.useEffect(getCities, []);
 
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
