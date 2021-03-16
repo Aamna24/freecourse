@@ -9,17 +9,19 @@ import getCitiesName from './getCities'
 const Formdata=(props)=>{
     const {posts} = props;
     const [cities, setCities] = React.useState([]);
-
+  const abortController = new AbortController();
+  const signal = abortController.signal
     const getData = () => {
-      axios
-        .get("https://consulting-backend.herokuapp.com/form/getCitiesName/")
+      fetch("https://consulting-backend.herokuapp.com/form/getCitiesName/", {signal: signal})
         .then((res) => {
           setCities(res.data);
-          console.log(res.data)
         })
         .catch((err) => {
           console.log(err);
         });
+         return function cleanup(){
+           abortController.abort()
+         }
     };
     //getData();
     React.useEffect(getData, []);
