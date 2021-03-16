@@ -7,7 +7,7 @@ import _ from 'lodash'
 import getCities from './getCities'
 const Formdata=(props)=>{
     const {posts} = props;
-    const cities= getCities();
+    const cities= ["All","London","Lahore"]
     console.log(cities)
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
