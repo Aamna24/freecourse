@@ -4,11 +4,26 @@ import Pagination from './pagination'
 import {paginate} from './paginate'
 import axios from 'axios'
 import _ from 'lodash'
+import getCitiesName from './getCities'
 
 const Formdata=(props)=>{
     const {posts} = props;
-    const cities = ['All','London','Lahore']
+
+    const [cities, setCities] = useState([]);
+    const getCities = () => {
+      
     
+      axios
+        .get("https://consulting-backend.herokuapp.com/form/getCitiesName/")
+        .then((res) => {
+          setCities(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+        
+    };
+
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
     const [currentPage,setcurrentPage]=useState(1);
