@@ -8,10 +8,8 @@ import getCitiesName from './getCities'
 
 const Formdata=(props)=>{
     const {posts} = props;
-    const [cities,setCurrentCities] = useState([])
+    const [cities,setCurrentCities] = React.useState([])
     const getCities = () => {
-      
-    
       axios
         .get("https://consulting-backend.herokuapp.com/form/getCitiesName/")
         .then((res) => {
@@ -26,6 +24,7 @@ const Formdata=(props)=>{
   React.useEffect(getCities, []);
 
   console.log("cities",cities)
+  console.log("cities",cities.data)
     
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
