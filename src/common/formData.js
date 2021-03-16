@@ -4,28 +4,11 @@ import Pagination from './pagination'
 import {paginate} from './paginate'
 import axios from 'axios'
 import _ from 'lodash'
-
+import getCities from './getCities'
 const Formdata=(props)=>{
     const {posts} = props;
-    const [cities, setCities] = React.useState([]);
-  
-    useEffect(()=> {
-     
-      fetch("https://consulting-backend.herokuapp.com/form/getCitiesName/")
-        .then((res) => {
-          setCities(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-        
-    },[]);
-    //getData();
-    //React.useEffect(getData, []);
-
-  
-  console.log("cities",cities)
-    
+    const cities= getCities();
+    console.log(cities)
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
     const [currentPage,setcurrentPage]=useState(1);
