@@ -4,7 +4,8 @@ import Pagination from './pagination'
 import {paginate} from './paginate'
 import axios from 'axios'
 import _ from 'lodash'
-import getCities from './getCities'
+import TableFilter from 'react-table-filter';
+
 const Formdata=(props)=>{
     const {posts} = props;
     const cities= ["All","London","Lahore"]
@@ -13,16 +14,18 @@ const Formdata=(props)=>{
     const [s_date, setDate] = useState()
     const [currentPage,setcurrentPage]=useState(1);
     const PageSize = 10;
-  const [sortColumn,setSortColumn] = useState({path: 'title', order:'asc'})
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
   
       var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
       
-     const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
     
-     const forms = paginate(sorted, currentPage , PageSize);
+     const forms = paginate(filtered, currentPage , PageSize);
     
-    
+  const   filterUpdated = (newData, filterConfiguration) => {
+      this.setState({
+          "updatedData": newData
+      });
+  } 
     
     const handleChange=(e)=>{
        const apiUrl =  "https://consulting-backend.herokuapp.com/form/print/"+e;
@@ -109,13 +112,17 @@ const Formdata=(props)=>{
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Student Name</th>
-                        <th  onClick={()=>handleSort('city')}>City</th>
-                        <th onClick={()=>handleSort('title')}>Course Title</th>
-                        <th>Date</th>
+                      <TableFilter rows={forms}
+                      onFilterUpdate={filterUpdated}
+                      >
+                        <th filterkey="name">Student Name</th>
+                        <th filterkey="city">City</th>
+                        <th filterkey="course">Course Title</th>
+                        <th filterkey="date">Date</th>
                         <th></th>
                         <th></th>
                         <th></th>
+                        </TableFilter>
                     </tr>
                 </thead>
                 <tbody>

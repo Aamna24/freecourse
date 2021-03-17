@@ -9,7 +9,7 @@ import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-toastify/dist/ReactToastify.css";
-
+import" react-table-filter/lib/styles.css";
 
 
 logger.init()
