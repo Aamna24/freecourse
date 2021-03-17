@@ -66,6 +66,7 @@ export class UserForm extends Component {
     marketingMethodPref: [],
     collegeName: ["West College", "North College"],
     redirect: false,
+    visibility: false,
   };
 
   // Proceed to next step
@@ -148,6 +149,9 @@ export class UserForm extends Component {
       toast.success(
         "Congratulations, it looks like you qualify for one of our FREE government funded courses Places are limited, so please complete your application promptly. "
       );
+      this.setState({
+        visibility: "visible",
+      });
     }
     const { lastName, firstName, email, mobile } = this.state;
     const details = {
@@ -319,6 +323,7 @@ export class UserForm extends Component {
               handleDetails={this.handleDetails}
               handleSubmit={this.handleSubmitDetails}
               error={this.state.emailError}
+              visibility={this.state.visibility}
             />
           </div>
         );

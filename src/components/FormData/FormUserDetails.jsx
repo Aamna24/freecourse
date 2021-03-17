@@ -10,7 +10,13 @@ export class FormUserDetails extends Component {
   };
 
   render() {
-    const { handleSubmit, handleDetails, handleChange, error } = this.props;
+    const {
+      handleSubmit,
+      handleDetails,
+      handleChange,
+      error,
+      visibility,
+    } = this.props;
     return (
       <div className="container">
         <ScrollToTop />
@@ -319,6 +325,8 @@ export class FormUserDetails extends Component {
           variant="contained"
           onClick={this.continue}
           id="btns"
+          id="btn1"
+          style={{ visibility: visibility }}
         >
           Continue
         </Button>
