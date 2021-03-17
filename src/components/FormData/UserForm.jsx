@@ -65,6 +65,7 @@ export class UserForm extends Component {
     contactMethodPref: [],
     marketingMethodPref: [],
     collegeName: ["West College", "North College"],
+    redirect: false,
   };
 
   // Proceed to next step
@@ -289,7 +290,11 @@ export class UserForm extends Component {
 
         form
       )
-      .then(() => toast.success("Form submitted successfully"))
+      .then(
+        this.setState({
+          redirect: true,
+        })
+      )
       .catch((err) => {
         console.error(err);
         toast.error("Error submitting form.");
@@ -297,7 +302,10 @@ export class UserForm extends Component {
   };
 
   render() {
-    const { step, employmentStatus } = this.state;
+    const { step, employmentStatus, redirect } = this.state;
+    if (redirect) {
+      return <Success />;
+    }
 
     switch (step) {
       case 1:

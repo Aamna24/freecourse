@@ -7,7 +7,6 @@ import _ from 'lodash'
 const Formdata=(props)=>{
     const {posts} = props;
     const cities= ["All","London","Lahore"]
-    console.log(cities)
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
     const [currentPage,setcurrentPage]=useState(1);
@@ -16,7 +15,8 @@ const Formdata=(props)=>{
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
   
       var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
-      
+      console.log(sortColumn.path)
+      console.log(sortColumn.order)
      const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
     
      const forms = paginate(sorted, currentPage , PageSize);
