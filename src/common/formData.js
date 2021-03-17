@@ -18,7 +18,7 @@ const Formdata=(props)=>{
      
      const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
     
-     const forms = paginate(sorted, currentPage , PageSize);
+     const forms = paginate(filtered, currentPage , PageSize);
     
     
     
