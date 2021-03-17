@@ -164,7 +164,7 @@ export class DeclarationForm extends Component {
           />
           <label>
             I agree to make every effort to complete the course, and understand
-            that by withdrawing from the course I may be required to pay £100
+            that by withdrawing from the course I may be required to pay £25
             administration fee.
           </label>
         </div>
