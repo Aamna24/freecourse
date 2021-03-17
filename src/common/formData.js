@@ -16,7 +16,7 @@ const Formdata=(props)=>{
   
       var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
      
-     const sorted = _.orderBy(posts.data,[sortColumn.path],[sortColumn.order])
+     const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
     
      const forms = paginate(sorted, currentPage , PageSize);
     
