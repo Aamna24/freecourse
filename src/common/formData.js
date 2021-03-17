@@ -87,9 +87,9 @@ const Formdata=(props)=>{
     setcurrentPage(page)
     
  }
- const handleSort = path=>{
+/* const handleSort = path=>{
    setSortColumn({path, order:'asc'})
- }
+ }*/
  
     return(
      
