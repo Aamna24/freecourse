@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
+import Button from "@material-ui/core/Button";
 
 const Colleges = () => {
   const [products, setProducts] = React.useState([]);
@@ -32,6 +33,9 @@ const Colleges = () => {
                 Total Forms Submitted: {products.data.length}
               </Card.Subtitle>
               <Card.Subtitle>Add Limit: </Card.Subtitle>
+              <Button color="primary" variant="contained">
+                Add
+              </Button>
             </Card.Body>
           </Card>
         </div>
