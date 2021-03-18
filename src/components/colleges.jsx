@@ -29,7 +29,7 @@ const Colleges = () => {
             <Card.Body>
               <Card.Title>Nottinghamshire College</Card.Title>
               <Card.Subtitle>
-                Total Forms Submitted: {products.length}
+                Total Forms Submitted: {products.data.length}
               </Card.Subtitle>
               <Card.Subtitle>Add Limit: </Card.Subtitle>
             </Card.Body>
