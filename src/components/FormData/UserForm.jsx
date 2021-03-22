@@ -145,6 +145,9 @@ export class UserForm extends Component {
       toast.error(
         "Unfortunately it doesn’t look like you qualify for one of our government funded courses"
       );
+      this.setState({
+        visibility: "hidden",
+      });
     } else {
       toast.success(
         "Congratulations, it looks like you qualify for one of our FREE government funded courses Places are limited, so please complete your application promptly. "
@@ -152,26 +155,26 @@ export class UserForm extends Component {
       this.setState({
         visibility: "visible",
       });
+      const { lastName, firstName, email, mobile } = this.state;
+      const details = {
+        firstName,
+        lastName,
+        email,
+        mobile,
+      };
+
+      axios
+        .post(
+          "https://consulting-backend.herokuapp.com/users/registerDetails",
+
+          details
+        )
+        .then(() => toast.success("Form submitted successfully"))
+        .catch((err) => {
+          console.error(err);
+          toast.error("Error submitting form.");
+        });
     }
-    const { lastName, firstName, email, mobile } = this.state;
-    const details = {
-      firstName,
-      lastName,
-      email,
-      mobile,
-    };
-
-    axios
-      .post(
-        "https://consulting-backend.herokuapp.com/users/registerDetails",
-
-        details
-      )
-      .then(() => toast.success("Form submitted successfully"))
-      .catch((err) => {
-        console.error(err);
-        toast.error("User already registered");
-      });
   };
   handleSubmit = (e) => {
     e.preventDefault();
