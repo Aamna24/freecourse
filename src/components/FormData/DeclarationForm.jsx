@@ -91,77 +91,27 @@ export class DeclarationForm extends Component {
 
         <p className="pBold">Declaration</p>
         <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="marketingMethodPref"
-            onChange={handleChange}
-            value="Text"
-          />
           <label>
             I confirm that the information provided in this application is
             correct and complete.
           </label>
         </div>
-        <br />
+
         <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="marketingMethodPref"
-            onChange={handleChange}
-            value="Text"
-          />
           <label>
             I agree to My Free Course processing the information provided in
             accordance with current Data Protection legislation.
           </label>
         </div>
-        <br />
+
         <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="marketingMethodPref"
-            onChange={handleChange}
-            value="Text"
-          />
-          <label>
-            I agree that I will inform My Free Course if any information
-            supplied in my application changes in any way.
-          </label>
-        </div>
-        <br />
-        <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="marketingMethodPref"
-            onChange={handleChange}
-            value="Text"
-          />
           <label>
             I declare that I have correct and fully identified my prior
             qualifications.
           </label>
         </div>
-        <br />
-        <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="marketingMethodPref"
-            onChange={handleChange}
-            value="Text"
-          />
-          <label>
-            I agree to abide by My Free Course policies and procedures.
-          </label>
-        </div>
-        <br />
 
         <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="marketingMethodPref"
-            onChange={handleChange}
-            value="Text"
-          />
           <label>
             I agree to make every effort to complete the course, and understand
             that by withdrawing from the course I may be required to pay £25
@@ -169,6 +119,15 @@ export class DeclarationForm extends Component {
           </label>
         </div>
         <br />
+        <div id="checkStmts">
+          <input
+            type="checkbox"
+            name="marketingMethodPref"
+            onChange={handleChange}
+            value="Text"
+          />
+          <label>I confirm and agree to above</label>
+        </div>
 
         <p className="pBold">Enrollment Call Availabilty</p>
 
