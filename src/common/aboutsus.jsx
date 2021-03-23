@@ -6,6 +6,7 @@ const About = () => {
       <div className="row">
         <div className="col-md-6 aboutText" style={{ padding: "50px" }}>
           <h2>About Us</h2>
+
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
             veritatis quae, in voluptatem expedita illum repellendus sapiente

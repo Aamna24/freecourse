@@ -6,6 +6,9 @@ import axios from 'axios'
 import _ from 'lodash'
 const Formdata=(props)=>{
     const {posts} = props;
+    //added search
+    const [search,setSearch]=useState();
+    //-------------------
     const cities= ["All","London","Lahore"]
     const [city, setCurrentCity]= useState(cities)
     const [s_date, setDate] = useState()
@@ -14,11 +17,16 @@ const Formdata=(props)=>{
   const [sortColumn,setSortColumn] = useState({path: 'city', order:'asc'})
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
   
-      var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
-     
-     const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
+      //var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
+     var lowercasedFilter=search.toLowerCase();
+     const filteredData = posts.data.filter(item => {
+      return Object.keys(item).some(key =>
+        item[key].toLowerCase().includes(lowercasedFilter)
+      );
+    });
+     //const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
     
-     const forms = paginate(filtered, currentPage , PageSize);
+     const forms = paginate(filteredData, currentPage , PageSize);
     
     
     
@@ -72,10 +80,7 @@ const Formdata=(props)=>{
      setCurrentCity(city)
      
     }
-    const handleDate=selectedDate=>{
-      setDate(selectedDate.target.value)
-     
-     }
+   
 
  const handlePageChange=page=>{
      
@@ -85,13 +90,17 @@ const Formdata=(props)=>{
  const handleSort = path=>{
    setSortColumn({path, order:'asc'})
  }
- 
+const onchange=(e)=>{
+  setSearch(e.target.value)
+}
     return(
      
        
       
       <div className="  row">
-         
+        
+         <input label="Search" icon="search" onChange={onchange}/>
+      <br />
          
       <div className="col-2">
       <h5>Filter by City:</h5>
@@ -102,7 +111,7 @@ const Formdata=(props)=>{
             
             
             <div className="col">
-            Showing {filtered.length} movies in database
+            
             <br/>
             <table className="table">
                 <thead>
@@ -165,7 +174,7 @@ const Formdata=(props)=>{
 
 
 <Pagination 
-itemsCount={filtered.length} 
+itemsCount={filteredData.length} 
 pageSize={10}
 onPageChange={handlePageChange}
 currentPage={currentPage}/>
