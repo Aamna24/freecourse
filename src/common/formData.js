@@ -9,22 +9,19 @@ const Formdata=(props)=>{
     //added search
     const [search,setSearch]=useState();
     //-------------------
-   const onchange = (e) => {
-      setSearch(e.target.value);
-    };
-   
+    const cities= ["All","London","Lahore"]
+    const [city, setCurrentCity]= useState(cities)
+    const [s_date, setDate] = useState()
     const [currentPage,setcurrentPage]=useState(1);
     const PageSize = 10;
-
+  const [sortColumn,setSortColumn] = useState({path: 'city', order:'asc'})
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
-    const lowercasedFilter = search.toLowerCase();
-    const filteredData = posts.data.filter(item => {
-      return Object.keys(item).some(key =>
-        item[key].toLowerCase().includes(lowercasedFilter)
-      );
-    });
+  
+      var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
     
-     const forms = paginate(filteredData, currentPage , PageSize);
+     const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
+    
+     const forms = paginate(filtered, currentPage , PageSize);
     
     
     
@@ -74,14 +71,20 @@ const Formdata=(props)=>{
         });
      }
     
-  
+    const handleCitySelect=city=>{
+     setCurrentCity(city)
+     
+    }
+   
 
  const handlePageChange=page=>{
      
     setcurrentPage(page)
     
  }
- 
+ const handleSort = path=>{
+   setSortColumn({path, order:'asc'})
+ }
 
     return(
      
@@ -89,10 +92,17 @@ const Formdata=(props)=>{
       
       <div className="  row">
         
-         <input label="Search" icon="search" onChange={onchange}/>
+        
       <br />
          
-      
+      <div className="col-2">
+      <h5>Filter by City:</h5>
+      <ListGroup items={cities} onItemSelect={handleCitySelect} selectedItem={city} /><br/>
+    
+    
+    </div>
+            
+            
             <div className="col">
             
             <br/>
@@ -100,8 +110,8 @@ const Formdata=(props)=>{
                 <thead>
                     <tr>
                         <th>Student Name</th>
-                        <th>City</th>
-                        <th>Course Title</th>
+                        <th  onClick={()=>handleSort('city')}>City</th>
+                        <th onClick={()=>handleSort('title')}>Course Title</th>
                         <th>Date</th>
                         <th></th>
                         <th></th>
@@ -157,7 +167,7 @@ const Formdata=(props)=>{
 
 
 <Pagination 
-itemsCount={filteredData.length} 
+itemsCount={filtered.length} 
 pageSize={10}
 onPageChange={handlePageChange}
 currentPage={currentPage}/>
