@@ -1,6 +1,6 @@
 import React from 'react';
 import { CButton,  CDataTable } from "@coreui/react";
-
+import axios from 'axios'
 const Formdata=(props)=>{
   const { posts } = props;
   const arr = [];
@@ -13,7 +13,7 @@ const Formdata=(props)=>{
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
     const fields = [
       { key: "name", _style: { width: "40%" } },
-      "courseTitle",
+      "appliedCourse","city","date",
       {
         key: "buttons",
         label: "",
