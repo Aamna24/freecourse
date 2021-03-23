@@ -19,14 +19,10 @@ const Formdata=(props)=>{
   
       //var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
      var lowercasedFilter=search.toLowerCase();
-     const filteredData = posts.data.filter(item => {
-      return Object.keys(item).some(key =>
-        item[key].toLowerCase().includes(lowercasedFilter)
-      );
-    });
+     console.log(lowercasedFilter)
      //const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
     
-     const forms = paginate(filteredData, currentPage , PageSize);
+     const forms = paginate(posts, currentPage , PageSize);
     
     
     
@@ -126,7 +122,7 @@ const onchange=(e)=>{
                     </tr>
                 </thead>
                 <tbody>
-                {forms.map((post)=>{
+                {forms.data.map((post)=>{
                   
                     return(
 <tr>
@@ -174,7 +170,7 @@ const onchange=(e)=>{
 
 
 <Pagination 
-itemsCount={filteredData.length} 
+itemsCount={posts.data.length} 
 pageSize={10}
 onPageChange={handlePageChange}
 currentPage={currentPage}/>
