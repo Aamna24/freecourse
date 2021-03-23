@@ -21,7 +21,7 @@ import Colleges from './components/colleges'
 import IncompleteForms from './components/incompleteForms'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css';
-import TableData from './components/testComp';
+
 
 
 class App extends React.Component {
@@ -72,7 +72,7 @@ class App extends React.Component {
             <Route path="/form" component={UserForm}/>
             <Route path="/single" component={Details}/>
             
-            <Route path="/test" component={TableData}/>
+           
 
             <Route path="/admin" component={AdminPanel}/>
             <Route path="/incompleteForms" component={IncompleteForms}/>
