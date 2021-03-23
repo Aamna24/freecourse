@@ -106,7 +106,7 @@ const onchange=(e)=>{
                     </tr>
                 </thead>
                 <tbody>
-                {forms.data.map((post)=>{
+                {forms.map((post)=>{
                   
                     return(
 <tr>
