@@ -12,7 +12,7 @@ const Formdata=(props)=>{
    
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
     const fields = [
-      { key: "name", _style: { width: "40%" } },
+      { key: "name", _style: { width: "20%" } },
       "appliedCourse","city","date",
       {
         key: "buttons",
@@ -82,7 +82,7 @@ const Formdata=(props)=>{
     
      return (
       <CDataTable
-        //items={arr}
+        items={arr}
         fields={fields}
         columnFilter
         tableFilter
@@ -98,12 +98,12 @@ const Formdata=(props)=>{
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
+                  variant="contained"
                   shape="square"
                   size="sm"
-                  onClick={() => {
-                    this.handleChange(item._id);
-                  }}
+                  onClick={
+                    ()=>{handleChange(item._id)}
+                  }
                 >
                   Fill PDF
                 </CButton>
