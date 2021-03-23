@@ -6,19 +6,25 @@ import axios from 'axios'
 import _ from 'lodash'
 const Formdata=(props)=>{
     const {posts} = props;
-    const [currentPage,setcurrentPage]=useState(1);
-    const PageSize = 10;
     //added search
     const [search,setSearch]=useState();
     //-------------------
-    
-    if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
-  
-      //var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
+    onchange = (e) => {
+      setSearch(e.target.value);
+    };
    
-     //const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
-     console.log(search)
-     const forms = paginate(posts, currentPage , PageSize);
+    const [currentPage,setcurrentPage]=useState(1);
+    const PageSize = 10;
+
+    if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
+    const lowercasedFilter = search.toLowerCase();
+    const filteredData = posts.data.filter(item => {
+      return Object.keys(item).some(key =>
+        item[key].toLowerCase().includes(lowercasedFilter)
+      );
+    });
+    
+     const forms = paginate(filteredData, currentPage , PageSize);
     
     
     
@@ -68,10 +74,16 @@ const Formdata=(props)=>{
         });
      }
     
+  
 
+ const handlePageChange=page=>{
+     
+    setcurrentPage(page)
+    
+ }
+ 
 const onchange=(e)=>{
   setSearch(e.target.value)
-  
 }
     return(
      
@@ -82,14 +94,7 @@ const onchange=(e)=>{
          <input label="Search" icon="search" onChange={onchange}/>
       <br />
          
-      <div className="col-2">
-      <h5>Filter by City:</h5>
       
-    
-    
-    </div>
-            
-            
             <div className="col">
             
             <br/>
@@ -97,7 +102,7 @@ const onchange=(e)=>{
                 <thead>
                     <tr>
                         <th>Student Name</th>
-                        <th >City</th>
+                        <th>City</th>
                         <th>Course Title</th>
                         <th>Date</th>
                         <th></th>
@@ -153,7 +158,11 @@ const onchange=(e)=>{
     
 
 
-
+<Pagination 
+itemsCount={filteredData.length} 
+pageSize={10}
+onPageChange={handlePageChange}
+currentPage={currentPage}/>
          </div>
         
     )
