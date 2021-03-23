@@ -9,7 +9,7 @@ const Formdata=(props)=>{
     //added search
     const [search,setSearch]=useState();
     //-------------------
-    onchange = (e) => {
+   const onchange = (e) => {
       setSearch(e.target.value);
     };
    
@@ -82,9 +82,7 @@ const Formdata=(props)=>{
     
  }
  
-const onchange=(e)=>{
-  setSearch(e.target.value)
-}
+
     return(
      
        
