@@ -6,22 +6,18 @@ import axios from 'axios'
 import _ from 'lodash'
 const Formdata=(props)=>{
     const {posts} = props;
+    const [currentPage,setcurrentPage]=useState(1);
+    const PageSize = 10;
     //added search
     const [search,setSearch]=useState();
     //-------------------
-    const cities= ["All","London","Lahore"]
-    const [city, setCurrentCity]= useState(cities)
-    const [s_date, setDate] = useState()
-    const [currentPage,setcurrentPage]=useState(1);
-    const PageSize = 10;
-  const [sortColumn,setSortColumn] = useState({path: 'city', order:'asc'})
+    
     if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
   
       //var filtered = city && city!=="All"? posts.data.filter(m => m.city === city): posts.data;
-     var lowercasedFilter=search.toLowerCase();
-     console.log(lowercasedFilter)
+   
      //const sorted = _.orderBy(filtered,[sortColumn.path],[sortColumn.order])
-    
+     console.log(search)
      const forms = paginate(posts, currentPage , PageSize);
     
     
@@ -72,22 +68,10 @@ const Formdata=(props)=>{
         });
      }
     
-    const handleCitySelect=city=>{
-     setCurrentCity(city)
-     
-    }
-   
 
- const handlePageChange=page=>{
-     
-    setcurrentPage(page)
-    
- }
- const handleSort = path=>{
-   setSortColumn({path, order:'asc'})
- }
 const onchange=(e)=>{
   setSearch(e.target.value)
+  
 }
     return(
      
@@ -100,7 +84,7 @@ const onchange=(e)=>{
          
       <div className="col-2">
       <h5>Filter by City:</h5>
-      <ListGroup items={cities} onItemSelect={handleCitySelect} selectedItem={city} /><br/>
+      
     
     
     </div>
@@ -113,8 +97,8 @@ const onchange=(e)=>{
                 <thead>
                     <tr>
                         <th>Student Name</th>
-                        <th  onClick={()=>handleSort('city')}>City</th>
-                        <th onClick={()=>handleSort('title')}>Course Title</th>
+                        <th >City</th>
+                        <th>Course Title</th>
                         <th>Date</th>
                         <th></th>
                         <th></th>
@@ -169,11 +153,7 @@ const onchange=(e)=>{
     
 
 
-<Pagination 
-itemsCount={posts.data.length} 
-pageSize={10}
-onPageChange={handlePageChange}
-currentPage={currentPage}/>
+
          </div>
         
     )
