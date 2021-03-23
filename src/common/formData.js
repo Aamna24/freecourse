@@ -82,7 +82,7 @@ const Formdata=(props)=>{
     
      return (
       <CDataTable
-        items={arr}
+        //items={arr}
         fields={fields}
         columnFilter
         tableFilter
