@@ -5,11 +5,11 @@ const Formdata=(props)=>{
   const { posts } = props;
   const arr = [];
   //converting post data into array
-  const obj = Object.entries(posts.data);
-  obj.forEach(([key, value]) => arr.push(value));
-  console.log(arr)
+  //const obj = Object.entries(posts.data);
+  //obj.forEach(([key, value]) => arr.push(value));
+  //console.log(arr)
   
-   return(<div></div>)
+   return(<div>Form Dta</div>)
        
       
     
