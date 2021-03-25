@@ -9,7 +9,7 @@ const Formdata=(props)=>{
   //obj.forEach(([key, value]) => arr.push(value));
   //console.log(arr)
   
-   return(<div>Form Dta</div>)
+   return(<div>Form Data</div>)
        
       
     
