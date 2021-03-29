@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import axios from "axios";
+import * as auth from "../services/authService";
 
 function App() {
   const [forms, setForms] = React.useState([]);
   const getData = () => {
-    axios
-      .get("http://localhost:61500/form/")
+    auth
+      .getForm()
       .then((res) => {
         setForms(res.data);
       })
