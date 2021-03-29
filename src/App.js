@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   callAPI() {
-    fetch(process.env.REACT_APP_API_URL)
+    fetch("https://freecourse-backend.herokuapp.com")
       .then(res => console.log("App connected"))
       .then(res => this.setState({ apiResponse: res }));
   }
