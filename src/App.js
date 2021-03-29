@@ -21,7 +21,6 @@ import Colleges from './components/colleges'
 import IncompleteForms from './components/incompleteForms'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css';
-import Test from './components/test';
 
 
 
@@ -41,7 +40,7 @@ class App extends React.Component {
   }
 
   callAPI() {
-    fetch("http://localhost:61500")
+    fetch(process.env.REACT_APP_API_URL)
       .then(res => console.log("App connected"))
       .then(res => this.setState({ apiResponse: res }));
   }
