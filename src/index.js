@@ -14,7 +14,7 @@ logger.init()
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter><App /></HashRouter>
+    <BrowserRouter><App /></BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
