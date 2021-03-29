@@ -1,6 +1,7 @@
 import React from "react";
 import DetailedCourse from "../common/DetailedCourse";
 import axios from "axios";
+import * as auth from "../services/authService";
 
 const Details = () => {
   let a = window.location.search;
@@ -9,8 +10,8 @@ const Details = () => {
   const [products, setProducts] = React.useState([]);
 
   const getData = () => {
-    axios
-      .get("http://localhost:61500/course/")
+    auth
+      .getCourse()
       .then((res) => {
         setProducts(res.data);
       })

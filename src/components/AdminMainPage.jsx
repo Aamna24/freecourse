@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Bar from "./test";
-import axios from "axios";
+import * as auth from "../services/authService";
 
 const style = {
   width: "18rem",
@@ -13,8 +13,8 @@ const style = {
 const AdminLandingPage = () => {
   const [forms, setForms] = React.useState([]);
   const getData = () => {
-    axios
-      .get("http://localhost:61500/form/")
+    auth
+      .getForm()
       .then((res) => {
         setForms(res.data);
       })

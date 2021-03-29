@@ -169,12 +169,8 @@ export class UserForm extends Component {
         mobile,
       };
 
-      axios
-        .post(
-          "http://localhost:61500/users/registerDetails",
-
-          details
-        )
+      auth
+        .regDetails(firstName, lastName, email, mobile)
         .then(() => toast.success("Form submitted successfully"))
         .catch((err) => {
           console.error(err);
@@ -296,12 +292,8 @@ export class UserForm extends Component {
       disabilitiesValues,
     };
 
-    axios
-      .post(
-        "http://localhost:61500/form/submit",
-
-        form
-      )
+    await auth
+      .submitForm(form)
       .then(
         this.setState({
           redirect: true,

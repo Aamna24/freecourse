@@ -1,6 +1,6 @@
 import React from "react";
 import StudentFormData from "../common/StudentFormData";
-import axios from "axios";
+import * as auth from "../services/authService";
 
 const GetStudentData = () => {
   let a = window.location.search;
@@ -9,8 +9,8 @@ const GetStudentData = () => {
   const [products, setProducts] = React.useState([]);
 
   const getData = () => {
-    axios
-      .get("http://localhost:61500/form/")
+    auth
+      .getForm()
       .then((res) => {
         setProducts(res.data);
       })

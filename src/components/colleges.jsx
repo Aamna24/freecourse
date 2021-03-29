@@ -2,13 +2,13 @@ import React from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Button from "@material-ui/core/Button";
-
+import * as auth from "../services/authService";
 const Colleges = () => {
   const [products, setProducts] = React.useState([]);
 
   const getData = () => {
-    axios
-      .get("http://localhost:61500/form/")
+    auth
+      .getForm()
       .then((res) => {
         setProducts(res.data);
       })

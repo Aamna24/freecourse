@@ -38,7 +38,7 @@ const Formdata=(props)=>{
   ];
 
   const handlePDFChange=(e)=>{
-    const apiUrl =  "http://localhost:61500/form/print/"+e;
+    const apiUrl = process.env.REACT_APP_API_URL + "/form/print/"+e;
       
     axios(apiUrl, {
      method: "GET",
@@ -62,7 +62,7 @@ const Formdata=(props)=>{
 
   
  const handleSignChange=(e)=>{
-  const apiUrl = "http://localhost:61500/form/watermark/"+e
+  const apiUrl = process.env.REACT_APP_API_URL + "/form/watermark/"+e
   axios(apiUrl, {
       method: "GET",
       responseType: "blob",

@@ -30,7 +30,7 @@ class AdminPanel extends Form {
   render() {
     return (
       <div
-        class="col-xl-3 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
+        className="col-xl-3 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
         style={{ marginBottom: "135px" }}
       >
         <h1>Admin Login</h1>

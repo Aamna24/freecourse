@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import jwtDecode from 'jwt-decode'
 
-const apiPoint = "http://localhost:61500/users/login/"
+const apiPoint = "/users/login/"
 const tokenKey = "token"
 
 export async function login(email, password) {
@@ -13,12 +13,19 @@ export async function login(email, password) {
     
 }
 
-const apiPoint1 = "http://localhost:61500/form/submit"
+const apiURL="/users/registerDetails"
+export async function regDetails(firstName, lastName,email,mobile) {
+    return http.post(apiURL, {firstName, lastName,email,mobile});
+    
+    
+}
+
+const apiPoint1 = "/form/submit"
 export function submitForm(data){
     return http.post(apiPoint1,data)
 }
 
-const apiPoint2 = "http://localhost:61500/form/ids"
+const apiPoint2 = "/form/ids"
 export function uploadID(data){
     return http.post(apiPoint2,data)
     
@@ -38,10 +45,29 @@ export function getCurrentUser(){
         return null
       }
 }
+
+const coursePoint = "/course/";
+export function getCourse() {
+  return http.get(coursePoint);
+}
+
+const forms = "/form/";
+export function getForm() {
+  return http.get(forms);
+}
+
+const incForm = "/form/incompleteForms/";
+export function getIncompleteForms() {
+  return http.get(incForm);
+}
 export default{
     login,
     logout,
     getCurrentUser,
     submitForm,
-    uploadID
+    uploadID,
+    regDetails,
+    getCourse,
+    getForm,
+    getIncompleteForms
 }

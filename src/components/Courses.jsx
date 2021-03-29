@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 
 import posts from "../common/posts";
 import postLoading from "../common/postLoading";
@@ -12,7 +12,7 @@ const Courses = () => {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiURL = "http://localhost:61500/course/";
+    const apiURL = process.env.REACT_APP_API_URL + "/course/";
 
     fetch(apiURL)
       .then((data) => data.json())

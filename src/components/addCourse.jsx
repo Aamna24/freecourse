@@ -34,7 +34,7 @@ class AddCourse extends Form {
   doSubmit = async () => {
     try {
       const responses = await AdminService.addCourse(this.state.data);
-      console.log("indosubmit");
+
       console.log(responses);
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {

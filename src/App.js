@@ -73,14 +73,13 @@ class App extends React.Component {
             <Route path="/form" component={UserForm}/>
             <Route path="/single" component={Details}/>
             
-            <Route path="/test" component={Test}/>
            
 
             <Route path="/admin" component={AdminPanel}/>
-            <Route path="/incompleteForms" component={IncompleteForms}/>
+            <ProtectedRoute path="/incompleteForms" component={IncompleteForms}/>
             <ProtectedRoute path="/adminhome"  component={AdminLandingPage} />
             <ProtectedRoute path="/colleges" component={Colleges}/>
-            <Route path="/studentslist" component={StudentsData}/>
+            <ProtectedRoute path="/studentslist" component={StudentsData}/>
             <ProtectedRoute path="/show-data" component={getStudentData}/>
 
             <Redirect from="/" exact to="/home" />

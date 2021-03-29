@@ -12,7 +12,7 @@ const StudentsList = () => {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiURL = "http://localhost:61500/form/";
+    const apiURL = process.env.REACT_APP_API_URL + "/form/";
 
     fetch(apiURL)
       .then((data) => data.json())

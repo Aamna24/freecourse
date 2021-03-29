@@ -2,7 +2,7 @@ import http from './httpService';
 
 import jwtDecode from 'jwt-decode'
 
-const apiPoint = "http://localhost:61500/admin/login"
+const apiPoint = "/admin/login"
 const tokenKey = "token"
 
 export async function adminlogin(email, password) {
@@ -22,7 +22,7 @@ export function getCurrentUser(){
       }
 }
 
-const addCoursePoint = "http://localhost:61500/course/registerCourse"
+const addCoursePoint = "/course/registerCourse"
 console.log(addCoursePoint)
 
 export function addCourse(course) {

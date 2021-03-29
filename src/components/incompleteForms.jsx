@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
+import * as auth from "../services/authService";
 const IncompleteForms = () => {
   const [forms, setForms] = React.useState([]);
 
   const getData = () => {
-    axios
-      .get("http://localhost:61500/form/incompleteForms/")
+    auth
+      .getIncompleteForms()
       .then((res) => {
         setForms(res.data);
       })
