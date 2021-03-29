@@ -21,6 +21,7 @@ import Colleges from './components/colleges'
 import IncompleteForms from './components/incompleteForms'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css';
+import Test from './components/test';
 
 
 
@@ -40,8 +41,8 @@ class App extends React.Component {
   }
 
   callAPI() {
-    fetch("https://consulting-backend.herokuapp.com")
-      .then(res => res.text())
+    fetch("http://localhost:61500")
+      .then(res => console.log("App connected"))
       .then(res => this.setState({ apiResponse: res }));
   }
 
@@ -72,6 +73,7 @@ class App extends React.Component {
             <Route path="/form" component={UserForm}/>
             <Route path="/single" component={Details}/>
             
+            <Route path="/test" component={Test}/>
            
 
             <Route path="/admin" component={AdminPanel}/>

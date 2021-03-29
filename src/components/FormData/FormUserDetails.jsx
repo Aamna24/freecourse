@@ -307,6 +307,7 @@ export class FormUserDetails extends Component {
             )}
           </div>
         </div>
+
         <br />
         <p>
           Please submit your form first to check if you qualify or not. Thank

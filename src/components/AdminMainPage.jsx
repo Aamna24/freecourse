@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
+import Bar from "./test";
+import axios from "axios";
 
 const style = {
   width: "18rem",
@@ -7,7 +9,22 @@ const style = {
   margin: "5px",
   marginBottom: "130px",
 };
+
 const AdminLandingPage = () => {
+  const [forms, setForms] = React.useState([]);
+  const getData = () => {
+    axios
+      .get("http://localhost:61500/form/")
+      .then((res) => {
+        setForms(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //getData();
+  React.useEffect(getData, []);
+  if (!forms || forms.length === 0) return <p>Cannot find any posts</p>;
   return (
     <div className="container">
       <h3 className="text-center">Welcome Admin!</h3>
@@ -55,6 +72,7 @@ const AdminLandingPage = () => {
           </Card>
         </div>
       </div>
+      <Bar data={forms.data} />
     </div>
   );
 };

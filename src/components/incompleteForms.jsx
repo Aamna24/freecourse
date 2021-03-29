@@ -5,7 +5,7 @@ const IncompleteForms = () => {
 
   const getData = () => {
     axios
-      .get("https://consulting-backend.herokuapp.com/form/incompleteForms/")
+      .get("http://localhost:61500/form/incompleteForms/")
       .then((res) => {
         setForms(res.data);
       })

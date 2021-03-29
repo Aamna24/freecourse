@@ -14,7 +14,7 @@ export class Confirm extends Component {
   }
   state = {
     trimmedDataURL: null,
-    nationalInsNo: "",
+    //nationalInsNo: "",
   };
 
   continue = (e) => {
@@ -42,9 +42,9 @@ export class Confirm extends Component {
   };
 
   render() {
-    let { trimmedDataURL, nationalInsNo } = this.state;
+    let { trimmedDataURL } = this.state;
 
-    const { handleSubmit } = this.props;
+    const { handleSubmit, nationalInsNo } = this.props;
     return (
       <div className="container text-center" style={{ marginBottom: "150px" }}>
         <ScrollToTopOnMount />
@@ -69,20 +69,6 @@ export class Confirm extends Component {
               className: "sigCanvas",
             }}
           />
-          <div className="row">
-            <div className="col-md">
-              <label>Please enter your insurance number</label>
-              <input
-                type="text"
-                name="nationalInsuranceNo"
-                onChange={(e) => {
-                  this.setState({
-                    nationalInsNo: e.target.value,
-                  });
-                }}
-              />
-            </div>
-          </div>
           <div className="row">
             <div className="col-md-4 ">
               <button
@@ -109,7 +95,7 @@ export class Confirm extends Component {
                 id="sigBtn"
                 name="trimmedDataURL"
                 onClick={(e) => {
-                  console.log("in click", trimmedDataURL);
+                  console.log("in click", nationalInsNo);
                   SignatureService.submitSigns({
                     trimmedDataURL,
                     nationalInsNo,

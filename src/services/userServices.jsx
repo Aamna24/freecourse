@@ -1,6 +1,6 @@
 import http from "./httpService";
 
-const apiPoint = "https://consulting-backend.herokuapp.com/users/register";
+const apiPoint = "http://localhost:61500/users/register";
 console.log(apiPoint);
 
 export function register(user) {
@@ -11,7 +11,7 @@ export function register(user) {
   });
 }
 
-const formPoint = "https://consulting-backend.herokuapp.com/form/submit";
+const formPoint = "http://localhost:61500/form/submit";
 
 export function submit(user) {
   return http.post(formPoint, {
@@ -20,7 +20,7 @@ export function submit(user) {
   });
 }
 
-const sigPoint = "https://consulting-backend.herokuapp.com/form/signs";
+const sigPoint = "http://localhost:61500/form/signs";
 
 export function submitSigns(sign) {
   console.log("sub", sign.trimmedDataURL);

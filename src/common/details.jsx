@@ -10,7 +10,7 @@ const Details = () => {
 
   const getData = () => {
     axios
-      .get("https://consulting-backend.herokuapp.com/course/")
+      .get("http://localhost:61500/course/")
       .then((res) => {
         setProducts(res.data);
       })

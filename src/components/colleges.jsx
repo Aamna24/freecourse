@@ -8,7 +8,7 @@ const Colleges = () => {
 
   const getData = () => {
     axios
-      .get("https://consulting-backend.herokuapp.com/form/")
+      .get("http://localhost:61500/form/")
       .then((res) => {
         setProducts(res.data);
       })

@@ -10,8 +10,10 @@ import FormQualification from "./FormQualification";
 import FormExtended from "./FormExtended";
 import Confirm from "./Confirm";
 import Success from "./Success";
+import UploadId from "./uploadID";
 import axios from "axios";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import * as auth from "../../services/authService";
 
 toast.configure();
 
@@ -67,6 +69,10 @@ export class UserForm extends Component {
     collegeName: ["West College", "North College"],
     redirect: false,
     visibility: false,
+    wheelchair: "",
+    disabilities: "",
+    disabilitiesValues: [],
+    date: "",
   };
 
   // Proceed to next step
@@ -125,9 +131,9 @@ export class UserForm extends Component {
       });
     } else {
       this.setState({ [e.target.name]: e.target.value });
-      console.log(e.target.value);
     }
   };
+
   handleDetails = (e) => {
     if ([e.target.name] == "email") {
       this.validateEmail(e.target.value);
@@ -165,7 +171,7 @@ export class UserForm extends Component {
 
       axios
         .post(
-          "https://consulting-backend.herokuapp.com/users/registerDetails",
+          "http://localhost:61500/users/registerDetails",
 
           details
         )
@@ -176,9 +182,9 @@ export class UserForm extends Component {
         });
     }
   };
-  handleSubmit = (e) => {
-    e.preventDefault();
 
+  handleSubmit = async (e) => {
+    e.preventDefault();
     const {
       uniqueFormNo,
       appliedCourse,
@@ -231,11 +237,10 @@ export class UserForm extends Component {
       wheelchair,
       disabilities,
       disabilitiesValues,
+      date,
     } = this.state;
-
     var randomIndex = Math.floor(Math.random() * collegeName.length);
     var randomElement = collegeName[randomIndex];
-
     const form = {
       uniqueFormNo,
       appliedCourse,
@@ -284,7 +289,7 @@ export class UserForm extends Component {
       contactPref,
       contactMethodPref,
       marketingMethodPref,
-      date: new Date(),
+      date,
       collegeName: randomElement,
       wheelchair,
       disabilities,
@@ -293,7 +298,7 @@ export class UserForm extends Component {
 
     axios
       .post(
-        "https://consulting-backend.herokuapp.com/form/submit",
+        "http://localhost:61500/form/submit",
 
         form
       )
@@ -412,16 +417,26 @@ export class UserForm extends Component {
             />
           </div>
         );
-
       case 7:
+        return (
+          <UploadId
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleSubmit={this.handleSubmit}
+            props={this.state.nationalInsNo}
+          />
+        );
+      case 8:
         return (
           <Confirm
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleSubmit={this.handleSubmit}
+            nationalInsNo={this.state.nationalInsNo}
           />
         );
-      case 8:
+
+      case 9:
         return (
           <div>
             <Success />
