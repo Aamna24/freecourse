@@ -1,3 +1,6 @@
 # Heres a comment
 *.psd
 *.pdf
+README.md
+node_modules
+public
