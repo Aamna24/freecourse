@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
-import Bar from "./test";
+import Bar from "./Reports";
 import * as auth from "../services/authService";
 
 const style = {
@@ -12,6 +12,8 @@ const style = {
 
 const AdminLandingPage = () => {
   const [forms, setForms] = React.useState([]);
+  const [incForms, setIncForms] = React.useState([]);
+
   const getData = () => {
     auth
       .getForm()
@@ -24,7 +26,22 @@ const AdminLandingPage = () => {
   };
   //getData();
   React.useEffect(getData, []);
+
+  const getIncData = () => {
+    auth
+      .getIncompleteForms()
+      .then((res) => {
+        setIncForms(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  React.useEffect(getIncData, []);
+
   if (!forms || forms.length === 0) return <p>Cannot find any posts</p>;
+  if (!incForms || incForms.length === 0) return <p>Cannot find any posts</p>;
   return (
     <div className="container">
       <h3 className="text-center">Welcome Admin!</h3>
@@ -50,7 +67,7 @@ const AdminLandingPage = () => {
               <Card.Subtitle className="mb-2 text-muted">
                 View list of students with incomplete form
               </Card.Subtitle>
-              <Card.Text></Card.Text>
+              <Card.Text>Incomplete Forms: {incForms.data.length}</Card.Text>
               <Card.Link href="/incompleteForms">
                 Click here to View List
               </Card.Link>
@@ -62,9 +79,9 @@ const AdminLandingPage = () => {
             <Card.Body>
               <Card.Title>Students Listing</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                View tabular data
+                View List of Students who have submitted their form
               </Card.Subtitle>
-              <Card.Text></Card.Text>
+              <Card.Text>Total Forms: {forms.data.length}</Card.Text>
               <Card.Link href="/studentslist">
                 Click to view Students Data
               </Card.Link>
