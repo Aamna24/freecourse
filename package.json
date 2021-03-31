@@ -29,6 +29,7 @@
     "serve": "^11.3.2",
     "web-vitals": "^1.1.0"
   },
+  "cacheDirectories":["node_modules"],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
