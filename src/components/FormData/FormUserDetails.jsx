@@ -219,54 +219,7 @@ export class FormUserDetails extends Component {
           </div>
         </div>
         <br />
-        <label>
-          Before enrolling onto your chosen online course the college/education
-          provider will need to confirm you meet the required qualification
-          criteria for full funding. This is usually on the form of copies of
-          original documents.
-        </label>
-        <label>
-          Please confirm that you are able to provide the following:
-        </label>
-        <br />
-        <label className="required">Proof of Age</label>
-        <Tooltip
-          title="e.g a valid a copy of your passport / full driving licence (provisional driving licences
-            are not acceptable) / birth certificate /DWP/Jobcentre letter"
-          placement="top"
-        >
-          <InfoIcon id="icon" />
-        </Tooltip>
-        <br />
-        <label className="required">
-          Proof of your right to live and work in the UK
-        </label>
-        <Tooltip title="e.g valid UK/EU passport" placement="top">
-          <InfoIcon id="icon" />
-        </Tooltip>
-        <br />
-        <label className="required">Proof of your home address</label>
-        <Tooltip
-          title="e.g proof of a full UK/EU photo card driving licence, recent bank statement, utility
-          bill, council tax bill or DWP/Jobcentre letter"
-          placement="top"
-        >
-          <InfoIcon id="icon" />
-        </Tooltip>
-        <br />
-        <div className="col-md-6">
-          <select
-            name="proof"
-            defaultValue="[Please select one]"
-            onChange={handleChange}
-          >
-            <option value="">[Please Select One]</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <br />
-        <br />
+
         <div className="row">
           <div className="col-md-6">
             <p className="required">First Name</p>
@@ -288,7 +241,7 @@ export class FormUserDetails extends Component {
             <p className="required">Mobile No</p>
           </div>
           <div className="col-md-6">
-            <input type="text" onChange={handleDetails} name="mobile" />
+            <input type="number" onChange={handleDetails} name="mobile" />
           </div>
         </div>
         <div className="row">
@@ -309,18 +262,17 @@ export class FormUserDetails extends Component {
         </div>
 
         <br />
-        <p>
-          Please submit your form first to check if you qualify or not. Thank
-          You
-        </p>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={handleSubmit}
+        <p>Click below to see if you qualify</p>
+        <button
+          type="button"
+          className="btn btn-success"
           id="btns"
+          style={{ width: "120px" }}
+          onClick={handleSubmit}
         >
           Submit
-        </Button>
+        </button>
+
         <Button
           color="primary"
           variant="contained"

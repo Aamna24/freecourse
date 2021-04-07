@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Bar from "./Reports";
 import * as auth from "../services/authService";
+import * as adminauth from "../services/adminService";
 
 const style = {
   width: "18rem",
@@ -13,6 +14,7 @@ const style = {
 const AdminLandingPage = () => {
   const [forms, setForms] = React.useState([]);
   const [incForms, setIncForms] = React.useState([]);
+  const [college, setCollege] = React.useState();
 
   const getData = () => {
     auth
@@ -26,6 +28,19 @@ const AdminLandingPage = () => {
   };
   //getData();
   React.useEffect(getData, []);
+
+  const getCollegeData = () => {
+    adminauth
+      .getCollegeCount()
+      .then((res) => {
+        setCollege(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //getData();
+  React.useEffect(getCollegeData, []);
 
   const getIncData = () => {
     auth
@@ -42,6 +57,8 @@ const AdminLandingPage = () => {
 
   if (!forms || forms.length === 0) return <p>Cannot find any posts</p>;
   if (!incForms || incForms.length === 0) return <p>Cannot find any posts</p>;
+  if (!college || college.length === 0) return <p>Cannot find any posts</p>;
+
   return (
     <div className="container">
       <h3 className="text-center">Welcome Admin!</h3>
@@ -55,7 +72,9 @@ const AdminLandingPage = () => {
               <Card.Subtitle className="mb-2 text-muted">
                 View submitions of each college
               </Card.Subtitle>
-              <Card.Text></Card.Text>
+              <Card.Text>
+                Total Number of Active College: {college.data.length}
+              </Card.Text>
               <Card.Link href="/colleges">Click here to View data</Card.Link>
             </Card.Body>
           </Card>
@@ -63,11 +82,14 @@ const AdminLandingPage = () => {
         <div className="col-md-4 ">
           <Card style={style}>
             <Card.Body>
-              <Card.Title> Incomplete Forms</Card.Title>
+              <Card.Title> Incomplete Applications</Card.Title>
+              <br />
+
               <Card.Subtitle className="mb-2 text-muted">
-                View list of students with incomplete form
+                Count: {incForms.data.length}
               </Card.Subtitle>
-              <Card.Text>Incomplete Forms: {incForms.data.length}</Card.Text>
+
+              <br />
               <Card.Link href="/incompleteForms">
                 Click here to View List
               </Card.Link>

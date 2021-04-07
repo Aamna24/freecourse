@@ -145,8 +145,7 @@ export class UserForm extends Component {
     if (
       this.state.highestQualificationLevel == "No- Level 3 or above" ||
       this.state.age19orOlder == "No" ||
-      this.state.livingStatus == "No" ||
-      this.state.proof == "No"
+      this.state.livingStatus == "No"
     ) {
       toast.error(
         "Unfortunately it doesn’t look like you qualify for one of our government funded courses"
@@ -161,6 +160,7 @@ export class UserForm extends Component {
       this.setState({
         visibility: "visible",
       });
+      this.nextStep();
       const { lastName, firstName, email, mobile } = this.state;
       const details = {
         firstName,
@@ -188,7 +188,6 @@ export class UserForm extends Component {
       age19orOlder,
       residencyStatus,
       livingStatus,
-      proof,
       title,
       firstName,
       lastName,
@@ -244,7 +243,6 @@ export class UserForm extends Component {
       age19orOlder,
       residencyStatus,
       livingStatus,
-      proof,
       title,
       firstName,
       lastName,

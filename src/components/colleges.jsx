@@ -1,11 +1,20 @@
 import React from "react";
-import axios from "axios";
+import { toast } from "react-toastify";
 import Card from "react-bootstrap/Card";
 import Button from "@material-ui/core/Button";
 import * as auth from "../services/authService";
+import * as admin from "../services/adminService";
+toast.configure();
 const Colleges = () => {
   const [products, setProducts] = React.useState([]);
+  const [college, setCollege] = React.useState([]);
 
+  const [contractVal, setContractVal] = React.useState();
+  const [remaining, setRem] = React.useState();
+  const [revenue, setRev] = React.useState();
+  const [show, setShowFields] = React.useState();
+
+  const sign = "\u00A3";
   const getData = () => {
     auth
       .getForm()
@@ -18,26 +27,80 @@ const Colleges = () => {
   };
   //getData();
   React.useEffect(getData, []);
-  console.log(products);
 
+  const getCollegeData = () => {
+    admin
+      .getCollegeCount()
+      .then((res) => {
+        setCollege(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //getCollegeData();
+  React.useEffect(getCollegeData, []);
+
+  const handleChange = () => {
+    setShowFields(true);
+  };
+
+  const handleSubmit = async (id) => {
+    console.log("clicked");
+  };
+  if (!college || college.length === 0) return <p>No College</p>;
   return (
     <div className="container">
       {products.length == 0 ? (
         <p>There are no Products</p>
       ) : (
         <div>
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Nottinghamshire College</Card.Title>
-              <Card.Subtitle>
-                Total Forms Submitted: {products.data.length}
-              </Card.Subtitle>
-              <Card.Subtitle>Add Limit: </Card.Subtitle>
-              <Button color="primary" variant="contained">
-                Add
-              </Button>
-            </Card.Body>
-          </Card>
+          {college.data.map((post) => {
+            return (
+              <Card style={{ width: "18rem" }}>
+                <Card.Body>
+                  <Card.Title>{post.collegeName}</Card.Title>
+
+                  <br />
+                  <Card.Subtitle>
+                    Contract Amount : {post.contractAmount}
+                  </Card.Subtitle>
+                  <br />
+                  <Card.Subtitle>
+                    Price Per Application: {sign} {post.pricePerApp}
+                  </Card.Subtitle>
+                  <br />
+                  <Card.Subtitle>
+                    Contract Value: {sign}
+                    {post.contractValue}
+                  </Card.Subtitle>
+                  <br />
+                  <br />
+                  <Card.Subtitle>
+                    Forms Delievered:{post.formsDelievered}
+                  </Card.Subtitle>
+                  <br />
+                  <Card.Subtitle>Remaining:{post.remaining}</Card.Subtitle>
+                  <br />
+                  <Card.Subtitle>
+                    Revenue: {sign}
+                    {post.revenue}
+                  </Card.Subtitle>
+                  <br />
+
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={(e) => {
+                      window.location.href = "/edit/?id=" + post._id;
+                    }}
+                  >
+                    Edit
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
         </div>
       )}
     </div>

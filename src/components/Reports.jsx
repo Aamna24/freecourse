@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { Bar, Line } from "react-chartjs-2";
 import * as auth from "../services/authService";
+import moment from "moment";
 
 function App() {
   const [forms, setForms] = React.useState([]);
   const [incForms, setIncForms] = React.useState([]);
+
+  const todayDate = moment().format("LL");
   const getData = () => {
     auth
       .getForm()
@@ -32,6 +35,8 @@ function App() {
   if (!forms || forms.length === 0) return <p>Cannot find any posts</p>;
   if (!incForms || incForms.length === 0) return <p>Cannot find any posts</p>;
 
+  //get total count of todays form submission
+  const todaysFormData = forms.data.filter((x) => x.date === todayDate);
   // getting distinct dates of completed forms
   const mappedData = forms.data.map((d) => d.date);
   const result = [...new Set(mappedData)];
@@ -159,6 +164,8 @@ function App() {
         <Bar data={data} width={80} height={30} options={options} />
       </div>
       <br />
+      <br />
+      <div>Today's Form submissions: {todaysFormData.length}</div>
       <br />
       <div>
         <h4>Monthly Form Submissions</h4>

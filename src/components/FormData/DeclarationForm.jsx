@@ -129,41 +129,6 @@ export class DeclarationForm extends Component {
           <label>I confirm and agree to above</label>
         </div>
 
-        <p className="pBold">Enrollment Call Availabilty</p>
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>Weekday Mornings</label>
-        <br />
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>Weekday afternoons</label>
-        <br />
-
-        <input
-          type="checkbox"
-          name="marketingMethodPref"
-          onChange={handleChange}
-          value="Text"
-        />
-        <label>Weekday evenings</label>
-        <br />
-
-        <p>
-          You will be contacted shortly after completing your online
-          registration to arrange an enrolment call - as availability is limited
-          due to the number of applicants please confirm when would most be
-          appropriate.
-        </p>
         <Button
           color="primary"
           variant="contained"

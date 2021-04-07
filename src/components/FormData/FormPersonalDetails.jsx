@@ -226,7 +226,14 @@ export class FormPersonalDetails extends Component {
               <p className="required">Nationality</p>
             </div>
             <div className="col-md-6">
-              <input type="text" onChange={handleChange} name="nationality" />
+              <select
+                name="nationality"
+                defaultValue="[Please select one]"
+                onChange={handleChange}
+              >
+                <option value="">[Please select one]</option>
+                <option value="British">British</option>
+              </select>
             </div>
           </div>
 

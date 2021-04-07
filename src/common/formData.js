@@ -11,9 +11,15 @@ const Formdata=(props)=>{
   console.log(arr)
   
   const fields = [
-    { key: "firstName", _style: { width: "20%" } },
+    { key: "firstName"},"lastName","email",
     "appliedCourse","city","date",
-
+    {
+      key: "button2",
+      label: "",
+      _style: { width: "10%" },
+      sorter: false,
+      filter: false,
+    },
     {
       key: "fill_pdf",
       label: "",
@@ -28,13 +34,7 @@ const Formdata=(props)=>{
       sorter: false,
       filter: false,
     },
-    {
-      key: "button2",
-      label: "",
-      _style: { width: "10%" },
-      sorter: false,
-      filter: false,
-    },
+   
   ];
 
   const handlePDFChange=(e)=>{
@@ -90,13 +90,29 @@ const Formdata=(props)=>{
       fields={fields}
       columnFilter
       tableFilter
-      footer
       itemsPerPageSelect
-      itemsPerPage={5}
+      itemsPerPage={100}
       hover
       sorter
       pagination
+     
       scopedSlots={{
+        'button2': (item, index) => {
+          return (
+            <td className="py-2">
+              <CButton
+                color="primary"
+                variant="outline"
+                shape="square"
+                size="sm"
+                onClick={e=>{
+                  window.location.href="/show-data?id="+item._id}}
+              >
+                Show Data
+              </CButton>
+            </td>
+          );
+        },
         'fill_pdf': (item, index) => {
           return (
             <td className="py-2">
@@ -127,22 +143,7 @@ const Formdata=(props)=>{
             </td>
           );
         },
-        'button2': (item, index) => {
-          return (
-            <td className="py-2">
-              <CButton
-                color="primary"
-                variant="outline"
-                shape="square"
-                size="sm"
-                onClick={e=>{
-                  window.location.href="/show-data?id="+item._id}}
-              >
-                Show Data
-              </CButton>
-            </td>
-          );
-        },
+       
       
       }}
     />

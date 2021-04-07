@@ -10,7 +10,11 @@ export async function adminlogin(email, password) {
     localStorage.setItem(tokenKey, jwt.token);
 }
 
-
+// get college Data
+export function getCollegeCount(){
+    const point = "/admin/collegedata"
+    return http.get(point)
+}
 export function getCurrentUser(){
     try {
         const jwt = localStorage.getItem(tokenKey);
@@ -40,8 +44,16 @@ export function addCourse(course) {
     })
 }
 
+// update college data
+export function updateCollegeInfo(id,contractAmount,pricePerApp){
+    const api = "/admin/college/"+id
+    return http.patch(api,{contractAmount,pricePerApp})
+}
+
 export default{
     adminlogin,
     getCurrentUser,
-    addCourse
+    addCourse,
+    getCollegeCount,
+    updateCollegeInfo
 }

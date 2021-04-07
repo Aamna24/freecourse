@@ -87,7 +87,7 @@ export class FormEqualOppurtunities extends Component {
               <option value="No">No</option>
             </select>
             <br />
-            If Yes then mark from followings. If No, then skip this part.
+            If yes, then mark from the following. If no, then skip this part.
             <br />
             <input
               type="checkbox"

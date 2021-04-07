@@ -21,6 +21,7 @@ import Colleges from './components/colleges'
 import IncompleteForms from './components/incompleteForms'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css';
+import UpdateCollegeInfo from './components/editCollegeInfo';
 
 
 
@@ -71,6 +72,7 @@ class App extends React.Component {
             <Route path="/courses" component={Courses} />
             <Route path="/form" component={UserForm}/>
             <Route path="/single" component={Details}/>
+            <Route path="/edit" component={UpdateCollegeInfo}/>
             
            
 
