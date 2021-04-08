@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { Bar, Line } from "react-chartjs-2";
 import * as auth from "../services/authService";
+import * as admin from "../services/adminService";
 import moment from "moment";
 
 function App() {
   const [forms, setForms] = React.useState([]);
   const [incForms, setIncForms] = React.useState([]);
+  const [revenue, setRevenue] = React.useState();
 
   const todayDate = moment().format("LL");
   const getData = () => {
@@ -32,6 +34,7 @@ function App() {
   };
   //getData();
   React.useEffect(getIncData, []);
+
   if (!forms || forms.length === 0) return <p>Cannot find any posts</p>;
   if (!incForms || incForms.length === 0) return <p>Cannot find any posts</p>;
 

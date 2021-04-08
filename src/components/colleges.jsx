@@ -9,9 +9,6 @@ const Colleges = () => {
   const [products, setProducts] = React.useState([]);
   const [college, setCollege] = React.useState([]);
 
-  const [contractVal, setContractVal] = React.useState();
-  const [remaining, setRem] = React.useState();
-  const [revenue, setRev] = React.useState();
   const [show, setShowFields] = React.useState();
 
   const sign = "\u00A3";
@@ -45,10 +42,9 @@ const Colleges = () => {
     setShowFields(true);
   };
 
-  const handleSubmit = async (id) => {
-    console.log("clicked");
-  };
   if (!college || college.length === 0) return <p>No College</p>;
+  if (!products || products.length === 0) return <p>No College</p>;
+
   return (
     <div className="container">
       {products.length == 0 ? (
@@ -80,7 +76,7 @@ const Colleges = () => {
                     Forms Delievered:{post.formsDelievered}
                   </Card.Subtitle>
                   <br />
-                  <Card.Subtitle>Remaining:{post.remaining}</Card.Subtitle>
+                  <Card.Subtitle>Remaining:{post.remainingForms}</Card.Subtitle>
                   <br />
                   <Card.Subtitle>
                     Revenue: {sign}
