@@ -23,13 +23,13 @@ export class DeclarationForm extends Component {
 
         <p className="required">Contact Preferences</p>
         <div id="checkStmts">
-          <input
-            type="checkbox"
-            name="contactPref"
-            onChange={handleChange}
-            value="Consent to Contact Preference"
-          />
           <label>
+            <input
+              type="checkbox"
+              name="contactPref"
+              onChange={handleChange}
+              value="Consent to Contact Preference"
+            />
             I consent to being contacted regarding my enrolment and course
           </label>
         </div>

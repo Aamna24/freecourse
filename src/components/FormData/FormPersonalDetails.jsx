@@ -87,12 +87,13 @@ export class FormPersonalDetails extends Component {
               <p className="required">Date Of Birth</p>
             </div>
             <div className="col-md-6">
-              <TextField
+              <input
                 id="date"
                 name="dob"
                 type="date"
-                format="MM/dd/yyyy"
+                //format="MM/dd/yyyy"
                 onChange={handleChange}
+                placeholder="yyyy-mm-dd"
               />
             </div>
           </div>

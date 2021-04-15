@@ -381,13 +381,13 @@ export class FormEqualOppurtunities extends Component {
             </div>
             <br />
             <div id="checkStmts">
-              <input
-                type="checkbox"
-                name="householdSituation"
-                onChange={handleChange}
-                value="true"
-              />
               <label className="required">
+                <input
+                  type="checkbox"
+                  name="householdSituation"
+                  onChange={handleChange}
+                  value="true"
+                />
                 I can confirm that I wish to withhold this information
               </label>
             </div>
