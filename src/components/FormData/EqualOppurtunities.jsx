@@ -331,40 +331,40 @@ export class FormEqualOppurtunities extends Component {
 
           <div className="col-md-6">
             <div id="checkStmts">
-              <input
-                type="checkbox"
-                name="householdSituation"
-                onChange={handleChange}
-                value="No household member is in employment and the household includes
-              one or more dependent children."
-              />
               <label className="required">
+                <input
+                  type="checkbox"
+                  name="householdSituation"
+                  onChange={handleChange}
+                  value="No household member is in employment and the household includes
+              one or more dependent children."
+                />
                 No household member is in employment and the household includes
                 one or more dependent children.
               </label>
               <br />
             </div>
             <div id="checkStmts">
-              <input
-                type="checkbox"
-                name="householdSituation"
-                onChange={handleChange}
-                value="true"
-              />
               <label className="required">
+                <input
+                  type="checkbox"
+                  name="householdSituation"
+                  onChange={handleChange}
+                  value="true"
+                />
                 No household member is in employment and the household does not
                 include any dependent children.
               </label>
             </div>
             <br />
             <div id="checkStmts">
-              <input
-                type="checkbox"
-                name="householdSituation"
-                onChange={handleChange}
-                value="true"
-              />
               <label className="required">
+                <input
+                  type="checkbox"
+                  name="householdSituation"
+                  onChange={handleChange}
+                  value="true"
+                />
                 Learner lives in a single adult household with dependent
                 children.
               </label>

@@ -43,7 +43,7 @@ export class DeclarationForm extends Component {
           onChange={handleChange}
           value="Phone"
         />
-        <label>Phone</label>
+        <label>Email or Phone</label>
         <br />
         <input
           type="checkbox"
@@ -59,7 +59,7 @@ export class DeclarationForm extends Component {
           onChange={handleChange}
           value="Text"
         />
-        <label>Post</label>
+        <label>Email, Phone or Post</label>
         <br />
 
         <label className="required">Preferred Marketing Method</label>
@@ -70,7 +70,7 @@ export class DeclarationForm extends Component {
           onChange={handleChange}
           value="Phone"
         />
-        <label>Phone</label>
+        <label>Email or Phone</label>
         <br />
         <input
           type="checkbox"
@@ -86,7 +86,7 @@ export class DeclarationForm extends Component {
           onChange={handleChange}
           value="Text"
         />
-        <label>Text</label>
+        <label>Email, Phone or Post</label>
         <br />
 
         <p className="pBold">Declaration</p>
