@@ -32,6 +32,7 @@ export class FormQualification extends Component {
               name="qualification"
               defaultValue="[Please select one]"
               onChange={handleChange}
+              className="w-auto"
             >
               <option value="None">None</option>
               <option value="Entry Level">
