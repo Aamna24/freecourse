@@ -15,7 +15,7 @@ export class FormPersonalDetails extends Component {
   };
 
   render() {
-    const { handleChange, error } = this.props;
+    const { handleChange, error, error1 } = this.props;
     return (
       <div className="container">
         <ScrollToTop />
@@ -243,7 +243,19 @@ export class FormPersonalDetails extends Component {
               <p className="required">National Insurance Number</p>
             </div>
             <div className="col-md-6">
-              <input type="text" onChange={handleChange} name="nationalInsNo" />
+              <input
+                type="text"
+                onChange={handleChange}
+                name="nationalInsNo"
+                required
+              />
+              {error1 ? (
+                <span style={{ color: "red", marginLeft: "3px" }}>
+                  Please enter valid insurance number
+                </span>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </form>

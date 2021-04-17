@@ -45,7 +45,7 @@ export class FormEmploymentDetails extends Component {
           </div>
         </div>
         <p>
-          If unemployed please skip the following fields. And fill section 3.5
+          If unemployed, choose ‘Not in paid employment’ and click continue.
         </p>
         <div className="row">
           <div className="col-md-6">

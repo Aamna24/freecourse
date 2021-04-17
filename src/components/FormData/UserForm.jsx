@@ -107,10 +107,29 @@ export class UserForm extends Component {
     }
   }
 
+  // validate national insurance no
+  validateNationalInsNo(nationalInsNo) {
+    const pattern = /^\s*[a-zA-Z]{2}(?:\s*\d\s*){6}[a-zA-Z]?\s*$/;
+    const result = pattern.test(nationalInsNo);
+    if (result === true) {
+      this.setState({
+        nationalInsNoError: false,
+        nationalInsNo: nationalInsNo,
+      });
+    } else {
+      this.setState({
+        nationalInsNoError: true,
+      });
+    }
+  }
+
   // Handle fields change
   handleChange = (e) => {
     if ([e.target.name] == "email") {
       this.validateEmail(e.target.value);
+    }
+    if ([e.target.name] == "nationalInsNo") {
+      this.validateNationalInsNo(e.target.value);
     }
     if ([e.target.name] == "householdSituation") {
       let newArray = [...this.state.householdSituation, e.target.value];
@@ -335,6 +354,7 @@ export class UserForm extends Component {
               prevStep={this.prevStep}
               handleChange={this.handleChange}
               error={this.state.emailError}
+              error1={this.state.nationalInsNoError}
             />
           </div>
         );
