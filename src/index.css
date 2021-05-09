@@ -175,7 +175,7 @@ label {
 }
 
 canvas.sigCanvas {
-  background-color: white;
+  background-color: rgb(233, 224, 224);
   margin: 20px 20px 20px 70px;
 }
 

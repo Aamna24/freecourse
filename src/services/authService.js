@@ -56,6 +56,12 @@ export function getForm() {
   return http.get(forms);
 }
 
+// get orm specified by id
+
+export function getTestForm(id) {
+  return http.get("/form/"+id);
+}
+
 const incForm = "/form/incompleteForms/";
 export function getIncompleteForms() {
   return http.get(incForm);
@@ -69,5 +75,6 @@ export default{
     regDetails,
     getCourse,
     getForm,
-    getIncompleteForms
+    getIncompleteForms,
+    getTestForm
 }

@@ -12,7 +12,6 @@ import SignUp from './components/signup'
 import LandingPage from './components/landingPage'
 import Courses from './components/Courses'
 import AdminPanel from './components/adminLogin'
-import UserForm from './components/FormData/UserForm'
 import AdminLandingPage from './components/AdminMainPage'
 import getStudentData from './common/getStudentData'
 import StudentsData from './components/studentsList'
@@ -22,6 +21,16 @@ import IncompleteForms from './components/incompleteForms'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css';
 import UpdateCollegeInfo from './components/editCollegeInfo';
+
+import LoginScreen from './components/test'
+import Proof from './components/Form/Proof'
+import DeclarationForm from './components/Form/Declaration'
+import EqualOppurtunities from './components/Form/EqualOppurtunities'
+import QualificationForm from './components/Form/QualificationForm'
+import EmployemntForm from './components/Form/EmplyementForm'
+import PersonalDetails from './components/Form/PersonalDetails'
+import DetailsForm from './components/Form/DetailForm'
+import Success from './components/Form/Success'
 
 
 
@@ -54,7 +63,7 @@ class App extends React.Component {
     const {user} = this.state;
     
     return (
-      
+     
       <React.Fragment>
           <ToastContainer />
       
@@ -70,11 +79,10 @@ class App extends React.Component {
             <Route path="/register" component={SignUp} />
 
             <Route path="/courses" component={Courses} />
-            <Route path="/form" component={UserForm}/>
             <Route path="/single" component={Details}/>
             <Route path="/edit" component={UpdateCollegeInfo}/>
-            
-           
+
+
 
             <Route path="/admin" component={AdminPanel}/>
             <ProtectedRoute path="/incompleteForms" component={IncompleteForms}/>
@@ -83,12 +91,26 @@ class App extends React.Component {
             <ProtectedRoute path="/studentslist" component={StudentsData}/>
             <ProtectedRoute path="/show-data" component={getStudentData}/>
 
+
+
+            {/*adding test form*/}
+             
+
             <Redirect from="/" exact to="/home" />
 
           </Switch>
+          <Route path="/proof" component={Proof}/>
+             <Route path="/declaration" component={DeclarationForm} />
+           <Route path="/oppurtunities" component={EqualOppurtunities}/>
+           <Route path="/success" component={Success}/>
+             <Route path="/qualification" component={QualificationForm}/>
+             <Route path="/employment" component={EmployemntForm}/>
+           <Route path="/personal" component={PersonalDetails}/>
+             <Route path="/form" component={DetailsForm} />
         </main>
         <Footer />  
       </React.Fragment>
+      
 
     );
   }

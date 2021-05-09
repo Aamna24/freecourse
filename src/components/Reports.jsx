@@ -79,7 +79,7 @@ function App() {
   }
 
   //monthly submissions
-  const months = ["January", "February", "March", "April"];
+  const months = ["January", "February", "March", "April", "May", "June"];
   for (i = 0; i < months.length; i++) {
     for (j = 0; j < forms.data.length; j++) {
       if (forms.data[j].date.includes(months[i])) {

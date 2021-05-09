@@ -55,9 +55,12 @@ const AdminLandingPage = () => {
 
   React.useEffect(getIncData, []);
 
-  if (!forms || forms.length === 0) return <p>Cannot find any posts</p>;
-  if (!incForms || incForms.length === 0) return <p>Cannot find any posts</p>;
-  if (!college || college.length === 0) return <p>Cannot find any posts</p>;
+  if (!forms || forms.length === 0)
+    return <p>We are waiting for the data to load</p>;
+  if (!incForms || incForms.length === 0)
+    return <p>We are waiting for the data to load</p>;
+  if (!college || college.length === 0)
+    return <p>We are waiting for the data to load</p>;
 
   return (
     <div className="container">

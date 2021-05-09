@@ -23,7 +23,7 @@ export function submit(user) {
 const sigPoint = "/form/signs";
 
 export function submitSigns(sign) {
-  console.log("sub", sign.trimmedDataURL);
+  
   return http.post(sigPoint, {
     nationalInsNo: sign.nationalInsNo,
     img: sign.trimmedDataURL,
