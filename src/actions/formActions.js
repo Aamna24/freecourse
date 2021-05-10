@@ -30,7 +30,7 @@ export const saveDetailsForm =(data)=> async(dispatch)=>{
             type: DETAILFORM_SAVE_REQUEST
         })
 
-        const {data} = await axios.post('http://localhost:61500/users/registerDetails/', {firstName,lastName,email,mobile})
+        const {data} = await axios.post(process.env.REACT_APP_API_URL+'/users/registerDetails/', {firstName,lastName,email,mobile})
       
         
         dispatch({
@@ -150,9 +150,7 @@ catch(error){
 }
 
 export const saveSignDetails =(data)=>async(dispatch)=>{
-    try{
-    console.log(data)
-    
+    try{    
     dispatch({
         type: SIGN_SAVE_SUCCESS,
         payload: data
@@ -174,7 +172,7 @@ export const saveIdProof =(dat)=>async(dispatch)=>{
                 type: PROOF_SAVE_REQUEST
         })
     
-        const {data} = await axios.post('http://localhost:61500/form/ids/', dat)
+        const {data} = await axios.post(process.env.REACT_APP_API_URL+'/form/ids/', dat)
 
     dispatch({
         type: PROOF_SAVE_SUCCESS,
@@ -198,7 +196,7 @@ export const createForm =(dat)=>async(dispatch)=>{
                 type: FINAL_SAVE_REQUEST
         })
     
-        const {data} = await axios.post('http://localhost:61500/form/add', dat)
+        const {data} = await axios.post(process.env.REACT_APP_API_URL+'/form/add', dat)
 
     dispatch({
         type: FINAL_SAVE_SUCCESS,
