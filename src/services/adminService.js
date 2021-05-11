@@ -50,10 +50,16 @@ export function updateCollegeInfo(id,contractAmount,pricePerApp){
     return http.patch(api,{contractAmount,pricePerApp})
 }
 
+// send email
+export function sendEmail(email,subject,message){
+    return http.post('/form/email',{email,subject,message})
+}
+
 export default{
     adminlogin,
     getCurrentUser,
     addCourse,
     getCollegeCount,
-    updateCollegeInfo
+    updateCollegeInfo,
+    sendEmail
 }

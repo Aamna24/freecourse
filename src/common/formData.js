@@ -4,7 +4,7 @@ import axios from 'axios'
 import { PDFDocument } from 'pdf-lib'
 import authService from '../services/authService';
 
-const Formdata=(props)=>{
+const Formdata=(props,history)=>{
   const [form, setForm]=useState()
 
   const { posts } = props;
@@ -48,6 +48,13 @@ const Formdata=(props)=>{
       sorter: false,
       filter: false,
     },
+    {
+      key: "send_email",
+      label: "",
+      _style: { width: "10%" },
+      sorter: false,
+      filter: false,
+    }
     
    
   ];
@@ -183,6 +190,23 @@ const HandlePDFChange=async(id)=>{
                 onClick={()=>{HandlePDFChange(item._id)}}
               >
                 Download PDF
+              </CButton>
+            </td>
+          );
+        },
+        'send_email': (item, index) => {
+          return (
+            <td className="py-2">
+              <CButton
+                color="primary"
+                variant="outline"
+                shape="square"
+                size="sm"
+                onClick={()=>{
+                  window.location.href='/email/'+item.email
+                }}
+              >
+                Send Email
               </CButton>
             </td>
           );
