@@ -234,7 +234,7 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
                 </Form.Group>
 
 
-                <Button type="submit" variant="primary">Save Progress & Continue</Button>
+                <Button type="submit" variant="primary">Submit</Button>
             </Form>
             
         </FormContainer>

@@ -19,6 +19,19 @@ const EmployemntForm = ({history}) => {
     const [employerAdd, setAdd] = useState(employmentDetails.employerAdd)
     const [postcode, setPostcode] = useState(employmentDetails.postcode)
     const [ph, setPh] = useState(employmentDetails.ph)
+    const [unemployedLength, setUnEmpLength] = useState(employmentDetails.unemployedLength)
+    const [dec, setDec]=useState(false)
+    const [dValue1, setValue1]= useState('')
+    const [dValue2, setValue2]= useState('')
+    const [dValue3, setValue3]= useState('')
+    const [dValue4, setValue4]= useState('')
+    const [dValue5, setValue5]= useState('')
+    const [dValue6, setValue6]= useState('')
+    const [dValue7, setValue7]= useState('')
+    const [dValue8, setValue8]= useState('')
+    const [dValue9, setValue9]= useState('')
+    const [areYou, setAreYou]=useState()
+
     
   const [show, setShow]=useState(false)
    
@@ -26,10 +39,29 @@ const EmployemntForm = ({history}) => {
    
     const submitHandler=(e)=>{
         e.preventDefault()
-        dispatch(saveEmploymentDetails({employementStatus, hoursPerWeek, length, employerName, employerAdd,
-        postcode,
-    ph}))
-            history.push('/qualification')
+        if(employementStatus==="Unemployed, looking for work"){
+          if(dec===true){
+          dispatch(saveEmploymentDetails({employementStatus, unemployedLength, dValue1,dValue2,dValue3,
+          dValue5,dValue6,dValue7,dValue8,dValue9, areYou}))
+               // history.push('/qualification')
+               window.location.href="/qualification"
+          }
+          else{
+            dispatch(saveEmploymentDetails({employementStatus, unemployedLength, areYou}))
+                   // history.push('/qualification')
+                   window.location.href="/qualification"
+
+          }
+        }
+        else{
+          dispatch(saveEmploymentDetails({employementStatus, hoursPerWeek, length, employerName, employerAdd,
+            postcode,
+        ph}))
+                //history.push('/qualification')
+                window.location.href="/qualification"
+
+        }
+        
     
     }
 
@@ -43,6 +75,15 @@ const EmployemntForm = ({history}) => {
       }
     }
 
+    const handleOptions=(e)=>{
+      if(e.target.value==="Yes"){
+        setDec(true)
+      }
+      else{
+        setDec(false)
+      }
+    }
+
     return (
         <FormContainer>
             <FormCompletetionSteps step1 step2 step3/>
@@ -51,7 +92,7 @@ const EmployemntForm = ({history}) => {
             
             <Form onSubmit={submitHandler}>
             <Form.Group controlId='employementStatus'>
-                    <Form.Label>employmentStatus </Form.Label>
+                    <Form.Label>Please select your Employment Status </Form.Label>
                     <Form.Control
                      as ="select"
                      
@@ -64,8 +105,8 @@ const EmployemntForm = ({history}) => {
               <option value="Unemployed, looking for work">
                 Unemployed, looking for work
               </option>
-              <option value="Employed but on less than £17,004 per year">
-                Employed but on less than £17,004 per year
+              <option value="Employed but on less than £17,374.50 per year">
+                Employed but on less than £17,374.50 per year
               </option>
                           </Form.Control>           
                 </Form.Group>
@@ -149,13 +190,13 @@ const EmployemntForm = ({history}) => {
                 {show && (
                   <>
                   <h1>Step 3.5: UNEMPLOYED/LOW INCOME </h1>
-                  <Form.Group controlId='ph'>
+                  <Form.Group controlId='unemployedLength'>
                     <Form.Label>If Unemployed, please select how long you have been unemployed?</Form.Label>
                     <Form.Control
                      as="select"
                     
-                      value={ph} 
-                      onChange={(e)=> setPh(e.target.value)}>
+                      value={unemployedLength} 
+                      onChange={(e)=> setUnEmpLength(e.target.value)}>
                         <option value="">[Please select one]</option>
               <option value="0-5 months">0-5 months</option>
               <option value="6-11 months">6-11 months</option>
@@ -165,14 +206,14 @@ const EmployemntForm = ({history}) => {
                         
                         </Form.Control>           
                 </Form.Group>
-
-                <Form.Group controlId='ph'>
-                    <Form.Label>Are you in reciepts of benefits?</Form.Label>
+                <Form.Group controlId='areYou'>
+                    <Form.Label>Are you: 19-23 (on first day of learning) and enrolling onto qualifications up to and including Level 2?
+</Form.Label>
                     <Form.Control
                      as="select"
-                    
-                      value={ph} 
-                      onChange={(e)=> setPh(e.target.value)}>
+                    onChange={(e)=>setAreYou(e.target.value)}
+                      value={areYou} 
+                      >
                         <option value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -180,6 +221,115 @@ const EmployemntForm = ({history}) => {
                         
                         </Form.Control>           
                 </Form.Group>
+                <Form.Group controlId='dec'>
+                    <Form.Label>Are you in reciepts of benefits?</Form.Label>
+                    <Form.Control
+                     as="select"
+                    
+                      value={dec} 
+                      onChange={handleOptions}>
+                        <option value="">[Please select one]</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              
+                        
+                        </Form.Control>           
+                </Form.Group>
+                {dec && (
+                  <>
+                    <Form.Label >Select those which apply</Form.Label>
+                    <br/>
+                    
+                    <Form.Check
+                    type="checkbox"
+                    label="JSA"
+                    name='dValue1'
+                    value='dValue1'
+                    onChange={(e)=>{
+                      setValue1(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Income Support"
+                    name='dValue2'
+                    value='dValue2'
+                    onChange={(e)=>{
+                      setValue2(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Council Tax Benefit"
+                    name='dValue3'
+                    value='dValue3'
+                    onChange={(e)=>{
+                      setValue3(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="ESA (Any)"
+                    name='dValue5'
+                    value='dValue5'
+                    onChange={(e)=>{
+                      setValue5(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Incapacity Benefit"
+                    name='dValue6'
+                    value='dValue6'
+                    onChange={(e)=>{
+                      setValue6(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Housing Benefit"
+                    name='dValue7'
+                    value='dValue7'
+                    onChange={(e)=>{
+                      setValue7(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Universal Credit"
+                    name='dValue8'
+                    value='dValue8'
+                    onChange={(e)=>{
+                      setValue8(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Employed but on low wage"
+                    name='dValue9'
+                    value='dValue9'
+                    onChange={(e)=>{
+                      setValue9(e.target.value)
+                    }}
+                    className='mr-2'
+                    >
+                   </Form.Check>
+               </>
+                )}
 
                   </>
                 )}

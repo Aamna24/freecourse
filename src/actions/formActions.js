@@ -178,7 +178,7 @@ export const saveIdProof =(dat)=>async(dispatch)=>{
         type: PROOF_SAVE_SUCCESS,
         payload: data
     })
-    localStorage.setItem('proof', JSON.stringify(data))
+    localStorage.setItem('proof', JSON.stringify(data.data.idPic))
 }
 catch(error){
     dispatch({

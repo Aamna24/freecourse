@@ -21,8 +21,9 @@ const QualificationForm = ({history}) => {
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(saveQualificationDetails({level, mathGrades,englishGrades}))
-            history.push('/oppurtunities')
-    
+            //history.push('/oppurtunities')
+            window.location.href="/oppurtunities"
+
     }
 
     return (

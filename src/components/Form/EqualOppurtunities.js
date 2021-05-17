@@ -16,7 +16,25 @@ const EqualOppurtunities = ({history}) => {
     const [firstLang, setFirstLang] = useState(oppDetails.firstLang)
     const [resident, setResident] = useState(oppDetails.resident)
     const [nonEEACitizen, setNonEEACitizen] = useState(oppDetails.nonEEACitizen)
-    //const [household, sethousehold] = useState(oppDetails.household)
+    const [dValue1, setValue] = useState(oppDetails.dValue1)
+    const [dValue2, setValue2] = useState(oppDetails.dValue2)
+    const [dValue3, setValue3] = useState(oppDetails.dValue3)
+    const [dValue4, setValue4] = useState(oppDetails.dValue4)
+    const [dValue5, setValue5] = useState(oppDetails.dValue5)
+    const [dValue6, setValue6] = useState(oppDetails.dValue6)
+    const [dValue7, setValue7] = useState(oppDetails.dValue7)
+    const [dValue8, setValue8] = useState(oppDetails.dValue8)
+    const [dValue9, setValue9] = useState(oppDetails.dValue9)
+    const [dValue10, setValue10] = useState(oppDetails.dValue10)
+    const [dValue11, setValue11] = useState(oppDetails.dValue11)
+    const [dValue12, setValue12] = useState(oppDetails.dValue12)
+    const [dValue13, setValue13] = useState(oppDetails.dValue13)
+    const [dValue14, setValue14] = useState(oppDetails.dValue14)
+    const [dValue15, setValue15] = useState(oppDetails.dValue15)
+    const [dValue16, setValue16] = useState(oppDetails.dValue16)
+    const [dValue17, setValue17] = useState(oppDetails.dValue17)
+    const [dValue18, setValue18] = useState(oppDetails.dValue18)
+
     const [criminalConv, setCriminalConvictions] = useState(oppDetails.criminalConv)
     const [show, setShow] = useState(false)
   
@@ -25,10 +43,25 @@ const EqualOppurtunities = ({history}) => {
    
     const submitHandler=(e)=>{
         e.preventDefault()
-        dispatch(saveOppDetails({
+        if(disabilities==="Yes"){
+          dispatch(saveOppDetails({
+            ethnicOrigin, disabilities, wheelchair, firstLang, resident, nonEEACitizen, criminalConv, dValue1,
+            dValue2, dValue3, dValue4, dValue5, dValue6, dValue7, dValue8,
+            dValue9, dValue10, dValue11, dValue12, dValue13, dValue14, dValue15,dValue16,dValue17, dValue18
+        }))
+        //history.push('/declaration')
+        window.location.href="/declaration"
+
+        }
+        else{
+          dispatch(saveOppDetails({
             ethnicOrigin, disabilities, wheelchair, firstLang, resident, nonEEACitizen, criminalConv
         }))
-            history.push('/declaration')
+            //history.push('/declaration')
+            window.location.href="/declaration"
+
+        }
+       
     
     }
     const handleChange=(e)=>{
@@ -119,10 +152,12 @@ const EqualOppurtunities = ({history}) => {
                     
                     <Form.Check
                     type="checkbox"
-                    label="Vision Impairment"
-                    name='email'
-                    value='email'
-                   
+                    label="Visual Impairment"
+                    name='dValue1'
+                    value='dValue1'
+                    onChange={(e)=>{
+                      setValue(e.target.value)
+                    }}
                     className='mr-2'
                     >
                       
@@ -132,10 +167,9 @@ const EqualOppurtunities = ({history}) => {
                    <Form.Check
                     type="checkbox"
                     label="Hearing Impairment"
-                    name='both'
-                    value='both'
-                    
-                    
+                    name='dValue2'
+                    value='dValue2'
+                    onChange={(e)=>setValue2(e.target.value)}
                     className='mr-2'
                     >
                       
@@ -145,49 +179,145 @@ const EqualOppurtunities = ({history}) => {
                    <Form.Check
                     type="checkbox"
                     label="Disability affecting mobility"
-                    name='post'
-                    value='post'
+                    name='dValue3'
+                    value='dValue3'
+                    onChange={(e)=>setValue3(e.target.value)}
                     className='mr-2'
                     >
                    </Form.Check>
                    <Form.Check
                     type="checkbox"
                     label="Profound complex disabilities"
-                    name='post'
-                    value='post'
+                    name='dValue4'
+                    value='dValue4'
                     className='mr-2'
+                    onChange={(e)=>setValue4(e.target.value)}
                     >
                    </Form.Check>
                    <Form.Check
                     type="checkbox"
                     label="Social and emotional difficulties"
-                    name='post'
-                    value='post'
+                    name='dValue5'
+                    value='dValue5'
                     className='mr-2'
+                    onChange={(e)=>setValue5(e.target.value)}
                     >
                    </Form.Check>
                    <Form.Check
                     type="checkbox"
                     label="Mental Health Difficulties"
-                    name='post'
-                    value='post'
+                    name='dValue6'
+                    value='dValue6'
                     className='mr-2'
+                    onChange={(e)=>setValue6(e.target.value)}
                     >
                    </Form.Check>
                    <Form.Check
                     type="checkbox"
                     label="Moderate Learning Difficulties"
-                    name='post'
-                    value='post'
+                    name='dValue7'
+                    value='dValue7'
                     className='mr-2'
+                    onChange={(e)=>setValue7(e.target.value)}
                     >
                    </Form.Check>
                    <Form.Check
                     type="checkbox"
                     label="Severe Learning Difficulties"
-                    name='post'
-                    value='post'
+                    name='dValue8'
+                    value='dValue8'
                     className='mr-2'
+                    onChange={(e)=>setValue8(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Dyslexia"
+                    name='dValue9'
+                    value='dValue9'
+                    className='mr-2'
+                    onChange={(e)=>setValue9(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Dyscalculia"
+                    name='dValue10'
+                    value='dValue10'
+                    className='mr-2'
+                    onChange={(e)=>setValue10(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Autism Spectrum Disorder"
+                    name='dValue11'
+                    value='dValue11'
+                    className='mr-2'
+                    onChange={(e)=>setValue11(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Asperger's Syndrome"
+                    name='dValue12'
+                    value='dValue12'
+                    className='mr-2'
+                    onChange={(e)=>setValue12(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Temporary disability after illness or accident"
+                    name='dValue13'
+                    value='dValue13'
+                    className='mr-2'
+                    onChange={(e)=>setValue13(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Speech, language and communication needs "
+                    name='dValue14'
+                    value='dValue14'
+                    className='mr-2'
+                    onChange={(e)=>setValue14(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Other physical disabilities"
+                    name='dValue15'
+                    value='dValue15'
+                    className='mr-2'
+                    onChange={(e)=>setValue15(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Medical condition e.g. epilepsy, asthma, diabetes"
+                    name='dValue16'
+                    value='dValue16'
+                    className='mr-2'
+                    onChange={(e)=>setValue16(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Other learning difficulties"
+                    name='dValue17'
+                    value='dValue17'
+                    className='mr-2'
+                    onChange={(e)=>setValue17(e.target.value)}
+                    >
+                   </Form.Check>
+                   <Form.Check
+                    type="checkbox"
+                    label="Other disabilities"
+                    name='dValue18'
+                    value='dValue18'
+                    className='mr-2'
+                    onChange={(e)=>setValue18(e.target.value)}
                     >
                    </Form.Check>
                          

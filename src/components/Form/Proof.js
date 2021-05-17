@@ -48,6 +48,7 @@ const Proof = ({history}) => {
      data.append("nationalInsNo",personalDetails.nationalInsNo)
      dispatch(saveIdProof(data))
      dispatch(saveSignDetails(signature))
+     
 
 
      dispatch(createForm({
@@ -64,13 +65,13 @@ const Proof = ({history}) => {
     
     }
 
-  
+   
 
     return (
       <FormContainer>
       <FormCompletetionSteps step1 step2 step3 step4 step5 step6 step7/>
 
-      <h1>Final Step: ID Proof</h1>
+      <h3>Final Step: ID Proof</h3>
       
       <Form onSubmit={submitHandler}>
           <Form.Label>
@@ -79,12 +80,15 @@ const Proof = ({history}) => {
          
   <Form.Group controlId='title'>
 
-              <Form.Label>Please upload one of the following ID Proofs - Valid Passport / Full Drivers Licence / Utility Bill (last 3 months)</Form.Label>
+              <Form.Label>Please upload one of the following ID Proofs - Valid Passport / Drivers Licence / Utility Bill (from the last 3 months)</Form.Label>
               <Form.Control
                type='file' 
                placeholder='Enter address'
                 
-                onChange={(e)=> setID(e.target.files[0])}></Form.Control>           
+                onChange={(e)=> setID(e.target.files[0])}
+               
+                >
+                </Form.Control>           
           </Form.Group>
 
           <p>If your name on your ID is a different (surname/first) name to the one on your application, the college will need further evidence to support this change. In the form of a marriage certificate or deed poll.</p>

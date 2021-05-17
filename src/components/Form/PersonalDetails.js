@@ -36,7 +36,8 @@ const SecondForm = ({history}) => {
         e.preventDefault()
         dispatch(savePersonalDetails({title, firstName, lastName, gender, dob, addLine1,
         age,city, county, postcode, yearsAtAdd, telephone, email , emergencyContactName, emergencyTelephone, nationalInsNo}))
-        history.push('/employment')
+        //history.push('/employment')
+        window.location.href="/employment"
     
     }
 
@@ -44,14 +45,17 @@ const SecondForm = ({history}) => {
         <FormContainer>
             <FormCompletetionSteps step1 step2/>
 
-            <h1>Step 2: Personal Details</h1>
-            <Form.Label as="legend">Congratulations, it looks like you could be eligible for government funding or eligible to have the course fees waived by the college. </Form.Label>
-            <p>The next step is to complete your application.</p>
+            <h3>Step 2: Personal Details</h3>
+            <Form.Label as="legend" className="text-center mt-5 mb-3" style={{backgroundColor:"beige",
+        padding:"5px"}}>Congratulations, it looks like you could be eligible for government funding or eligible to have the course fees waived by the college. </Form.Label>
+            <p className="text-center " style={{backgroundColor:"#e1e5ea", padding:"5px"}}>The next step is to complete your application.</p>
+            <div className="text-center mb-5" style={{backgroundColor:"beige", padding:"5px"}}>
             <p>The information you provide will be used to confirm your eligibility to be fully funded by the governments Adult Education Budget (AEB) via the ESFA. So you will be exempt from all course fees.</p>
            <p>Where your course is not eligible to be fully funded, one of our college partners can waive all course fees. So you can still do the course for FREE.</p>
            
            <p>Please ensure you have ID proofs to hand to confirm your identity as you will be asked this at the end of the application. This is to make sure the funding goes to genuine UK or EU citizens that qualify for free/funded training. Acceptable ID proofs include a current passport, drivers licence or recent utility bill.</p>
            <p>As a condition of funding the college is required to gather certain data and carry out identity/eligibility checks. This is to make sure the funding goes to genuine UK or EU citizens that qualify for free/funded training.</p>
+           </div>
             <Form onSubmit={submitHandler}>
             <Form.Group controlId='title'>
                     <Form.Label>Title </Form.Label>
@@ -62,7 +66,7 @@ const SecondForm = ({history}) => {
                       onChange={(e)=> setAddress(e.target.value)}></Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='firstName'>
-                    <Form.Label>firstName </Form.Label>
+                    <Form.Label>First Name </Form.Label>
                     <Form.Control
                      type='text' 
                      placeholder='Enter First Name'
@@ -70,7 +74,7 @@ const SecondForm = ({history}) => {
                       onChange={(e)=> setFirstName(e.target.value)}></Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='lastName'>
-                    <Form.Label>lastName </Form.Label>
+                    <Form.Label>Last Name </Form.Label>
                     <Form.Control
                      type='text' 
                      placeholder='Enter Last Name'
@@ -116,7 +120,7 @@ const SecondForm = ({history}) => {
                       onChange={(e)=> setAge(e.target.value)}></Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='city'>
-                    <Form.Label>city</Form.Label>
+                    <Form.Label>City</Form.Label>
                     <Form.Control
                      type='text' 
                     
@@ -134,7 +138,7 @@ const SecondForm = ({history}) => {
                 </Form.Group>
 
                 <Form.Group controlId='postcode'>
-                    <Form.Label>postcode</Form.Label>
+                    <Form.Label>Postcode</Form.Label>
                     <Form.Control
                      type='text' 
                     
@@ -142,7 +146,7 @@ const SecondForm = ({history}) => {
                       onChange={(e)=> setPostcode(e.target.value)}></Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='yearsAtAdd'>
-                    <Form.Label>yearsAtAdd</Form.Label>
+                    <Form.Label>Years at Address</Form.Label>
                     <Form.Control
                      type='text' 
                     
@@ -150,16 +154,16 @@ const SecondForm = ({history}) => {
                       onChange={(e)=> setYears(e.target.value)}></Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='telephone'>
-                    <Form.Label>telephone</Form.Label>
+                    <Form.Label>Telephone</Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                     
                       value={telephone} 
                       onChange={(e)=> setTel(e.target.value)}></Form.Control>           
                 </Form.Group>
 
                 <Form.Group controlId='email'>
-                    <Form.Label>email</Form.Label>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control
                      type='text' 
                     
@@ -168,7 +172,7 @@ const SecondForm = ({history}) => {
                 </Form.Group>
 
                 <Form.Group controlId='emergencyContactName'>
-                    <Form.Label>emergencyContactName</Form.Label>
+                    <Form.Label>Emergency Contact Name</Form.Label>
                     <Form.Control
                      type='text' 
                     
@@ -176,7 +180,7 @@ const SecondForm = ({history}) => {
                       onChange={(e)=> setEmerCon(e.target.value)}></Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='emergencyTelephone'>
-                    <Form.Label>emergencyTelephone</Form.Label>
+                    <Form.Label>Emergency Telephone</Form.Label>
                     <Form.Control
                      type='text' 
                     
@@ -185,7 +189,7 @@ const SecondForm = ({history}) => {
                 </Form.Group>
 
                 <Form.Group controlId='nationalInsNo'>
-                    <Form.Label>nationalInsNo</Form.Label>
+                    <Form.Label>National Insurance Number</Form.Label>
                     <Form.Control
                      type='text' 
                     
@@ -195,7 +199,7 @@ const SecondForm = ({history}) => {
 
                
                 <Button onClick={e=>{
-                    window.location.href="/"
+                    window.location.href="/form"
                 }} variant="primary"
 
                 className='mr-5'

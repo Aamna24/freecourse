@@ -19,8 +19,9 @@ const DeclarationForm = ({history}) => {
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(saveDeclarationDetails({prefContact}))
-            history.push('/proof')
-    
+            //history.push('/proof')
+            window.location.href="/proof"
+
     }
 
     return (
@@ -36,26 +37,26 @@ const DeclarationForm = ({history}) => {
                     <Form.Label>
                     <input
                     type="checkbox"
-                    label="I consent to being contacted regarding my enrolment and course"
+                    label="I consent to being contacted regarding my course and enrolment"
                     name='consent'
                     value={consent}
                     //checked
                     onChange={e=>setConsent(e.target.value)}
                     className='mr-2'
                     />
-                       I consent to being contacted regarding my enrolment and course</Form.Label>
+                       I consent to being contacted regarding my course and enrolment</Form.Label>
 
                    
                          
                 </Form.Group>
 
                 <Form.Group controlId=''>
-                    <Form.Label >Preferred Contact Method</Form.Label>
+                    <Form.Label >Preferred Marketing Method</Form.Label>
                     <br/>
                     
                     <Form.Check
                     type="checkbox"
-                    label="Email"
+                    label="By Email"
                     name='email'
                     value='email'
                    
@@ -68,9 +69,9 @@ const DeclarationForm = ({history}) => {
 
                    <Form.Check
                     type="checkbox"
-                    label="Email Or Phone "
-                    name='both'
-                    value='both'
+                    label="By Post"
+                    name='post'
+                    value='post'
                     
                     onChange={e=>setPrefContact(e.target.value)}
                     className='mr-2'
@@ -81,9 +82,9 @@ const DeclarationForm = ({history}) => {
 
                    <Form.Check
                     type="checkbox"
-                    label="Email, Phone or Post"
-                    name='post'
-                    value='post'
+                    label="By Phone"
+                    name='phone'
+                    value='phone'
                     
                     onChange={e=>setPrefContact(e.target.value)}
                     className='mr-2'
