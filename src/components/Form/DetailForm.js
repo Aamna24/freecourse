@@ -17,24 +17,16 @@ const DetailsForm = ({history}) => {
     const [email, setEmail] = useState(detailsFormData.email) 
     const [mobile, setMobile] = useState(detailsFormData.mobile)
     const [appliedCourse, setCourse] = useState(detailsFormData.appliedCourse)
- const [highestQualificationLevel, setHighestQualificationLevel] = useState(detailsFormData.highestQualificationLevel)
-    const [age19OrOlder, setAge] = useState(detailsFormData.age19OrOlder)
     const [residencyStatus, setResStatus] = useState(detailsFormData.residencyStatus)
-    const [livingStatus, setLivingStatus] = useState(detailsFormData.livingStatus)
+    const [ans, setAns]=useState(detailsFormData.ans)
     
    const dispatch = useDispatch()
 
     const submitHandler=(e)=>{
       
         e.preventDefault()
-        dispatch(saveDetailsForm({firstName,lastName,email,mobile,
-          highestQualificationLevel,appliedCourse,age19OrOlder,
-        residencyStatus, livingStatus}))
-        if(
-          highestQualificationLevel === "No"|| age19OrOlder==="No" || livingStatus==="No" ||
-          highestQualificationLevel === undefined|| age19OrOlder===undefined || livingStatus===undefined
-          
-        ){
+        dispatch(saveDetailsForm({firstName,lastName,email,mobile,appliedCourse,ans}))
+        if(ans==="No"|| ans===""){
 
           alert('Sorry, You didnot qualitfy')
           window.location.reload('/details')
@@ -133,28 +125,7 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
               </option>
                           </Form.Control>           
                 </Form.Group>
-                <Form.Group controlId='highestQualification'>
-                    <Form.Label>Please confirm that the highest qualification you hold for this course is Level 2 or lower </Form.Label>
-                    <Form.Control
-                     as='select'
-                      value={highestQualificationLevel} 
-                      onChange={(e)=> setHighestQualificationLevel(e.target.value)}>
-                        <option>[Please select one]</option>
-                        <option value='yes'>Yes</option>
-                        <option value='No'> No</option>
-                        </Form.Control>           
-                </Form.Group>
-                <Form.Group controlId='age19OrOlder'>
-                    <Form.Label>Are you age 24 or older? </Form.Label>
-                    <Form.Control
-                     as='select'
-                      value={age19OrOlder} 
-                      onChange={(e)=> setAge(e.target.value)}>
-                        <option>[Please select one]</option>
-                        <option value='yes'>Yes</option>
-                        <option value='No'> No</option>
-                        </Form.Control>           
-                </Form.Group>
+                
                 <Form.Group controlId='residencyStatus'>
                     <Form.Label>What is your residency status? </Form.Label>
                     <Form.Control
@@ -188,22 +159,30 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
               </option>
                         </Form.Control>           
                 </Form.Group>
-                <Form.Group controlId='livingStatus'>
-                    <Form.Label>Have you lived in UK or EU for the past 3 years?</Form.Label>
+               
+                <Form.Group controlId='ans'>
+                    <Form.Label>Can you answer yes to the below? </Form.Label>
+                    <p>Please note: to be eligible for funding you must choose yes to confirm you meet the following criteria</p>
+                    <ol>
+                    <li>I currently live in England or Scotland </li>
+                    <li>I have lived in the European Union for the last 3 years.</li>
+                    <li>I am aged 24 or older</li>
+                    <li>I have not studied the course I am applying for before</li>
+                      </ol>
                     <Form.Control
                      as='select'
-                      value={livingStatus} 
-                      onChange={(e)=> setLivingStatus(e.target.value)}>
+                      value={ans} 
+                      onChange={(e)=> setAns(e.target.value)}>
                         <option>[Please select one]</option>
                         <option value='yes'>Yes</option>
                         <option value='No'> No</option>
                         </Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='firstName'>
-                    <Form.Label>firstName </Form.Label>
+                    <Form.Label>First Name </Form.Label>
                     <Form.Control
                      type='text' 
-                     placeholder='Enter firstName'
+                     placeholder='Enter First Name'
                       value={firstName} 
                       onChange={(e)=> setFirstName(e.target.value)}></Form.Control>           
                 </Form.Group>
@@ -227,7 +206,7 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
                 <Form.Group controlId='mobile'>
                     <Form.Label>Mobile </Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                      placeholder='Enter Mobile No'
                       value={mobile} 
                       onChange={(e)=> setMobile(e.target.value)}></Form.Control>           

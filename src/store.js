@@ -20,12 +20,14 @@ const oppDetailsFromStorage = localStorage.getItem('oppDetails') ? JSON.parse(lo
 const declrationDetailsFromStorage = localStorage.getItem('declaration') ? JSON.parse(localStorage.getItem('declaration')) : {}
 const proofFromStorage = localStorage.getItem('proof') ? JSON.parse(localStorage.getItem('proof')) : {}
 const signFromStorage = localStorage.getItem('sign') ? JSON.parse(localStorage.getItem('sign')) : {}
+const emergencyDetailsFromStorage= localStorage.getItem('emergencyDetails') ? JSON.parse(localStorage.getItem('emergencyDetails')) : {}
 
 const initialState = {
     userLogin: { userInfo: userInfoFromStorage},
     form: {
         detailsFormData: detailsFormDataFromStorage,
         personalDetails: personalDetailsFromStorage,
+        emergencyDetails: emergencyDetailsFromStorage,
        employmentDetails:employmentDetailsFromStorage,
        qualificationDetails: qualificationDetailsFromStorage,
        oppDetails: oppDetailsFromStorage,

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
+import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
 import {savePersonalDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
@@ -13,7 +14,7 @@ const SecondForm = ({history}) => {
     const {personalDetails} = form
     
 
-    const [title, setAddress] = useState(personalDetails.title) 
+    const [title, setTitle] = useState(personalDetails.title) 
     const [firstName, setFirstName] = useState(personalDetails.firstName)
     const [lastName, setLastName] = useState(personalDetails.lastName)
     const [gender, setGender] = useState(personalDetails.gender)
@@ -26,8 +27,6 @@ const SecondForm = ({history}) => {
     const [yearsAtAdd, setYears] = useState(personalDetails.yearsAtAdd) 
     const [telephone, setTel] = useState(personalDetails.telephone)
     const [email, setEmail] = useState(personalDetails.email)
-    const [emergencyContactName, setEmerCon] = useState(personalDetails.emergencyContactName)
-    const [emergencyTelephone, setEmerTel] = useState(personalDetails.emergencyTelephone)
     const [nationalInsNo, setNIN] = useState(personalDetails.nationalInsNo)
    
    const dispatch = useDispatch()
@@ -35,14 +34,15 @@ const SecondForm = ({history}) => {
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(savePersonalDetails({title, firstName, lastName, gender, dob, addLine1,
-        age,city, county, postcode, yearsAtAdd, telephone, email , emergencyContactName, emergencyTelephone, nationalInsNo}))
+        age,city, county, postcode, yearsAtAdd, telephone, email , nationalInsNo}))
         //history.push('/employment')
-        window.location.href="/employment"
+        window.location.href="/emergencydetails"
     
     }
 
     return (
         <FormContainer>
+            <ScrollToMount/>
             <FormCompletetionSteps step1 step2/>
 
             <h3>Step 2: Personal Details</h3>
@@ -60,10 +60,17 @@ const SecondForm = ({history}) => {
             <Form.Group controlId='title'>
                     <Form.Label>Title </Form.Label>
                     <Form.Control
-                     type='text' 
-                     placeholder='Enter title'
+                     as='select'
+                     
                       value={title} 
-                      onChange={(e)=> setAddress(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setTitle(e.target.value)}>
+                          <option>[Please select one]</option>
+                          <option value="Mr">Mr</option>
+                          <option value="Miss">Miss</option>
+                          <option value="Mrs">Mrs</option>
+                          <option value="other">Other</option>
+                          
+                          </Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='firstName'>
                     <Form.Label>First Name </Form.Label>
@@ -171,22 +178,6 @@ const SecondForm = ({history}) => {
                       onChange={(e)=> setEmail(e.target.value)}></Form.Control>           
                 </Form.Group>
 
-                <Form.Group controlId='emergencyContactName'>
-                    <Form.Label>Emergency Contact Name</Form.Label>
-                    <Form.Control
-                     type='text' 
-                    
-                      value={emergencyContactName} 
-                      onChange={(e)=> setEmerCon(e.target.value)}></Form.Control>           
-                </Form.Group>
-                <Form.Group controlId='emergencyTelephone'>
-                    <Form.Label>Emergency Telephone</Form.Label>
-                    <Form.Control
-                     type='text' 
-                    
-                      value={emergencyTelephone} 
-                      onChange={(e)=> setEmerTel(e.target.value)}></Form.Control>           
-                </Form.Group>
 
                 <Form.Group controlId='nationalInsNo'>
                     <Form.Label>National Insurance Number</Form.Label>

@@ -8,7 +8,8 @@ import { DETAILFORM_SAVE_REQUEST,
     FINAL_SAVE_REQUEST,
     FINAL_SAVE_FAIL,
     FINAL_SAVE_SUCCESS,
-    SIGN_SAVE_REQUEST} from "../constants/formConstans"
+    SIGN_SAVE_REQUEST,
+    EMERGENCYDETAILS_SAVE_REQUEST} from "../constants/formConstans"
 
 
 export const DetailsFormReducer =(state={detailsFormData: {}}, action)=>{
@@ -50,6 +51,7 @@ export const FinalFormReducer =(state={}, action)=>{
 export const formReducer =(state={
     detailsFormData:{},
     personalDetails: {},
+    emergencyDetails:{},
     employementDetails:{},
     qualificationDetails:{},
     oppDetails:{},
@@ -68,6 +70,11 @@ export const formReducer =(state={
                 ...state,
                 personalDetails: action.payload,
             }
+            case EMERGENCYDETAILS_SAVE_REQUEST:
+                return {
+                    ...state,
+                    emergencyDetails: action.payload,
+                }
         case EMPLOYEMENTFORM_SAVE_REQUEST:
             return {
                 ...state,

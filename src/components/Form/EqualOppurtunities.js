@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
+import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
 import {saveOppDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
@@ -37,6 +38,7 @@ const EqualOppurtunities = ({history}) => {
 
     const [criminalConv, setCriminalConvictions] = useState(oppDetails.criminalConv)
     const [show, setShow] = useState(false)
+    const [showFileUpload, setFileUpload]=useState(false)
   
    
    const dispatch = useDispatch()
@@ -73,10 +75,20 @@ const EqualOppurtunities = ({history}) => {
           setShow(false)
         }
     }
+    const handleChange1=(e)=>{
+        setNonEEACitizen(e.target.value)
+        if(e.target.value==="Yes"){
+          showFileUpload(true)
+        }
+        else{
+          showFileUpload(false)
+        }
+    }
 
     return (
         <FormContainer>
-            <FormCompletetionSteps step1 step2 step3 step4 step5/>
+          <ScrollToMount/>
+            <FormCompletetionSteps step1 step2 step3 step4 step5 step6/>
 
             <h1>Step 5: Equal Oppurtunities</h1>
             
@@ -367,7 +379,7 @@ const EqualOppurtunities = ({history}) => {
                     <Form.Control
                      as='select'
                       value={nonEEACitizen} 
-                      onChange={(e)=> setNonEEACitizen(e.target.value)}>
+                      onChange={handleChange1}>
                              <option value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>

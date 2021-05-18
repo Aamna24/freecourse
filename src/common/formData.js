@@ -121,6 +121,9 @@ const HandlePDFChange=async(id)=>{
       if(res.data.data.employmentDetails.dValue9){
         form.getCheckBox('Check Box1').check()
       }
+      else{
+        form.getCheckBox('Check Box55').check()
+      }
       const pdfBytes = await pdfDoc.save();
       const file = new Blob([pdfBytes], {
           type: "application/pdf"

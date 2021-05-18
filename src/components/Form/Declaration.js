@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
+import ScrollToMount from '../../common/ScrollToMount'
+
 import {useDispatch} from 'react-redux'
 import FormContainer from './FormContainer'
 import {saveDeclarationDetails} from '../../actions/formActions'
@@ -26,7 +28,8 @@ const DeclarationForm = ({history}) => {
 
     return (
         <FormContainer>
-            <FormCompletetionSteps step1 step2 step3 step4 step5 step6/>
+            <ScrollToMount/>
+            <FormCompletetionSteps step1 step2 step3 step4 step5 step6 step7/>
 
             <h1>Step 6: Declaration</h1>
             

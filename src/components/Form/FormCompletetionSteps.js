@@ -2,7 +2,7 @@ import React from 'react'
 import {Nav } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 const FormCompletetionSteps = ({step1, step2, step3, step4,
-step5, step6, step7}) => {
+step5, step6, step7,step8}) => {
     return (
         <Nav className="justify-content-center mb-4">
             <Nav.Item>
@@ -25,6 +25,15 @@ step5, step6, step7}) => {
             </Nav.Item>
             <Nav.Item>
                 {step3 ? (
+                    <LinkContainer to='/emergencydetails'>
+                        <Nav.Link>Emergency Details</Nav.Link>
+                    </LinkContainer>
+                ): <Nav.Link disabled>
+                    Emergency Details
+                    </Nav.Link>}
+            </Nav.Item>
+            <Nav.Item>
+                {step4 ? (
                     <LinkContainer to='/employment'>
                         <Nav.Link>Employement</Nav.Link>
                     </LinkContainer>
@@ -33,7 +42,7 @@ step5, step6, step7}) => {
                     </Nav.Link>}
             </Nav.Item>
             <Nav.Item>
-                {step4 ? (
+                {step5 ? (
                     <LinkContainer to='/qualification'>
                         <Nav.Link>Qualification</Nav.Link>
                     </LinkContainer>
@@ -42,7 +51,7 @@ step5, step6, step7}) => {
                     </Nav.Link>}
             </Nav.Item>
             <Nav.Item>
-                {step5 ? (
+                {step6 ? (
                     <LinkContainer to='/oppurtunities'>
                         <Nav.Link>Equal Oppurtunities</Nav.Link>
                     </LinkContainer>
@@ -51,7 +60,7 @@ step5, step6, step7}) => {
                     </Nav.Link>}
             </Nav.Item>
             <Nav.Item>
-                {step6 ? (
+                {step7 ? (
                     <LinkContainer to='/declaration'>
                         <Nav.Link>Declaration</Nav.Link>
                     </LinkContainer>
@@ -60,7 +69,7 @@ step5, step6, step7}) => {
                     </Nav.Link>}
             </Nav.Item>
             <Nav.Item>
-                {step7 ? (
+                {step8 ? (
                     <LinkContainer to='/proof'>
                         <Nav.Link>ID Proof</Nav.Link>
                     </LinkContainer>

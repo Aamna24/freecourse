@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
+import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
 import {createForm, saveIdProof, saveSignDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
@@ -69,7 +70,8 @@ const Proof = ({history}) => {
 
     return (
       <FormContainer>
-      <FormCompletetionSteps step1 step2 step3 step4 step5 step6 step7/>
+        <ScrollToMount/>
+      <FormCompletetionSteps step1 step2 step3 step4 step5 step6 step7 step8/>
 
       <h3>Final Step: ID Proof</h3>
       
@@ -78,7 +80,7 @@ const Proof = ({history}) => {
           As a condition of funding the college is required to carry out identity checks. This is to make sure the funding goes to genuine UK or EU citizens that qualify for free/funded training.
           </Form.Label>
          
-  <Form.Group controlId='title'>
+         <Form.Group controlId='title'>
 
               <Form.Label>Please upload one of the following ID Proofs - Valid Passport / Drivers Licence / Utility Bill (from the last 3 months)</Form.Label>
               <Form.Control

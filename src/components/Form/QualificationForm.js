@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
+import ScrollToMount from '../../common/ScrollToMount'
+
 import FormContainer from './FormContainer'
 import {saveQualificationDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
@@ -28,7 +30,8 @@ const QualificationForm = ({history}) => {
 
     return (
         <FormContainer>
-            <FormCompletetionSteps step1 step2 step3 step4/>
+          <ScrollToMount/>
+            <FormCompletetionSteps step1 step2 step3 step4 step5/>
 
             <h1>Step 4: Qualification Details</h1>
             

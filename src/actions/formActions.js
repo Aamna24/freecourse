@@ -18,7 +18,9 @@ import {DETAILFORM_SAVE_REQUEST,
 FINAL_SAVE_SUCCESS,
 FINAL_SAVE_FAIL,
 SIGN_SAVE_SUCCESS,
-SIGN_SAVE_FAIL} from "../constants/formConstans"
+SIGN_SAVE_FAIL,
+EMERGENCYDETAILS_SAVE_SUCCESS,
+EMERGENCYDETAILS_SAVE_FAIL} from "../constants/formConstans"
 import axios from 'axios'
 
 
@@ -70,6 +72,28 @@ catch(error){
     })
 }
 }
+
+
+export const saveEmergencyDetails =(data)=>async(dispatch)=>{
+  
+    try{
+       
+
+    dispatch({
+        type: EMERGENCYDETAILS_SAVE_SUCCESS,
+        payload: data
+    })
+    localStorage.setItem('emergencyDetails', JSON.stringify(data))
+}
+catch(error){
+    dispatch({
+        type: EMERGENCYDETAILS_SAVE_FAIL,
+        payload: error.response && error.response.data.message ?
+        error.response.data.message : error.message
+    })
+}
+}
+
 
 export const saveEmploymentDetails =(data)=>async(dispatch)=>{
     try{
@@ -178,7 +202,7 @@ export const saveIdProof =(dat)=>async(dispatch)=>{
         type: PROOF_SAVE_SUCCESS,
         payload: data
     })
-    localStorage.setItem('proof', JSON.stringify(data.data.idPic))
+    //localStorage.setItem('proof', JSON.stringify(data.data.idPic))
 }
 catch(error){
     dispatch({

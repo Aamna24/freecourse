@@ -1,15 +1,17 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
+import ScrollToMount from '../../common/ScrollToMount'
+
 import FormContainer from './FormContainer'
-import {saveEmploymentDetails} from '../../actions/formActions'
+import {saveEmploymentDetails, saveIdProof} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
 const EmployemntForm = ({history}) => {
 
     
     const form = useSelector(state=> state.form)
     
-    const {employmentDetails} = form
+    const {employmentDetails, personalDetails} = form
     
 
     const [employementStatus, setEmpStatus] = useState(employmentDetails.employementStatus) 
@@ -31,34 +33,46 @@ const EmployemntForm = ({history}) => {
     const [dValue8, setValue8]= useState('')
     const [dValue9, setValue9]= useState('')
     const [areYou, setAreYou]=useState()
+    const [evidence, setEvidence]=useState(null)
+    const [evidence1, setEvidence1]=useState(null)
+    const [evidence2, setEvidence2]=useState(null)
 
     
   const [show, setShow]=useState(false)
-   
+  const [show1, setShow1]=useState(false)
+
    const dispatch = useDispatch()
    
     const submitHandler=(e)=>{
         e.preventDefault()
         if(employementStatus==="Unemployed, looking for work"){
-          if(dec===true){
+         
           dispatch(saveEmploymentDetails({employementStatus, unemployedLength, dValue1,dValue2,dValue3,
           dValue5,dValue6,dValue7,dValue8,dValue9, areYou}))
                // history.push('/qualification')
                window.location.href="/qualification"
-          }
-          else{
-            dispatch(saveEmploymentDetails({employementStatus, unemployedLength, areYou}))
-                   // history.push('/qualification')
-                   window.location.href="/qualification"
-
-          }
+          
+         
         }
         else{
+          if(employementStatus==="Employed but on less than £17,374.50 per year"){
+            const data = new FormData();
+     data.append("idPic", evidence)
+     data.append("idPic", evidence1)
+     data.append("idPic", evidence2)
+     data.append("nationalInsNo",personalDetails.nationalInsNo)
+     dispatch(saveIdProof(data))
+     dispatch(saveEmploymentDetails({employementStatus, hoursPerWeek, length, employerName, employerAdd,
+      postcode,
+  ph}))
+          history.push("/qualification")
+          }else{
           dispatch(saveEmploymentDetails({employementStatus, hoursPerWeek, length, employerName, employerAdd,
             postcode,
         ph}))
                 //history.push('/qualification')
                 window.location.href="/qualification"
+          }
 
         }
         
@@ -70,23 +84,21 @@ const EmployemntForm = ({history}) => {
       if(e.target.value==="Unemployed, looking for work"){
         setShow(true)
       }
-      else{
+     
+      else if(e.target.value==="Employed but on less than £17,374.50 per year"){
+        setShow1(true)
         setShow(false)
       }
-    }
-
-    const handleOptions=(e)=>{
-      if(e.target.value==="Yes"){
-        setDec(true)
-      }
       else{
-        setDec(false)
+        setShow1(false)
+        setShow(false)
       }
+     
     }
-
     return (
         <FormContainer>
-            <FormCompletetionSteps step1 step2 step3/>
+          <ScrollToMount/>
+            <FormCompletetionSteps step1 step2 step3 step4/>
 
             <h1>Step 3: Employment Details</h1>
             
@@ -111,7 +123,7 @@ const EmployemntForm = ({history}) => {
                           </Form.Control>           
                 </Form.Group>
 
-                {!show && (
+                {!show && !show1 && (
                   <>
                   <Form.Group controlId='hoursPerWeek'>
                     <Form.Label>If employed, please select how many hours you work per week?</Form.Label>
@@ -189,7 +201,7 @@ const EmployemntForm = ({history}) => {
 
                 {show && (
                   <>
-                  <h1>Step 3.5: UNEMPLOYED/LOW INCOME </h1>
+                  <h3>Step 3.5: UNEMPLOYED/LOW INCOME </h3>
                   <Form.Group controlId='unemployedLength'>
                     <Form.Label>If Unemployed, please select how long you have been unemployed?</Form.Label>
                     <Form.Control
@@ -222,23 +234,9 @@ const EmployemntForm = ({history}) => {
                         </Form.Control>           
                 </Form.Group>
                 <Form.Group controlId='dec'>
-                    <Form.Label>Are you in reciepts of benefits?</Form.Label>
-                    <Form.Control
-                     as="select"
-                    
-                      value={dec} 
-                      onChange={handleOptions}>
-                        <option value="">[Please select one]</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              
-                        
-                        </Form.Control>           
+                    <Form.Label>Which benefit do you claim if any?</Form.Label>
+                           
                 </Form.Group>
-                {dec && (
-                  <>
-                    <Form.Label >Select those which apply</Form.Label>
-                    <br/>
                     
                     <Form.Check
                     type="checkbox"
@@ -328,15 +326,141 @@ const EmployemntForm = ({history}) => {
                     className='mr-2'
                     >
                    </Form.Check>
+
+                   <Form.Label style={{backgroundColor:"beige", padding:"15px", marginTop:"15px"}}>Additional government funding is available to support the provision of qualifications to people who are on particular benefits. Please provide evidence of you receipt of benefits.
+<br/><br/>
+Acceptable documents include: Benefits letter or bank statement showing credit and benefit type.
+</Form.Label>
+<Form.Group controlId='evidence'>
+
+<Form.Label>Evidence</Form.Label>
+<Form.Control
+ type='file'   
+  onChange={(e)=> setEvidence1(e.target.files[0])}
+ 
+  >
+  </Form.Control>           
+</Form.Group>
+
                </>
                 )}
 
-                  </>
-                )}
+                <>
+                {!show && show1 &&(
+                      <>
+                        <Form.Group controlId='hoursPerWeek'>
+                    <Form.Label>If employed, please select how many hours you work per week?</Form.Label>
+                    <Form.Control
+                     as='select' 
+                      value={hoursPerWeek} 
+                      onChange={(e)=> setHours(e.target.value)}>
+                          <option value="">[Please select one]</option>
+              <option value="0 to 10 hours per week">
+                0 to 10 hours per week
+              </option>
+              <option value="11 to 20 hours per week">
+                11 to 20 hours per week
+              </option>
+              <option value="21 to 30 hours per week">
+                21 to 30 hours per week
+              </option>
+              <option value="30+ hours per week">30+ hours per week</option>
+                          </Form.Control>           
+                </Form.Group>
+                <Form.Group controlId='length'>
+                    <Form.Label>If employed, please select length of employment (months) </Form.Label>
+                    <Form.Control
+                     as='select'
+                      value={length} 
+                      onChange={(e)=> setLength(e.target.value)}>
+                             <option value="">[Please select one]</option>
+              <option value="Up to 3">Up to 3</option>
+              <option value="4-6">4-6</option>
+              <option value="7-12">7-12</option>
+              <option value="12+">12+</option>
+                          </Form.Control>           
+                </Form.Group>
+                <Form.Group controlId='employerName'>
+                    <Form.Label>If Employed, please enter the name of your Employer </Form.Label>
+                    <Form.Control
+                     type="text"
+                     
+                      value={employerName} 
+                      onChange={(e)=> setName(e.target.value)}>
+                          
+                          
+                          </Form.Control>           
+                </Form.Group>
+
+                <Form.Group controlId='employerAdd'>
+                    <Form.Label>Employer Address</Form.Label>
+                    <Form.Control
+                     type='text' 
+                    
+                      value={employerAdd} 
+                      onChange={(e)=> setAdd(e.target.value)}></Form.Control>           
+                </Form.Group>
+               
+
+                <Form.Group controlId='postcode'>
+                    <Form.Label>Postcode</Form.Label>
+                    <Form.Control
+                     type='text' 
+                    
+                      value={postcode} 
+                      onChange={(e)=> setPostcode(e.target.value)}></Form.Control>           
+                </Form.Group>
+
+                <Form.Group controlId='ph'>
+                    <Form.Label>ph</Form.Label>
+                    <Form.Control
+                     type='text' 
+                    
+                      value={ph} 
+                      onChange={(e)=> setPh(e.target.value)}></Form.Control>           
+                </Form.Group>
+                      <Form.Label style={{backgroundColor:"beige", padding:"15px"}}>
+                        Additional government funding is available to support the provision of qualifications to people who are in work but are earning below this amount. </Form.Label>
+                      <p style={{backgroundColor:"#e1e5ea", padding:"15px"}}>Acceptable documents include: Payslip within the last 3 months or contract with employer stating your income.</p>
+                      
+                      <Form.Group controlId='evidence'>
+
+              <Form.Control
+               type='file' 
+     
+                
+                onChange={(e)=>setEvidence(e.target.files[0])}
+               
+                >
+                </Form.Control>           
+          </Form.Group>
+          <Form.Group controlId='evidence'>
+
+<Form.Label>Additional Evidence</Form.Label>
+<Form.Control
+ type='file'   
+  onChange={(e)=> setEvidence1(e.target.files[0])}
+ 
+  >
+  </Form.Control>           
+</Form.Group>
+<Form.Group controlId='evidence'>
+
+<Form.Label>Additional Evidence</Form.Label>
+<Form.Control
+ type='file'   
+  onChange={(e)=> setEvidence2(e.target.files[0])}
+ 
+  >
+  </Form.Control>           
+</Form.Group>
+                      </>
+                    )}
+                </>
                 
 
                 <Button onClick={e=>{
-                    history.push('/personal')
+                    history.push('/emergencydetails')
                 }} variant="primary"
                 className='mr-5'>Back</Button>
                 

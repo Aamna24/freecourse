@@ -30,6 +30,8 @@ import QualificationForm from './components/Form/QualificationForm'
 import EmployemntForm from './components/Form/EmplyementForm'
 import PersonalDetails from './components/Form/PersonalDetails'
 import DetailsForm from './components/Form/DetailForm'
+import EmergencyForm from './components/Form/EmergencyDetails'
+
 import Success from './components/Form/Success'
 import SendEmail from './components/SendEmail';
 
@@ -109,6 +111,8 @@ class App extends React.Component {
              <Route path="/qualification" component={QualificationForm}/>
              <Route path="/employment" component={EmployemntForm}/>
            <Route path="/personal" component={PersonalDetails}/>
+           <Route path="/emergencydetails" component={EmergencyForm}/>
+
              <Route path="/form" component={DetailsForm} />
         </main>
         <Footer />  

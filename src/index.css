@@ -251,3 +251,12 @@ input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 8px;
 }
+.container6 {
+  height: 17em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container6 h2 {
+  margin: 0;
+}
