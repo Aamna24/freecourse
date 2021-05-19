@@ -17,15 +17,32 @@ const QualificationForm = ({history}) => {
     const [level, setLevel] = useState(qualificationDetails.level) 
     const [mathGrades, setMathGrades] = useState(qualificationDetails.mathGrades)
     const [englishGrades, setEnglishGrades] = useState(qualificationDetails.englishGrades)
-    
+    const [showFields, setShowFields]=useState(true)
+    const [validated, setValidated] = useState(false);
+
    const dispatch = useDispatch()
-   
     const submitHandler=(e)=>{
+      const form = e.currentTarget;
+      if (form.checkValidity() === false) {
+        e.preventDefault();
+        e.stopPropagation();
+      } else{  
         e.preventDefault()
         dispatch(saveQualificationDetails({level, mathGrades,englishGrades}))
             //history.push('/oppurtunities')
             window.location.href="/oppurtunities"
+      }
+      setValidated(true)
 
+    }
+    const handleChange=(e)=>{
+       setLevel(e.target.value)
+       if(e.target.value==="None"){
+         setShowFields(false)
+       }
+       else{
+         setShowFields(true)
+       }
     }
 
     return (
@@ -35,15 +52,15 @@ const QualificationForm = ({history}) => {
 
             <h1>Step 4: Qualification Details</h1>
             
-            <Form onSubmit={submitHandler}>
+            <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='level'>
                     <Form.Label>What is your highest level of qualification? </Form.Label>
                     <Form.Control
                      as ="select"
-                     
+                     required
                       value={level} 
-                      onChange={(e)=> setLevel(e.target.value)}>
-                           <option value="">[Please select one]</option>
+                      onChange={handleChange}>
+                           <option selected disabled value="">[Please select one]</option>
                            <option value="None">None</option>
               <option value="Entry Level">
                 Entry Level - (e.g. Basic/Foundation Level, Word Power or Number
@@ -78,28 +95,41 @@ const QualificationForm = ({history}) => {
                 Award/Certificate/Diploma)
               </option>
               <option value="Level 7">Level 7+</option>
-                          </Form.Control>           
+                          </Form.Control> 
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
 
-                <Form.Group controlId='mathGrades'>
+              {showFields && (
+                <>
+                  <Form.Group controlId='mathGrades'>
                     <Form.Label>Maths GCSE Grades:</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                      value={mathGrades}
                      onChange={(e)=> setMathGrades(e.target.value)} 
-                     ></Form.Control>           
+                     ></Form.Control>     
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>       
                 </Form.Group>
 
                 <Form.Group controlId='englishGrades'>
                     <Form.Label>English GCSE Grades:</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                    required
                      value={englishGrades}
                      onChange={(e)=> setEnglishGrades(e.target.value)} 
-                     ></Form.Control>           
+                     ></Form.Control>   
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>         
                 </Form.Group>
+                </>
+              )}
               
                
 

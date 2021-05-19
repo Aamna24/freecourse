@@ -15,14 +15,23 @@ const EmergencyForm = ({history}) => {
     
     const [emergencyContactName, setEmerCon] = useState(emergencyDetails.emergencyContactName)
     const [emergencyTelephone, setEmerTel] = useState(emergencyDetails.emergencyTelephone)
-   
+    const [validated, setValidated] = useState(false);
+
    const dispatch = useDispatch()
    
     const submitHandler=(e)=>{
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+         
+        }else{
         e.preventDefault()
         dispatch(saveEmergencyDetails({emergencyContactName, emergencyTelephone}))
         window.location.href="/employment"
-    
+        }
+        setValidated(true);
+
     }
 
     return (
@@ -37,22 +46,28 @@ const EmergencyForm = ({history}) => {
             
              </Form.Label>
            
-             <Form onSubmit={submitHandler}>
+             <Form noValidate validated={validated} onSubmit={submitHandler}>
              <Form.Group controlId='emergencyContactName'>
                     <Form.Label>Emergency Contact Name</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                    required
                       value={emergencyContactName} 
-                      onChange={(e)=> setEmerCon(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setEmerCon(e.target.value)}></Form.Control>    
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>          
                 </Form.Group>
                 <Form.Group controlId='emergencyTelephone'>
                     <Form.Label>Emergency Telephone</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={emergencyTelephone} 
-                      onChange={(e)=> setEmerTel(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setEmerTel(e.target.value)}></Form.Control>   
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
                 <Button onClick={e=>{
                     history.push('/personal')

@@ -39,11 +39,18 @@ const EqualOppurtunities = ({history}) => {
     const [criminalConv, setCriminalConvictions] = useState(oppDetails.criminalConv)
     const [show, setShow] = useState(false)
     const [showFileUpload, setFileUpload]=useState(false)
-  
+    const [validated, setValidated] = useState(false);
+
    
    const dispatch = useDispatch()
    
     const submitHandler=(e)=>{
+      const form = e.currentTarget;
+      if (form.checkValidity() === false) {
+        e.preventDefault();
+        e.stopPropagation();
+       
+      } else{
         e.preventDefault()
         if(disabilities==="Yes"){
           dispatch(saveOppDetails({
@@ -63,7 +70,8 @@ const EqualOppurtunities = ({history}) => {
             window.location.href="/declaration"
 
         }
-       
+      }
+      setValidated(true)
     
     }
     const handleChange=(e)=>{
@@ -92,15 +100,15 @@ const EqualOppurtunities = ({history}) => {
 
             <h1>Step 5: Equal Oppurtunities</h1>
             
-            <Form onSubmit={submitHandler}>
+            <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='ethnicOrigin'>
                     <Form.Label>What is your Ethnic Origin?</Form.Label>
                     <Form.Control
                      as ="select"
-                     
+                     required
                       value={ethnicOrigin} 
                       onChange={(e)=> setEthnicOrigin(e.target.value)}>
-                            <option value="[Please select one]">[Please select one]</option>
+                            <option disabled selected value="">[Please select one]</option>
               <option value="English/Welsh/Scottish/Northern Irish/British">
                 English/Welsh/Scottish/Northern Irish/British
               </option>
@@ -138,22 +146,29 @@ const EqualOppurtunities = ({history}) => {
                 Any other ethnic group
               </option>
               
-                          </Form.Control>           
+                          </Form.Control>  
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>          
                 </Form.Group>
                 <Form.Group controlId='disabilities'>
                     <Form.Label>Do you have any disabilities or learning difficulties?</Form.Label>
                     <Form.Control
                      as='select' 
+                     required
                       value={disabilities} 
                       onChange={handleChange}>
-                          <option value="">[Please select one]</option>
+                          <option disabled selected value="">[Please select one]</option>
               <option value="Yes">
                 Yes
               </option>
               <option value="No">
                 No
               </option>
-                          </Form.Control>           
+                          </Form.Control>
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                 {show && (
                   <>
@@ -341,63 +356,83 @@ const EqualOppurtunities = ({history}) => {
                     <Form.Label>Are you a wheelchair user? </Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={wheelchair} 
                       onChange={(e)=> setWheelchair(e.target.value)}>
-                             <option value="">[Please select one]</option>
+                             <option disabled selected value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               
-                          </Form.Control>           
+                          </Form.Control>
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                 <Form.Group controlId='firstLang'>
                     <Form.Label>is english your first language? </Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={firstLang} 
                       onChange={(e)=> setFirstLang(e.target.value)}>
-                             <option value="">[Please select one]</option>
+                             <option disabled selected value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               
-                          </Form.Control>           
+                          </Form.Control>
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                 <Form.Group controlId='resident'>
                     <Form.Label>Have you been resident in England, or elsewhere in the European Economic Area, for at least three years, excluding Wales, Scotland, and Northern Ireland?</Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={resident} 
                       onChange={(e)=> setResident(e.target.value)}>
-                             <option value="">[Please select one]</option>
+                             <option disabled selected value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               
-                          </Form.Control>           
+                          </Form.Control> 
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
 
                 <Form.Group controlId='nonEEACitizen'>
                     <Form.Label>I am a non EEA citizen with permission from the UK government to live in the UK</Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={nonEEACitizen} 
                       onChange={handleChange1}>
-                             <option value="">[Please select one]</option>
+                             <option disabled selected value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               
-                          </Form.Control>           
+                          </Form.Control>   
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>         
                 </Form.Group>
                 
                 <Form.Group controlId='criminalConv'>
                     <Form.Label>Do you have any criminal convictions, cautions or pending prosecutions?</Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={criminalConv} 
                       onChange={(e)=> setCriminalConvictions(e.target.value)}>
-                             <option value="">[Please select one]</option>
+                             <option disabled selected value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               
-                          </Form.Control>           
+                          </Form.Control>  
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>          
                 </Form.Group>
                 <Button onClick={e=>{
                     history.push('/qualification')

@@ -29,15 +29,27 @@ const SecondForm = ({history}) => {
     const [email, setEmail] = useState(personalDetails.email)
     const [nationalInsNo, setNIN] = useState(personalDetails.nationalInsNo)
    
+    const [validated, setValidated] = useState(false);
+
    const dispatch = useDispatch()
    
     const submitHandler=(e)=>{
+        const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+     
+    }
+    else{
         e.preventDefault()
         dispatch(savePersonalDetails({title, firstName, lastName, gender, dob, addLine1,
-        age,city, county, postcode, yearsAtAdd, telephone, email , nationalInsNo}))
-        //history.push('/employment')
-        window.location.href="/emergencydetails"
+            age,city, county, postcode, yearsAtAdd, telephone, email , nationalInsNo}))
+           window.location.href="/emergencydetails"
+    }
     
+
+        setValidated(true);
+        
     }
 
     return (
@@ -54,39 +66,50 @@ const SecondForm = ({history}) => {
            <p>Where your course is not eligible to be fully funded, one of our college partners can waive all course fees. So you can still do the course for FREE.</p>
            
            <p>Please ensure you have ID proofs to hand to confirm your identity as you will be asked this at the end of the application. This is to make sure the funding goes to genuine UK or EU citizens that qualify for free/funded training. Acceptable ID proofs include a current passport, drivers licence or recent utility bill.</p>
-           <p>As a condition of funding the college is required to gather certain data and carry out identity/eligibility checks. This is to make sure the funding goes to genuine UK or EU citizens that qualify for free/funded training.</p>
            </div>
-            <Form onSubmit={submitHandler}>
+            <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='title'>
                     <Form.Label>Title </Form.Label>
                     <Form.Control
                      as='select'
-                     
+                     required
                       value={title} 
                       onChange={(e)=> setTitle(e.target.value)}>
-                          <option>[Please select one]</option>
+                          <option selected disabled value="">[Please select one]</option>
                           <option value="Mr">Mr</option>
                           <option value="Miss">Miss</option>
                           <option value="Mrs">Mrs</option>
                           <option value="other">Other</option>
                           
-                          </Form.Control>           
+                          </Form.Control>  
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                 <Form.Group controlId='firstName'>
                     <Form.Label>First Name </Form.Label>
                     <Form.Control
+                    required
                      type='text' 
                      placeholder='Enter First Name'
                       value={firstName} 
-                      onChange={(e)=> setFirstName(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setFirstName(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>          
                 </Form.Group>
+                
                 <Form.Group controlId='lastName'>
                     <Form.Label>Last Name </Form.Label>
                     <Form.Control
                      type='text' 
+                     required
                      placeholder='Enter Last Name'
                       value={lastName} 
-                      onChange={(e)=> setLastName(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setLastName(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>             
                 </Form.Group>
                 <Form.Group controlId='gender'>
                     <Form.Label>Gender </Form.Label>
@@ -106,76 +129,103 @@ const SecondForm = ({history}) => {
                     <Form.Label>Date Of Birth</Form.Label>
                     <Form.Control
                      type='date' 
-                    
+                     required
                       value={dob} 
-                      onChange={(e)=> setDOB(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setDOB(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>             
                 </Form.Group>
                 <Form.Group controlId='addLine1'>
                     <Form.Label>Address Line</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                    required
                       value={addLine1} 
-                      onChange={(e)=> setAdd(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setAdd(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>             
                 </Form.Group>
                 <Form.Group controlId='age'>
                     <Form.Label>Age</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                    required
                       value={age} 
-                      onChange={(e)=> setAge(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setAge(e.target.value)}></Form.Control>  
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                 <Form.Group controlId='city'>
                     <Form.Label>City</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                      required
                       value={city} 
-                      onChange={(e)=> setCity(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setCity(e.target.value)}></Form.Control>  
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
 
                 <Form.Group controlId='county'>
                     <Form.Label>County</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={county} 
-                      onChange={(e)=> setCounty(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setCounty(e.target.value)}></Form.Control>
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>              
                 </Form.Group>
 
                 <Form.Group controlId='postcode'>
                     <Form.Label>Postcode</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={postcode} 
-                      onChange={(e)=> setPostcode(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setPostcode(e.target.value)}></Form.Control>      
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>        
                 </Form.Group>
                 <Form.Group controlId='yearsAtAdd'>
                     <Form.Label>Years at Address</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                    required
                       value={yearsAtAdd} 
-                      onChange={(e)=> setYears(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setYears(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>             
                 </Form.Group>
                 <Form.Group controlId='telephone'>
                     <Form.Label>Telephone</Form.Label>
                     <Form.Control
                      type='number' 
-                    
+                    required
                       value={telephone} 
-                      onChange={(e)=> setTel(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setTel(e.target.value)}></Form.Control>       
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>       
                 </Form.Group>
 
                 <Form.Group controlId='email'>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={email} 
-                      onChange={(e)=> setEmail(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setEmail(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>             
                 </Form.Group>
 
 
@@ -183,9 +233,12 @@ const SecondForm = ({history}) => {
                     <Form.Label>National Insurance Number</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={nationalInsNo} 
-                      onChange={(e)=> setNIN(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setNIN(e.target.value)}></Form.Control>  
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
 
                

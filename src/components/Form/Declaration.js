@@ -14,15 +14,25 @@ const DeclarationForm = ({history}) => {
     const [consent, setConsent]=useState('')
     const [prefContact, setPrefContact] = useState('')
     const [decl, setDeclare] = useState()
-    
+    const [validated, setValidated] = useState(false);
+
     
    const dispatch = useDispatch()
    
     const submitHandler=(e)=>{
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+         
+        }
+        else{
         e.preventDefault()
         dispatch(saveDeclarationDetails({prefContact}))
             //history.push('/proof')
             window.location.href="/proof"
+        }
+        setValidated(true)
 
     }
 
@@ -33,21 +43,22 @@ const DeclarationForm = ({history}) => {
 
             <h1>Step 6: Declaration</h1>
             
-            <Form onSubmit={submitHandler}>
+            <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='level'>
                     <Form.Label >Contact Preferences</Form.Label>
                     <br/>
                     <Form.Label>
-                    <input
-                    type="checkbox"
-                    label="I consent to being contacted regarding my course and enrolment"
-                    name='consent'
+                   
+                    <Form.Check
                     value={consent}
-                    //checked
+                   
                     onChange={e=>setConsent(e.target.value)}
-                    className='mr-2'
-                    />
-                       I consent to being contacted regarding my course and enrolment</Form.Label>
+          required
+          label=" I consent to being contacted regarding my course and enrolment"
+          feedback="You must agree before submitting."
+        />
+                      </Form.Label>
+                      
 
                    
                          
@@ -111,7 +122,8 @@ const DeclarationForm = ({history}) => {
                     label="I confirm and agree to above"
                     name='decl'
                     value={decl}
-                    
+                    required
+                    feedback="You must agree before submitting."
                     onChange={e=>setDeclare(e.target.value)}
                     className='mr-2'
                     >

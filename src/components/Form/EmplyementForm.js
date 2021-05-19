@@ -40,10 +40,18 @@ const EmployemntForm = ({history}) => {
     
   const [show, setShow]=useState(false)
   const [show1, setShow1]=useState(false)
+  const [validated, setValidated] = useState(false);
 
    const dispatch = useDispatch()
    
     const submitHandler=(e)=>{
+      const form = e.currentTarget;
+      if (form.checkValidity() === false) {
+        e.preventDefault();
+        e.stopPropagation();
+       
+      }
+      else{
         e.preventDefault()
         if(employementStatus==="Unemployed, looking for work"){
          
@@ -73,10 +81,11 @@ const EmployemntForm = ({history}) => {
                 //history.push('/qualification')
                 window.location.href="/qualification"
           }
-
         }
         
-    
+        }
+        
+        setValidated(true)
     }
 
     const handleChange=(e)=>{
@@ -102,15 +111,15 @@ const EmployemntForm = ({history}) => {
 
             <h1>Step 3: Employment Details</h1>
             
-            <Form onSubmit={submitHandler}>
+            <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='employementStatus'>
                     <Form.Label>Please select your Employment Status </Form.Label>
                     <Form.Control
                      as ="select"
-                     
+                     required
                       value={employementStatus} 
                       onChange={handleChange}>
-                           <option value="">[Please select one]</option>
+                           <option disabled selected value="">[Please select one]</option>
               <option value="In paid employment (or self employed)">
                 In paid employment (or self employed)
               </option>
@@ -120,7 +129,10 @@ const EmployemntForm = ({history}) => {
               <option value="Employed but on less than £17,374.50 per year">
                 Employed but on less than £17,374.50 per year
               </option>
-                          </Form.Control>           
+                          </Form.Control> 
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
 
                 {!show && !show1 && (
@@ -129,9 +141,10 @@ const EmployemntForm = ({history}) => {
                     <Form.Label>If employed, please select how many hours you work per week?</Form.Label>
                     <Form.Control
                      as='select' 
+                     required
                       value={hoursPerWeek} 
                       onChange={(e)=> setHours(e.target.value)}>
-                          <option value="">[Please select one]</option>
+                          <option selected disabled value="">[Please select one]</option>
               <option value="0 to 10 hours per week">
                 0 to 10 hours per week
               </option>
@@ -142,40 +155,53 @@ const EmployemntForm = ({history}) => {
                 21 to 30 hours per week
               </option>
               <option value="30+ hours per week">30+ hours per week</option>
-                          </Form.Control>           
+                          </Form.Control>   
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>         
                 </Form.Group>
                 <Form.Group controlId='length'>
                     <Form.Label>If employed, please select length of employment (months) </Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={length} 
                       onChange={(e)=> setLength(e.target.value)}>
-                             <option value="">[Please select one]</option>
+                             <option selected disabled value="">[Please select one]</option>
               <option value="Up to 3">Up to 3</option>
               <option value="4-6">4-6</option>
               <option value="7-12">7-12</option>
               <option value="12+">12+</option>
-                          </Form.Control>           
+                          </Form.Control> 
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
                 <Form.Group controlId='employerName'>
                     <Form.Label>If Employed, please enter the name of your Employer </Form.Label>
                     <Form.Control
                      type="text"
-                     
+                     required
                       value={employerName} 
                       onChange={(e)=> setName(e.target.value)}>
                           
                           
-                          </Form.Control>           
+                          </Form.Control> 
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
 
                 <Form.Group controlId='employerAdd'>
                     <Form.Label>Employer Address</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={employerAdd} 
-                      onChange={(e)=> setAdd(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setAdd(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
                
 
@@ -183,18 +209,24 @@ const EmployemntForm = ({history}) => {
                     <Form.Label>Postcode</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={postcode} 
-                      onChange={(e)=> setPostcode(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setPostcode(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
 
                 <Form.Group controlId='ph'>
-                    <Form.Label>ph</Form.Label>
+                    <Form.Label>Phone Number</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={ph} 
-                      onChange={(e)=> setPh(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setPh(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
                 </>
                 )}
@@ -206,32 +238,39 @@ const EmployemntForm = ({history}) => {
                     <Form.Label>If Unemployed, please select how long you have been unemployed?</Form.Label>
                     <Form.Control
                      as="select"
-                    
+                     required
                       value={unemployedLength} 
                       onChange={(e)=> setUnEmpLength(e.target.value)}>
-                        <option value="">[Please select one]</option>
+                        <option selected disabled value="">[Please select one]</option>
               <option value="0-5 months">0-5 months</option>
               <option value="6-11 months">6-11 months</option>
               <option value="12-23 months">12-23 months</option>
               <option value="24-35 months">24-35 months</option>
               <option value="Over 36 months">Over 36 months</option>
                         
-                        </Form.Control>           
+                        </Form.Control> 
+                        <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>   
                 </Form.Group>
                 <Form.Group controlId='areYou'>
                     <Form.Label>Are you: 19-23 (on first day of learning) and enrolling onto qualifications up to and including Level 2?
 </Form.Label>
                     <Form.Control
                      as="select"
+                     required
                     onChange={(e)=>setAreYou(e.target.value)}
                       value={areYou} 
                       >
-                        <option value="">[Please select one]</option>
+                        <option selected disabled value="">[Please select one]</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               
                         
-                        </Form.Control>           
+                        </Form.Control> 
+                        <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                 <Form.Group controlId='dec'>
                     <Form.Label>Which benefit do you claim if any?</Form.Label>
@@ -352,9 +391,10 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
                     <Form.Label>If employed, please select how many hours you work per week?</Form.Label>
                     <Form.Control
                      as='select' 
+                     required
                       value={hoursPerWeek} 
                       onChange={(e)=> setHours(e.target.value)}>
-                          <option value="">[Please select one]</option>
+                          <option selected disabled value="">[Please select one]</option>
               <option value="0 to 10 hours per week">
                 0 to 10 hours per week
               </option>
@@ -365,40 +405,53 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
                 21 to 30 hours per week
               </option>
               <option value="30+ hours per week">30+ hours per week</option>
-                          </Form.Control>           
+                          </Form.Control>
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>             
                 </Form.Group>
                 <Form.Group controlId='length'>
                     <Form.Label>If employed, please select length of employment (months) </Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={length} 
                       onChange={(e)=> setLength(e.target.value)}>
-                             <option value="">[Please select one]</option>
+                             <option selected disabled value="">[Please select one]</option>
               <option value="Up to 3">Up to 3</option>
               <option value="4-6">4-6</option>
               <option value="7-12">7-12</option>
               <option value="12+">12+</option>
-                          </Form.Control>           
+                          </Form.Control>    
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>         
                 </Form.Group>
                 <Form.Group controlId='employerName'>
                     <Form.Label>If Employed, please enter the name of your Employer </Form.Label>
                     <Form.Control
                      type="text"
-                     
+                     required
                       value={employerName} 
                       onChange={(e)=> setName(e.target.value)}>
                           
                           
-                          </Form.Control>           
+                          </Form.Control>
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>             
                 </Form.Group>
 
                 <Form.Group controlId='employerAdd'>
                     <Form.Label>Employer Address</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={employerAdd} 
-                      onChange={(e)=> setAdd(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setAdd(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                
 
@@ -406,18 +459,24 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
                     <Form.Label>Postcode</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={postcode} 
-                      onChange={(e)=> setPostcode(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setPostcode(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
 
                 <Form.Group controlId='ph'>
                     <Form.Label>ph</Form.Label>
                     <Form.Control
                      type='text' 
-                    
+                     required
                       value={ph} 
-                      onChange={(e)=> setPh(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setPh(e.target.value)}></Form.Control>  
+                      <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
                       <Form.Label style={{backgroundColor:"beige", padding:"15px"}}>
                         Additional government funding is available to support the provision of qualifications to people who are in work but are earning below this amount. </Form.Label>
