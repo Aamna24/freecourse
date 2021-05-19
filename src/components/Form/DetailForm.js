@@ -19,11 +19,18 @@ const DetailsForm = ({history}) => {
     const [appliedCourse, setCourse] = useState(detailsFormData.appliedCourse)
     const [residencyStatus, setResStatus] = useState(detailsFormData.residencyStatus)
     const [ans, setAns]=useState(detailsFormData.ans)
-    
+    const [validated, setValidated] = useState(false);
+
    const dispatch = useDispatch()
 
     const submitHandler=(e)=>{
-      
+      const form = e.currentTarget;
+      if (form.checkValidity() === false) {
+        e.preventDefault();
+        e.stopPropagation();
+       
+      }
+      else{
         e.preventDefault()
         dispatch(saveDetailsForm({firstName,lastName,email,mobile,appliedCourse,ans}))
         if(ans==="No"|| ans===""){
@@ -35,7 +42,8 @@ const DetailsForm = ({history}) => {
          
          history.push("/personal")
         }
-        
+      }
+      setValidated(true)
         
         
     }
@@ -49,7 +57,7 @@ const DetailsForm = ({history}) => {
 The courses are funded by the governments Adult Education Budget (AEB) via the ESFA. So if you qualify you will be exempt from all course fees.
 </p>
             <p>To see if you qualify please answer the following questions.</p>
-            <Form onSubmit={submitHandler}>
+            <Form noValidate validated={validated} onSubmit={submitHandler}>
               
            
           
@@ -57,10 +65,10 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
                     <Form.Label>Which course are you applying for? </Form.Label>
                     <Form.Control
                      as="select" 
-                     
+                     required
                       value={appliedCourse} 
                       onChange={(e)=> setCourse(e.target.value)}>
-                          <option value="">[Please Select One]</option>
+                          <option selected disabled value="">[Please Select One]</option>
                           <option value="Awareness of Mental Health">
                 Awareness of Mental Health
               </option>
@@ -123,16 +131,20 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
               <option value="Falls Prevention Awareness">
                 Falls Prevention Awareness
               </option>
-                          </Form.Control>           
+                          </Form.Control>  
+                          <Form.Control.Feedback type="invalid">
+            Please fill in this required field.
+          </Form.Control.Feedback>         
                 </Form.Group>
                 
                 <Form.Group controlId='residencyStatus'>
                     <Form.Label>What is your residency status? </Form.Label>
                     <Form.Control
                      as='select'
+                     required
                       value={residencyStatus} 
                       onChange={(e)=> setResStatus(e.target.value)}>
-                       <option value="">[Please Select One]</option>
+                       <option selected disabled value="">[Please Select One]</option>
               <option value="British Citizen">British Citizen</option>
               <option value="Citizen of a Country within the EEA">
                 Citizen of a Country within the EEA
@@ -157,7 +169,10 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
               <option value="Other (details and evidence in learner file)">
                 Other (details and evidence in learner file)
               </option>
-                        </Form.Control>           
+                        </Form.Control> 
+                        <Form.Control.Feedback type="invalid">
+            Please fill in this required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
                
                 <Form.Group controlId='ans'>
@@ -171,45 +186,65 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
                       </ol>
                     <Form.Control
                      as='select'
+                     required
                       value={ans} 
                       onChange={(e)=> setAns(e.target.value)}>
-                        <option>[Please select one]</option>
+                        <option selected disabled value="">[Please select one]</option>
                         <option value='yes'>Yes</option>
                         <option value='No'> No</option>
-                        </Form.Control>           
+                        </Form.Control>
+                        <Form.Control.Feedback type="invalid">
+            Please fill in this required field.
+          </Form.Control.Feedback>            
                 </Form.Group>
                 <Form.Group controlId='firstName'>
                     <Form.Label>First Name </Form.Label>
                     <Form.Control
                      type='text' 
+                     required
                      placeholder='Enter First Name'
                       value={firstName} 
-                      onChange={(e)=> setFirstName(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setFirstName(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+            Please fill in this required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
 
                 <Form.Group controlId='lastName'>
                     <Form.Label>Last Name </Form.Label>
                     <Form.Control
                      type='text' 
+                     required
                      placeholder='Enter Last Name'
                       value={lastName} 
-                      onChange={(e)=> setLastName(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setLastName(e.target.value)}></Form.Control> 
+                      <Form.Control.Feedback type="invalid">
+            Please fill in this required field.
+          </Form.Control.Feedback>           
                 </Form.Group>
                 <Form.Group controlId='email'>
                     <Form.Label>Email </Form.Label>
                     <Form.Control
                      type='email' 
+                     required
                      placeholder='Enter Email'
                       value={email} 
-                      onChange={(e)=> setEmail(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setEmail(e.target.value)}></Form.Control>  
+                      <Form.Control.Feedback type="invalid">
+            Please fill in this required field.
+          </Form.Control.Feedback>          
                 </Form.Group>
                 <Form.Group controlId='mobile'>
                     <Form.Label>Mobile </Form.Label>
                     <Form.Control
+                    required
                      type='number' 
                      placeholder='Enter Mobile No'
                       value={mobile} 
-                      onChange={(e)=> setMobile(e.target.value)}></Form.Control>           
+                      onChange={(e)=> setMobile(e.target.value)}></Form.Control>   
+                      <Form.Control.Feedback type="invalid">
+            Please fill in this required field.
+          </Form.Control.Feedback>         
                 </Form.Group>
 
 
