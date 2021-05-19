@@ -15,6 +15,7 @@ const Proof = ({history}) => {
     
     const {personalDetails} = form
     const [idPic, setID] = useState() 
+    const [idPic1, setID1] = useState() 
    
     const [signature, setTrimmed] = useState(null)
 
@@ -46,6 +47,8 @@ const Proof = ({history}) => {
      e.preventDefault()
      const data = new FormData();
      data.append("idPic", idPic)
+     data.append("idPic", idPic1)
+
      data.append("nationalInsNo",personalDetails.nationalInsNo)
      dispatch(saveIdProof(data))
      dispatch(saveSignDetails(signature))
@@ -94,7 +97,16 @@ const Proof = ({history}) => {
           </Form.Group>
 
           <p>If your name on your ID is a different (surname/first) name to the one on your application, the college will need further evidence to support this change. In the form of a marriage certificate or deed poll.</p>
-
+<Form.Group>
+<Form.Control
+               type='file' 
+               
+                
+                onChange={(e)=> setID1(e.target.files[0])}
+               
+                >
+                </Form.Control>  
+</Form.Group>
        <Form.Label as="legend">Please Sign the Application</Form.Label>
           <SignaturePad
       id="canvas"

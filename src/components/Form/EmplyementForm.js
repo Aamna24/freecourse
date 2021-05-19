@@ -22,11 +22,9 @@ const EmployemntForm = ({history}) => {
     const [postcode, setPostcode] = useState(employmentDetails.postcode)
     const [ph, setPh] = useState(employmentDetails.ph)
     const [unemployedLength, setUnEmpLength] = useState(employmentDetails.unemployedLength)
-    const [dec, setDec]=useState(false)
     const [dValue1, setValue1]= useState('')
     const [dValue2, setValue2]= useState('')
     const [dValue3, setValue3]= useState('')
-    const [dValue4, setValue4]= useState('')
     const [dValue5, setValue5]= useState('')
     const [dValue6, setValue6]= useState('')
     const [dValue7, setValue7]= useState('')
@@ -43,6 +41,7 @@ const EmployemntForm = ({history}) => {
   const [validated, setValidated] = useState(false);
 
    const dispatch = useDispatch()
+   
    
     const submitHandler=(e)=>{
       const form = e.currentTarget;
@@ -104,13 +103,15 @@ const EmployemntForm = ({history}) => {
       }
      
     }
+    
+   
     return (
         <FormContainer>
           <ScrollToMount/>
             <FormCompletetionSteps step1 step2 step3 step4/>
 
             <h1>Step 3: Employment Details</h1>
-            
+           
             <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='employementStatus'>
                     <Form.Label>Please select your Employment Status </Form.Label>
