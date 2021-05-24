@@ -34,6 +34,7 @@ import EmergencyForm from './components/Form/EmergencyDetails'
 
 import Success from './components/Form/Success'
 import SendEmail from './components/SendEmail';
+import AddCourse from './components/addCourse';
 
 
 
@@ -94,12 +95,7 @@ class App extends React.Component {
             <ProtectedRoute path="/studentslist" component={StudentsData}/>
             <ProtectedRoute path="/show-data" component={getStudentData}/>
             <Route path="/email/:email" component={SendEmail}/>
-
-
-
-
-            {/*adding test form*/}
-             
+            <Route path="/addcourse" component={AddCourse}/>             
 
             <Redirect from="/" exact to="/home" />
 

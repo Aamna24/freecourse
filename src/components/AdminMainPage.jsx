@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Card from "react-bootstrap/Card";
+import { Card } from "react-bootstrap";
+import Button from "@material-ui/core/Button";
 import Bar from "./Reports";
 import * as auth from "../services/authService";
 import * as adminauth from "../services/adminService";
+import { Link } from "react-router-dom";
 
 const style = {
   width: "18rem",
-
   margin: "5px",
   marginBottom: "130px",
 };
@@ -66,6 +67,10 @@ const AdminLandingPage = () => {
     <div className="container">
       <h3 className="text-center">Welcome Admin!</h3>
       <br />
+      <br />
+      <Button component={Link} to="/addcourse" className="mb-5" color="primary">
+        Add Course
+      </Button>
       <br />
       <div className="row">
         <div className="col-md-4 ">
