@@ -3,6 +3,8 @@ import { Form, Button } from "react-bootstrap";
 import ScrollToMount from "../common/ScrollToMount";
 import FormContainer from "./FormContainer";
 import * as auth from "../services/adminService";
+import { toast } from "react-toastify";
+toast.configure();
 const AddCourse = () => {
   const [title, setTitle] = useState("");
   const [description, setDesc] = useState();
@@ -36,7 +38,10 @@ const AddCourse = () => {
       data.append("funding", funding);
       data.append("learningMethods", learningMethods);
       data.append("img", img);
-      await auth.addCourse(data);
+      const res = await auth.addCourse(data);
+      if (res.status === 201) {
+        toast.success("Course Added");
+      }
     }
     setValidated(true);
   };
@@ -52,6 +57,7 @@ const AddCourse = () => {
           <Form.Label>Title </Form.Label>
           <Form.Control
             as="text"
+            name="title"
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -64,6 +70,7 @@ const AddCourse = () => {
           <Form.Label>Description </Form.Label>
           <Form.Control
             required
+            name="description"
             as="textarea"
             rows={10}
             placeholder="Enter Description"
@@ -79,6 +86,7 @@ const AddCourse = () => {
           <Form.Label>Content </Form.Label>
           <Form.Control
             as="textarea"
+            name="content"
             rows={10}
             required
             placeholder="Enter Content"
@@ -93,6 +101,7 @@ const AddCourse = () => {
           <Form.Label>Benefits </Form.Label>
           <Form.Control
             as="text"
+            name="benefits"
             value={benefits}
             onChange={(e) => setBenefits(e.target.value)}
           ></Form.Control>
@@ -102,6 +111,7 @@ const AddCourse = () => {
           <Form.Label>Length</Form.Label>
           <Form.Control
             type="text"
+            name="length"
             required
             value={length}
             onChange={(e) => setLength(e.target.value)}
@@ -114,6 +124,7 @@ const AddCourse = () => {
           <Form.Label>Awarding Body</Form.Label>
           <Form.Control
             type="text"
+            name="awardingBody"
             required
             value={awardingBody}
             onChange={(e) => setAwardingBody(e.target.value)}
@@ -126,6 +137,7 @@ const AddCourse = () => {
           <Form.Label>Level</Form.Label>
           <Form.Control
             type="text"
+            name="courseLevel"
             required
             value={courseLevel}
             onChange={(e) => setLevel(e.target.value)}
@@ -138,6 +150,7 @@ const AddCourse = () => {
           <Form.Label>Funding</Form.Label>
           <Form.Control
             type="text"
+            name="funding"
             required
             value={funding}
             onChange={(e) => setFunding(e.target.value)}
@@ -151,6 +164,7 @@ const AddCourse = () => {
           <Form.Label>Learning Methods</Form.Label>
           <Form.Control
             type="text"
+            name="learningMethods"
             required
             value={learningMethods}
             onChange={(e) => setLearning(e.target.value)}
