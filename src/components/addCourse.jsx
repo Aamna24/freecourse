@@ -56,7 +56,7 @@ const AddCourse = () => {
         <Form.Group controlId="title">
           <Form.Label>Title </Form.Label>
           <Form.Control
-            as="text"
+            atypes="text"
             name="title"
             required
             value={title}
@@ -97,10 +97,11 @@ const AddCourse = () => {
             Please fill the required field.
           </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group controlId="benefits">
           <Form.Label>Benefits </Form.Label>
           <Form.Control
-            as="text"
+            type="text"
             name="benefits"
             value={benefits}
             onChange={(e) => setBenefits(e.target.value)}
