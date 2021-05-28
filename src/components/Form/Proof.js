@@ -21,19 +21,23 @@ const Proof = ({history}) => {
 
    const formCreate = useSelector(state=>state.final)
   const {final, success, error} = formCreate
+
+  
+  
     
   const [sigPad, setSigPad] = useState({})
   const [msg, setMsg]=useState()
 
   const clearSig = () => {
     sigPad.clear();
-    
+    setMsg(false)
   };
 
  const trim = () => {
     setTrimmed(sigPad.getTrimmedCanvas().toDataURL("image/png"),
     );
     dispatch(saveSignDetails(signature))
+    setMsg(true)
   };
    
   useEffect(()=>{
@@ -122,12 +126,14 @@ const Proof = ({history}) => {
       }}
     />
            <br/>     
-  <Button   className='mr-5 ' onClick={trim}>Sign </Button>
+  <Button   className='mr-5' onClick={trim}>Sign </Button>
   <Button onClick={clearSig}>Clear Signature</Button>
           <br/>
 
           <br/>
-          
+          {msg && (
+            <p>Your signature has been accepted.</p>
+          )}
           <br/>
 
          
@@ -141,7 +147,7 @@ const Proof = ({history}) => {
 
 
 
-          <Button type="submit" variant="primary">Send Application</Button>
+          <Button >Send Application</Button>
           
       </Form>
       

@@ -3,14 +3,14 @@ import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
-import {saveOppDetails} from '../../actions/formActions'
+import {saveOppDetails, saveIdProof} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
 const EqualOppurtunities = ({history}) => {
 
     
     const form = useSelector(state=> state.form)
     
-    const {oppDetails} = form
+    const {oppDetails, personalDetails} = form
     const [ethnicOrigin, setEthnicOrigin] = useState(oppDetails.ethnicOrigin) 
     const [disabilities, setDisablities] = useState(oppDetails.disabilities)
     const [wheelchair, setWheelchair] = useState(oppDetails.wheelchair)
@@ -40,6 +40,11 @@ const EqualOppurtunities = ({history}) => {
     const [show, setShow] = useState(false)
     const [showFileUpload, setFileUpload]=useState(false)
     const [validated, setValidated] = useState(false);
+    const [perField, setPerField]=useState(false)
+    const [id1, setID1]=useState()
+    const [id2, setID2]=useState()
+    const [id3, setID3]=useState()
+
 
    
    const dispatch = useDispatch()
@@ -58,6 +63,13 @@ const EqualOppurtunities = ({history}) => {
             dValue2, dValue3, dValue4, dValue5, dValue6, dValue7, dValue8,
             dValue9, dValue10, dValue11, dValue12, dValue13, dValue14, dValue15,dValue16,dValue17, dValue18
         }))
+        const data = new FormData();
+     data.append("idPic", id1)
+     data.append("idPic", id2)
+     data.append("idPic", id3)
+
+     data.append("nationalInsNo",personalDetails.nationalInsNo)
+     dispatch(saveIdProof(data))
         //history.push('/declaration')
         window.location.href="/declaration"
 
@@ -66,6 +78,13 @@ const EqualOppurtunities = ({history}) => {
           dispatch(saveOppDetails({
             ethnicOrigin, disabilities, wheelchair, firstLang, resident, nonEEACitizen, criminalConv
         }))
+        const data = new FormData();
+     data.append("idPic", id1)
+     data.append("idPic", id2)
+     data.append("idPic", id3)
+
+     data.append("nationalInsNo",personalDetails.nationalInsNo)
+     dispatch(saveIdProof(data))
             //history.push('/declaration')
             window.location.href="/declaration"
 
@@ -86,10 +105,10 @@ const EqualOppurtunities = ({history}) => {
     const handleChange1=(e)=>{
         setNonEEACitizen(e.target.value)
         if(e.target.value==="Yes"){
-          showFileUpload(true)
+          setFileUpload(true)
         }
         else{
-          showFileUpload(false)
+          setFileUpload(false)
         }
     }
 
@@ -417,7 +436,76 @@ const EqualOppurtunities = ({history}) => {
                Please fill the required field.
           </Form.Control.Feedback>         
                 </Form.Group>
-                
+                {showFileUpload && (
+                  <>
+                  <Form.Group controlId='perField'>
+                    <Form.Label>What immigration permissions do you currently hold in the UK?</Form.Label>
+                    <Form.Control
+                     as='select'
+                     required
+                      value={perField} 
+                      onChange={(e)=>setPerField(e.target.value)}>
+                             <option disabled selected value="">[Please select one]</option>
+              <option value="Asylum Seeker">Asylum Seeker</option>
+              <option value="Indefinite Leave">Indefinite Leave</option>
+              <option value="Exceptional / Discretionary Leave">Exceptional / Discretionary Leave</option>
+              <option value="Humanitarian Protection">Humanitarian Protection</option>
+              <option value="Refugee">Refugee</option>
+              <option value="Famile Member of EU citizen">Famile Member of EU citizen</option>
+              <option value="British/EU/EEA/Citizen ">British/EU/EEA/Citizen </option>
+              
+                          </Form.Control>   
+                          <Form.Control.Feedback type="invalid">
+               Please fill the required field.
+          </Form.Control.Feedback>         
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>
+                    Proof of residency status covering the last 3 years is required.
+                    Providing proof of rour residency status is a mandatory requirement in order to access funding.
+                    If this is not provided you will be deemed ineligible for funding and not permitted to
+                    access your choosen course.
+                  </Form.Label>
+
+                </Form.Group>
+                <Form.Group>
+                <Form.Group controlId='id1'>
+
+<Form.Control
+ type='file' 
+ 
+  
+  onChange={(e)=> setID1(e.target.files[0])}
+ 
+  >
+  </Form.Control>           
+</Form.Group>
+<Form.Group controlId='id2'>
+
+<Form.Control
+ type='file' 
+ 
+  
+  onChange={(e)=> setID2(e.target.files[0])}
+ 
+  >
+  </Form.Control>           
+</Form.Group>
+<Form.Group controlId='id3'>
+
+<Form.Control
+ type='file' 
+ 
+  
+  onChange={(e)=> setID3(e.target.files[0])}
+ 
+  >
+  </Form.Control>           
+</Form.Group>
+                </Form.Group>
+                  </>
+                )}
                 <Form.Group controlId='criminalConv'>
                     <Form.Label>Do you have any criminal convictions, cautions or pending prosecutions?</Form.Label>
                     <Form.Control
