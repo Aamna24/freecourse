@@ -42,6 +42,9 @@ const AddCourse = () => {
       if (res.status === 201) {
         toast.success("Course Added");
       }
+      else{
+        console.log(res.error)
+      }
     }
     setValidated(true);
   };
@@ -180,7 +183,7 @@ const AddCourse = () => {
           <Form.Control
             type="file"
             required
-            value={img}
+            //value={img}
             onChange={(e) => setImage(e.target.files[0])}
           ></Form.Control>
           <Form.Control.Feedback type="invalid">

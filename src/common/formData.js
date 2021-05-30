@@ -28,7 +28,6 @@ const Formdata=(props,history)=>{
        
       }
     })
-  console.log("a is",a)
   ///
   const fields = [
     { key: "firstName"},"lastName","email",
@@ -78,6 +77,10 @@ const HandlePDFChange=async(id)=>{
 
       const signImageField1 = form.getTextField('Text66')
       signImageField1.setImage(emblemImage)
+
+      
+
+
 
       if(res.data.data.employmentDetails.unemployedLength==="0-5 months"){
         form.getCheckBox('Check Box44').check()
@@ -158,6 +161,17 @@ const HandlePDFChange=async(id)=>{
     const signImageField = form.getTextField('Text14')
     signImageField.setImage(emblemImage)
   
+    const ins = res.data.data.personalDetails.nationalInsNo
+    const first = ins.substr(0,2)
+    const sec = ins.substr(2,2)
+    const third = ins.substr(4,2)
+    const fourth = ins.substr(6,3)
+
+    form.getTextField('Text53').setText(first)
+    form.getTextField('Text54').setText(sec)
+    form.getTextField('Text55').setText(third)
+    form.getTextField('Text56').setText(fourth)
+
     form.getTextField('Text1').setText(res.data.data.personalDetails.lastName)
     form.getTextField('Text2').setText(res.data.data.personalDetails.firstName)
     form.getTextField('Text3').setText(res.data.data.personalDetails.dob)
