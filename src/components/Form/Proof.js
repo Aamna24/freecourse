@@ -147,7 +147,7 @@ const Proof = ({history}) => {
 
 
 
-          <Button >Send Application</Button>
+          <Button type="submit">Send Application</Button>
           
       </Form>
       
