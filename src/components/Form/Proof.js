@@ -13,11 +13,11 @@ const Proof = ({history}) => {
     
     const form = useSelector(state=> state.form)
     
-    const {personalDetails} = form
+    const {personalDetails,sign} = form
     const [idPic, setID] = useState() 
     const [idPic1, setID1] = useState() 
    
-    const [signature, setTrimmed] = useState(null)
+    const [signature, setTrimmed] = useState()
 
    const formCreate = useSelector(state=>state.final)
   const {final, success, error} = formCreate
@@ -56,10 +56,12 @@ const Proof = ({history}) => {
      data.append("nationalInsNo",personalDetails.nationalInsNo)
      dispatch(saveIdProof(data))
      dispatch(saveSignDetails(signature))
+     console.log("sifn is", signature)
+
      
 
 
-     dispatch(createForm({
+      dispatch(createForm({
       detailsFormData: form.detailsFormData,
       personalDetails: form.personalDetails,
       employmentDetails: form.employmentDetails, 

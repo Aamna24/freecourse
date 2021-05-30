@@ -29,19 +29,8 @@ export function getCurrentUser(){
 const addCoursePoint = "/course/registerCourse"
 console.log(addCoursePoint)
 
-export function addCourse(course) {
-    return http.post(addCoursePoint, {
-        courseTitle: course.courseTitle,
-        courseDescription: course.courseDescription,
-        courseContent: course.courseContent,
-        courseBenefits: course.courseBenefits,
-        courseLength: course.courseLength,
-        awardingBody: course.awardingBody,
-        courseLevel: course.courseLevel,
-        funding: course.funding,
-        learningMethods: course.learningMethods,
-      
-    })
+export function addCourse(data) {
+    return http.post(addCoursePoint,data)
 }
 
 // update college data
