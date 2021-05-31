@@ -7,6 +7,7 @@ import {createForm, saveIdProof, saveSignDetails} from '../../actions/formAction
 import FormCompletetionSteps from './FormCompletetionSteps'
 import SignaturePad from "react-signature-canvas";
 import { truncate } from 'lodash-es'
+import * as admin from '../../services/adminService'
 const Proof = ({history}) => {
   const dispatch = useDispatch()
 
@@ -75,7 +76,9 @@ const Proof = ({history}) => {
     
     }
 
-   
+   const handleUpdate=()=>{
+     console.log('clicked')
+   }
 
     return (
       <FormContainer>
@@ -149,7 +152,18 @@ const Proof = ({history}) => {
 
 
 
-          <Button type="submit">Send Application</Button>
+          {localStorage.getItem('user')==='admin' && (
+            <>
+            <Button onClick={handleUpdate}>UpdateApplication</Button>
+            </>
+          )}
+
+{localStorage.getItem('user')!=='admin' && (
+            <>
+            <Button type="submit"> Send Application</Button>
+            </>
+          )}
+          
           
       </Form>
       

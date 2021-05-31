@@ -14,7 +14,7 @@ const SecondForm = ({history}) => {
     const {personalDetails} = form
     
 
-    const [title, setTitle] = useState(personalDetails.title) 
+    const [title, setTitle] = useState(personalDetails.title ) 
     const [firstName, setFirstName] = useState(personalDetails.firstName)
     const [lastName, setLastName] = useState(personalDetails.lastName)
     const [gender, setGender] = useState(personalDetails.gender)
