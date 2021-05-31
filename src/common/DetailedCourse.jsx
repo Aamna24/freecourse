@@ -13,13 +13,13 @@ const DetailedCourse = ({ product }) => {
 
   const Benefits = (props) => {
     const text = props.text;
-
-    const newText = text.split(/(?=[A-Z])/).map((str) => (
+    const newText = text.split('•').map((str) => (
       <ul>
         <li>{str}</li>
       </ul>
     ));
     return newText;
+    
   };
 
   const Content = (props) => {

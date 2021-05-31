@@ -10,7 +10,8 @@ const tokenKey = "token"
 export async function login(email, password) {
     const {data: jwt} = await http.post(apiPoint, { email, password });
     localStorage.setItem(tokenKey, jwt.token);
-    
+    localStorage.setItem("user",jwt.data[0].name)
+
 }
 
 const apiURL="/users/registerDetails"
@@ -33,6 +34,8 @@ export function uploadID(data){
 
 export function logout(){
     localStorage.removeItem(tokenKey);
+    localStorage.removeItem('user');
+
 }
 
 export function getCurrentUser(){

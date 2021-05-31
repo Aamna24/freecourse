@@ -41,6 +41,7 @@ const AddCourse = () => {
       const res = await auth.addCourse(data);
       if (res.status === 201) {
         toast.success("Course Added");
+        window.location.reload()
       }
       else{
         console.log(res.error)
@@ -104,7 +105,8 @@ const AddCourse = () => {
         <Form.Group controlId="benefits">
           <Form.Label>Benefits </Form.Label>
           <Form.Control
-            type="text"
+            as="textarea"
+            rows={15}
             name="benefits"
             value={benefits}
             onChange={(e) => setBenefits(e.target.value)}
@@ -178,18 +180,17 @@ const AddCourse = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="img">
-          <Form.Label>Image</Form.Label>
-          <Form.Control
-            type="file"
-            required
-            //value={img}
-            onChange={(e) => setImage(e.target.files[0])}
-          ></Form.Control>
-          <Form.Control.Feedback type="invalid">
-            Please fill the required field.
-          </Form.Control.Feedback>
-        </Form.Group>
+
+<Form.Group>
+<Form.Control
+     type='file' 
+     
+      
+      onChange={(e)=> setImage(e.target.files[0])}
+     
+      >
+      </Form.Control>  
+</Form.Group>
 
         <Button type="submit" variant="primary">
           Submit

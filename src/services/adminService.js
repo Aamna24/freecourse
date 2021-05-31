@@ -8,6 +8,7 @@ const tokenKey = "token"
 export async function adminlogin(email, password) {
     const {data: jwt} = await http.post(apiPoint, { email, password })
     localStorage.setItem(tokenKey, jwt.token);
+    localStorage.setItem("user",jwt.data[0].name)
 }
 
 // get college Data
