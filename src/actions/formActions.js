@@ -20,7 +20,13 @@ FINAL_SAVE_FAIL,
 SIGN_SAVE_SUCCESS,
 SIGN_SAVE_FAIL,
 EMERGENCYDETAILS_SAVE_SUCCESS,
-EMERGENCYDETAILS_SAVE_FAIL} from "../constants/formConstans"
+EMERGENCYDETAILS_SAVE_FAIL,
+FORM_DETAILS_REQUEST,
+FORM_DETAILS_SUCCESS,
+FORM_DETAILS_FAIL,
+UPDATE_DETAILS_REQUEST,
+UPDATE_DETAILS_SUCCESS,
+UPDATE_DETAILS_FAIL} from "../constants/formConstans"
 import axios from 'axios'
 
 
@@ -237,3 +243,50 @@ catch(error){
 }
 }
 
+export const updateForm =(dat)=>async(dispatch)=>{
+    try{
+        dispatch({
+                type: UPDATE_DETAILS_REQUEST
+        })
+    
+        const {data} = await axios.patch(process.env.REACT_APP_API_URL+'/form/updateform/'+localStorage.getItem('formid'), dat)
+
+    dispatch({
+        type: UPDATE_DETAILS_SUCCESS,
+        payload: data
+    })
+    localStorage.setItem('updateForm', JSON.stringify(dat))
+}
+catch(error){
+    dispatch({
+        type: UPDATE_DETAILS_FAIL,
+        payload: error.response && error.response.data.message ?
+        error.response.data.message : error.message
+    })
+}
+}
+
+export const getUserDetails =(id)=> async(dispatch)=>{
+    console.log("inside diaptach action")
+    try {
+        dispatch({
+            type: FORM_DETAILS_REQUEST
+        })
+
+       
+        
+        const {data} = await axios.get('/form/'+id)
+        dispatch({
+            type: FORM_DETAILS_SUCCESS,
+            payload: data
+        })
+        localStorage.setItem('formDetails', JSON.stringify(data))
+    
+    } catch (error) {
+        dispatch({
+            type: FORM_DETAILS_FAIL,
+            payload: error.response && error.response.data.message ?
+            error.response.data.message : error.message
+        })
+    }
+}

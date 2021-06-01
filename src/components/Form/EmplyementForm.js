@@ -13,15 +13,17 @@ const EmployemntForm = ({history}) => {
     
     const {employmentDetails, personalDetails} = form
     
+    const form1 = useSelector(state=>state.userDetails)
+    const { formDetails} = form1
 
-    const [employementStatus, setEmpStatus] = useState(employmentDetails.employementStatus) 
-    const [hoursPerWeek, setHours] = useState(employmentDetails.hoursPerWeek)
-    const [length, setLength] = useState(employmentDetails.length)
-    const [employerName, setName] = useState(employmentDetails.employerName)
-    const [employerAdd, setAdd] = useState(employmentDetails.employerAdd)
-    const [postcode, setPostcode] = useState(employmentDetails.postcode)
-    const [ph, setPh] = useState(employmentDetails.ph)
-    const [unemployedLength, setUnEmpLength] = useState(employmentDetails.unemployedLength)
+    const [employementStatus, setEmpStatus] = useState(employmentDetails.employementStatus || formDetails.data.employmentDetails.employementStatus) 
+    const [hoursPerWeek, setHours] = useState(employmentDetails.hoursPerWeek || formDetails.data.employmentDetails.hoursPerWeek)
+    const [length, setLength] = useState(employmentDetails.length || formDetails.data.employmentDetails.length)
+    const [employerName, setName] = useState(employmentDetails.employerName || formDetails.data.employmentDetails.employerName)
+    const [employerAdd, setAdd] = useState(employmentDetails.employerAdd || formDetails.data.employmentDetails.employerAdd)
+    const [postcode, setPostcode] = useState(employmentDetails.postcode || formDetails.data.employmentDetails.postcode)
+    const [ph, setPh] = useState(employmentDetails.ph || formDetails.data.employmentDetails.ph)
+    const [unemployedLength, setUnEmpLength] = useState(employmentDetails.unemployedLength || formDetails.data.employmentDetails.unemployedLength)
     const [dValue1, setValue1]= useState('')
     const [dValue2, setValue2]= useState('')
     const [dValue3, setValue3]= useState('')

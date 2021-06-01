@@ -2,8 +2,12 @@ import React,{useState,useEffect} from 'react';
 import { CButton,  CDataTable } from "@coreui/react";
 import { PDFDocument } from 'pdf-lib'
 import authService from '../services/authService';
+import {getUserDetails} from '../actions/formActions'
+import {useDispatch, useSelector} from 'react-redux'
 
 const Formdata=(props,history)=>{
+  const dispatch = useDispatch()
+
   const [form, setForm]=useState()
 
   const { posts } = props;
@@ -55,6 +59,13 @@ const Formdata=(props,history)=>{
     },
     {
       key: "send_email",
+      label: "",
+      _style: { width: "10%" },
+      sorter: false,
+      filter: false,
+    },
+    {
+      key: "edit",
       label: "",
       _style: { width: "10%" },
       sorter: false,
@@ -391,7 +402,7 @@ const HandlePDFChange=async(id)=>{
       window.open(fileURL);
    }
    return(
-    <div className="container">
+    <div >
     <CDataTable
       items={a}
       fields={fields}
@@ -416,6 +427,27 @@ const HandlePDFChange=async(id)=>{
                   window.location.href="/show-data?id="+item._id}}
               >
                 Show Data
+              </CButton>
+            </td>
+          );
+        },
+        'edit': (item, index) => {
+          return (
+            <td className="py-2">
+              <CButton
+                color="primary"
+                variant="outline"
+                shape="square"
+                size="sm"
+                onClick={e=>{
+                  e.preventDefault()
+                  localStorage.setItem('formid',item._id)
+                  dispatch(getUserDetails(item._id))
+                  //window.location.href="/personal"
+                }
+                }
+              >
+                Edit
               </CButton>
             </td>
           );

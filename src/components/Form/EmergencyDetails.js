@@ -9,12 +9,13 @@ const EmergencyForm = ({history}) => {
 
     
     const form = useSelector(state=> state.form)
-    
+    const form1 = useSelector(state=>state.userDetails)
+    const { formDetails} = form1
     
     const {emergencyDetails} = form
     
-    const [emergencyContactName, setEmerCon] = useState(emergencyDetails.emergencyContactName)
-    const [emergencyTelephone, setEmerTel] = useState(emergencyDetails.emergencyTelephone)
+    const [emergencyContactName, setEmerCon] = useState(emergencyDetails.emergencyContactName || formDetails.data.personalDetails.emergencyContactName)
+    const [emergencyTelephone, setEmerTel] = useState(emergencyDetails.emergencyTelephone || formDetails.data.personalDetails.emergencyTelephone)
     const [validated, setValidated] = useState(false);
 
    const dispatch = useDispatch()
