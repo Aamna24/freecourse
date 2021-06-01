@@ -77,7 +77,7 @@ const Proof = ({history}) => {
     }
 
    const handleUpdate=()=>{
-     console.log('clicked')
+     
    }
 
     return (
@@ -152,17 +152,11 @@ const Proof = ({history}) => {
 
 
 
-          {localStorage.getItem('user')==='admin' && (
-            <>
-            <Button onClick={handleUpdate}>UpdateApplication</Button>
-            </>
-          )}
+         
 
-{localStorage.getItem('user')!=='admin' && (
-            <>
             <Button type="submit"> Send Application</Button>
-            </>
-          )}
+          
+        
           
           
       </Form>

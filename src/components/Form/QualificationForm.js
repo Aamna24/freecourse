@@ -12,11 +12,12 @@ const QualificationForm = ({history}) => {
     const form = useSelector(state=> state.form)
     
     const {qualificationDetails} = form
-    
+    const form1 = useSelector(state=>state.userDetails)
+    const { formDetails} = form1
 
-    const [level, setLevel] = useState(qualificationDetails.level) 
-    const [mathGrades, setMathGrades] = useState(qualificationDetails.mathGrades)
-    const [englishGrades, setEnglishGrades] = useState(qualificationDetails.englishGrades)
+    const [level, setLevel] = useState(qualificationDetails.level || formDetails.data.qualificationDetails.level) 
+    const [mathGrades, setMathGrades] = useState(qualificationDetails.mathGrades || formDetails.data.qualificationDetails.mathGrades)
+    const [englishGrades, setEnglishGrades] = useState(qualificationDetails.englishGrades || formDetails.data.qualificationDetails.englishGrades)
     const [showFields, setShowFields]=useState(true)
     const [validated, setValidated] = useState(false);
 

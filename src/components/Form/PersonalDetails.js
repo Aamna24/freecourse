@@ -1,33 +1,34 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
-import {savePersonalDetails} from '../../actions/formActions'
+import {getUserDetails, savePersonalDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
 const SecondForm = ({history}) => {
 
     
     const form = useSelector(state=> state.form)
-    
-    
+    const form1 = useSelector(state=>state.userDetails)
+    const {loading, error, formDetails} = form1
     const {personalDetails} = form
     
+ 
 
-    const [title, setTitle] = useState(personalDetails.title ) 
-    const [firstName, setFirstName] = useState(personalDetails.firstName)
-    const [lastName, setLastName] = useState(personalDetails.lastName)
-    const [gender, setGender] = useState(personalDetails.gender)
-    const [dob, setDOB] = useState(personalDetails.dob)
-    const [addLine1, setAdd] = useState(personalDetails.addLine1)
-    const [age, setAge] = useState(personalDetails.age)
-    const [city, setCity] = useState(personalDetails.city)
-    const [county, setCounty] = useState(personalDetails.county)
-    const [postcode, setPostcode] = useState(personalDetails.postcode)
-    const [yearsAtAdd, setYears] = useState(personalDetails.yearsAtAdd) 
-    const [telephone, setTel] = useState(personalDetails.telephone)
-    const [email, setEmail] = useState(personalDetails.email)
-    const [nationalInsNo, setNIN] = useState(personalDetails.nationalInsNo)
+    const [title, setTitle] = useState(personalDetails.title || formDetails.data.personalDetails.title ) 
+    const [firstName, setFirstName] = useState(personalDetails.firstName || formDetails.data.personalDetails.firstName)
+    const [lastName, setLastName] = useState(personalDetails.lastName || formDetails.data.personalDetails.lastName)
+    const [gender, setGender] = useState(personalDetails.gender|| formDetails.data.personalDetails.gender)
+    const [dob, setDOB] = useState(personalDetails.dob|| formDetails.data.personalDetails.dob)
+    const [addLine1, setAdd] = useState(personalDetails.addLine1|| formDetails.data.personalDetails.addLine1)
+    const [age, setAge] = useState(personalDetails.age|| formDetails.data.personalDetails.age)
+    const [city, setCity] = useState(personalDetails.city|| formDetails.data.personalDetails.city)
+    const [county, setCounty] = useState(personalDetails.county || formDetails.data.personalDetails.county)
+    const [postcode, setPostcode] = useState(personalDetails.postcode|| formDetails.data.personalDetails.postcode)
+    const [yearsAtAdd, setYears] = useState(personalDetails.yearsAtAdd|| formDetails.data.personalDetails.yearsAtAdd) 
+    const [telephone, setTel] = useState(personalDetails.telephone || formDetails.data.personalDetails.telephone)
+    const [email, setEmail] = useState(personalDetails.email || formDetails.data.personalDetails.email)
+    const [nationalInsNo, setNIN] = useState(personalDetails.nationalInsNo || formDetails.data.personalDetails.nationalInsNo)
    
     const [validated, setValidated] = useState(false);
 

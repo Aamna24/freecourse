@@ -3,24 +3,29 @@ import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
-import {saveOppDetails, saveIdProof} from '../../actions/formActions'
+import {saveOppDetails, saveIdProof, updateForm} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
 const EqualOppurtunities = ({history}) => {
 
     
     const form = useSelector(state=> state.form)
-    
     const {oppDetails, personalDetails} = form
-    const [ethnicOrigin, setEthnicOrigin] = useState(oppDetails.ethnicOrigin) 
-    const [disabilities, setDisablities] = useState(oppDetails.disabilities)
-    const [wheelchair, setWheelchair] = useState(oppDetails.wheelchair)
-    const [firstLang, setFirstLang] = useState(oppDetails.firstLang)
-    const [resident, setResident] = useState(oppDetails.resident)
-    const [nonEEACitizen, setNonEEACitizen] = useState(oppDetails.nonEEACitizen)
-    const [dValue1, setValue] = useState(oppDetails.dValue1)
-    const [dValue2, setValue2] = useState(oppDetails.dValue2)
-    const [dValue3, setValue3] = useState(oppDetails.dValue3)
-    const [dValue4, setValue4] = useState(oppDetails.dValue4)
+
+
+    const form1 = useSelector(state=>state.userDetails)
+    const { formDetails} = form1
+
+
+    const [ethnicOrigin, setEthnicOrigin] = useState(oppDetails.ethnicOrigin || formDetails.data.oppDetails.ethnicOrigin) 
+    const [disabilities, setDisablities] = useState(oppDetails.disabilities || formDetails.data.oppDetails.disabilities)
+    const [wheelchair, setWheelchair] = useState(oppDetails.wheelchair || formDetails.data.oppDetails.wheelchair)
+    const [firstLang, setFirstLang] = useState(oppDetails.firstLang || formDetails.data.oppDetails.firstLang)
+    const [resident, setResident] = useState(oppDetails.resident || formDetails.data.oppDetails.resident)
+    const [nonEEACitizen, setNonEEACitizen] = useState(oppDetails.nonEEACitizen || formDetails.data.oppDetails.nonEEACitizen)
+    const [dValue1, setValue] = useState(oppDetails.dValue1 || formDetails.data.oppDetails.dValue1)
+    const [dValue2, setValue2] = useState(oppDetails.dValue2 || formDetails.data.oppDetails.dValue2)
+    const [dValue3, setValue3] = useState(oppDetails.dValue3 || formDetails.data.oppDetails.dValue3)
+    const [dValue4, setValue4] = useState(oppDetails.dValue4 || formDetails.data.oppDetails.dValue4)
     const [dValue5, setValue5] = useState(oppDetails.dValue5)
     const [dValue6, setValue6] = useState(oppDetails.dValue6)
     const [dValue7, setValue7] = useState(oppDetails.dValue7)
@@ -36,7 +41,7 @@ const EqualOppurtunities = ({history}) => {
     const [dValue17, setValue17] = useState(oppDetails.dValue17)
     const [dValue18, setValue18] = useState(oppDetails.dValue18)
 
-    const [criminalConv, setCriminalConvictions] = useState(oppDetails.criminalConv)
+    const [criminalConv, setCriminalConvictions] = useState(oppDetails.criminalConv || formDetails.data.oppDetails.criminalConv)
     const [show, setShow] = useState(false)
     const [showFileUpload, setFileUpload]=useState(false)
     const [validated, setValidated] = useState(false);
@@ -110,6 +115,17 @@ const EqualOppurtunities = ({history}) => {
         else{
           setFileUpload(false)
         }
+    }
+
+    const handleUpdate=(e)=>{
+      e.preventDefault()
+      dispatch(updateForm({
+        personalDetails: form.personalDetails,
+        employmentDetails: form.employmentDetails, 
+        qualificationDetails: form.qualificationDetails, 
+        oppDetails: form.oppDetails,
+        
+      }))   
     }
 
     return (
@@ -527,7 +543,17 @@ const EqualOppurtunities = ({history}) => {
                 }} variant="primary"
                 className='mr-5'>Back</Button>
                 
-                <Button type="submit" variant="primary">Save Progress & Continue</Button>
+                {localStorage.getItem('user')==='admin' && (
+            <>
+            <Button onClick={handleUpdate}>UpdateApplication</Button>
+            </>
+          )}
+            
+            {localStorage.getItem('user')!=='admin' && (
+            <>
+               <Button type="submit" variant="primary">Save Progress & Continue</Button>            </>
+          )}
+                
                 
             </Form>
             

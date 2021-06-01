@@ -9,7 +9,13 @@ import { DETAILFORM_SAVE_REQUEST,
     FINAL_SAVE_FAIL,
     FINAL_SAVE_SUCCESS,
     SIGN_SAVE_REQUEST,
-    EMERGENCYDETAILS_SAVE_REQUEST} from "../constants/formConstans"
+    EMERGENCYDETAILS_SAVE_REQUEST,
+    FORM_DETAILS_REQUEST,
+    FORM_DETAILS_SUCCESS,
+    FORM_DETAILS_FAIL,
+    UPDATE_DETAILS_REQUEST,
+    UPDATE_DETAILS_FAIL,
+    UPDATE_DETAILS_SUCCESS} from "../constants/formConstans"
 
 
 export const DetailsFormReducer =(state={detailsFormData: {}}, action)=>{
@@ -105,6 +111,52 @@ export const formReducer =(state={
                         ...state,
                         sign: action.payload
                     }
+       
+            default:
+            return state
+    }
+}
+
+export const UserDetailsReducer =(state={formDetails: {}}, action)=>{
+    switch(action.type){
+        case FORM_DETAILS_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            }
+        case FORM_DETAILS_SUCCESS:
+            return {
+                loading: false,
+                formDetails: action.payload
+            }
+            case FORM_DETAILS_FAIL:
+                return {
+                    loading: false,
+                    error: action.payload
+                }
+       
+            default:
+            return state
+    }
+}
+
+export const UpdateFormReducer =(state={}, action)=>{
+    switch(action.type){
+        case UPDATE_DETAILS_REQUEST:
+            return {
+                loading: true,
+            }
+        case UPDATE_DETAILS_SUCCESS:
+            return {
+                loading: false,
+                success: true,
+                updateForm: action.payload
+            }
+            case UPDATE_DETAILS_FAIL:
+                return {
+                    loading: false,
+                    error: action.payload
+                }
        
             default:
             return state

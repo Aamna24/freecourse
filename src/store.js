@@ -2,13 +2,15 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {userLoginReducer} from './reducers/userReducer'
-import {DetailsFormReducer, formReducer, FinalFormReducer} from './reducers/formReducer'
+import {UserDetailsReducer, formReducer, FinalFormReducer, UpdateFormReducer} from './reducers/formReducer'
 
 const reducer = combineReducers({
     userLogin: userLoginReducer,
     form: formReducer,
     form: formReducer,
-    final: FinalFormReducer
+    final: FinalFormReducer,
+    userDetails: UserDetailsReducer,
+    updateForm: UpdateFormReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
@@ -21,7 +23,7 @@ const declrationDetailsFromStorage = localStorage.getItem('declaration') ? JSON.
 const proofFromStorage = localStorage.getItem('proof') ? JSON.parse(localStorage.getItem('proof')) : {}
 const signFromStorage = localStorage.getItem('sign') ? JSON.parse(localStorage.getItem('sign')) : {}
 const emergencyDetailsFromStorage= localStorage.getItem('emergencyDetails') ? JSON.parse(localStorage.getItem('emergencyDetails')) : {}
-
+const userFromStorage = localStorage.getItem('formDetails') ? JSON.parse(localStorage.getItem('formDetails')) : {}
 const initialState = {
     userLogin: { userInfo: userInfoFromStorage},
     form: {
@@ -34,7 +36,8 @@ const initialState = {
        declaration: declrationDetailsFromStorage,
        proof: proofFromStorage,
        sign: signFromStorage
-    }
+    },
+    userDetails: {formDetails: userFromStorage}
 }
 
 
