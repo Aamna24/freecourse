@@ -401,6 +401,11 @@ const HandlePDFChange=async(id)=>{
       //Open the URL on new Window
       window.open(fileURL);
    }
+
+   function timeout(delay) {
+    return new Promise( res => setTimeout(res, parseInt(delay)) );
+}
+
    return(
     <div >
     <CDataTable
@@ -439,11 +444,12 @@ const HandlePDFChange=async(id)=>{
                 variant="outline"
                 shape="square"
                 size="sm"
-                onClick={e=>{
+                onClick={async (e)=>{
                   e.preventDefault()
                   localStorage.setItem('formid',item._id)
                   dispatch(getUserDetails(item._id))
-                  //window.location.href="/personal"
+                  await timeout(2000);
+                  window.location.href="/personal"
                 }
                 }
               >
