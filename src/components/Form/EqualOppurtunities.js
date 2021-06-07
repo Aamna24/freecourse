@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
 import {saveOppDetails, saveIdProof, updateForm} from '../../actions/formActions'
+import {toast} from 'react-toastify'
 import FormCompletetionSteps from './FormCompletetionSteps'
+toast.configure()
 const EqualOppurtunities = ({history}) => {
 
     
@@ -15,6 +17,8 @@ const EqualOppurtunities = ({history}) => {
     const form1 = useSelector(state=>state.userDetails)
     const { formDetails} = form1
 
+    const formCreate = useSelector(state=>state.updateForm)
+  const {success} = formCreate
 
     const [ethnicOrigin, setEthnicOrigin] = useState(oppDetails.ethnicOrigin || formDetails.data.oppDetails.ethnicOrigin) 
     const [disabilities, setDisablities] = useState(oppDetails.disabilities || formDetails.data.oppDetails.disabilities)
@@ -116,7 +120,11 @@ const EqualOppurtunities = ({history}) => {
           setFileUpload(false)
         }
     }
-
+    useEffect(()=>{
+      if( success) {
+        toast.success('Form Updated Successfully')
+      }
+    },[success])
     const handleUpdate=(e)=>{
       e.preventDefault()
       dispatch(updateForm({
@@ -125,7 +133,8 @@ const EqualOppurtunities = ({history}) => {
         qualificationDetails: form.qualificationDetails, 
         oppDetails: form.oppDetails,
         
-      }))   
+      }))  
+
     }
 
     return (
