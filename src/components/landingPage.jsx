@@ -6,9 +6,10 @@ import VideoSlider from '../common/videoSlider'
 
 const LandingPage = () => {
     return (<div>
-        <CarouselSlider />
-        <About />
-        <VideoSlider />
+        <div className="jumbotron">
+
+        </div>
+       
         <CoursesCards />
     </div>
     );

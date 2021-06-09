@@ -4,3 +4,4 @@
 README.md
 
 public
+SKIP_PREFLIGHT_CHECK=true
