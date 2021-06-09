@@ -3,31 +3,30 @@ import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
-import {getUserDetails, savePersonalDetails} from '../../actions/formActions'
+import { savePersonalDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
-const SecondForm = ({history}) => {
+
+const UpdatePersonalDetails = ({history}) => {
 
     
-    const form = useSelector(state=> state.form)
     const form1 = useSelector(state=>state.userDetails)
     const {loading, error, formDetails} = form1
-    const {personalDetails} = form
-  
+    
 
-    const [title, setTitle] = useState( personalDetails.title  ) 
-    const [firstName, setFirstName] = useState(personalDetails.firstName  )
-    const [lastName, setLastName] = useState(personalDetails.lastName )
-    const [gender, setGender] = useState(personalDetails.gender)
-    const [dob, setDOB] = useState(personalDetails.dob)
-    const [addLine1, setAdd] = useState(personalDetails.addLine1)
-    const [age, setAge] = useState(personalDetails.age)
-    const [city, setCity] = useState(personalDetails.city )
-    const [county, setCounty] = useState(personalDetails.county )
-    const [postcode, setPostcode] = useState(personalDetails.postcode )
-    const [yearsAtAdd, setYears] = useState(personalDetails.yearsAtAdd ) 
-    const [telephone, setTel] = useState(personalDetails.telephone )
-    const [email, setEmail] = useState(personalDetails.email  )
-    const [nationalInsNo, setNIN] = useState(personalDetails.nationalInsNo  )
+    const [title, setTitle] = useState( formDetails.data.personalDetails.title  ) 
+    const [firstName, setFirstName] = useState(formDetails.data.personalDetails.firstName  )
+    const [lastName, setLastName] = useState(formDetails.data.personalDetails.lastName )
+    const [gender, setGender] = useState(formDetails.data.personalDetails.gender)
+    const [dob, setDOB] = useState(formDetails.data.personalDetails.dob)
+    const [addLine1, setAdd] = useState(formDetails.data.personalDetails.addLine1)
+    const [age, setAge] = useState(formDetails.data.personalDetails.age)
+    const [city, setCity] = useState(formDetails.data.personalDetails.city )
+    const [county, setCounty] = useState(formDetails.data.personalDetails.county )
+    const [postcode, setPostcode] = useState(formDetails.data.personalDetails.postcode )
+    const [yearsAtAdd, setYears] = useState(formDetails.data.personalDetails.yearsAtAdd ) 
+    const [telephone, setTel] = useState(formDetails.data.personalDetails.telephone )
+    const [email, setEmail] = useState(formDetails.data.personalDetails.email  )
+    const [nationalInsNo, setNIN] = useState(formDetails.data.personalDetails.nationalInsNo )
    
     
    
@@ -46,7 +45,7 @@ const SecondForm = ({history}) => {
         e.preventDefault()
         dispatch(savePersonalDetails({title, firstName, lastName, gender, dob, addLine1,
             age,city, county, postcode, yearsAtAdd, telephone, email , nationalInsNo}))
-           window.location.href="/emergencydetails"
+           window.location.href="/update/emergencydetails"
     }
     
 
@@ -244,13 +243,7 @@ const SecondForm = ({history}) => {
                 </Form.Group>
 
                
-                <Button onClick={e=>{
-                    window.location.href="/form"
-                }} variant="primary"
-
-                className='mr-5'
                 
-                >Back</Button>
                 
 
                 <Button type="submit" variant="primary">Save Progress & Continue</Button>
@@ -261,4 +254,4 @@ const SecondForm = ({history}) => {
     )
 }
 
-export default SecondForm
+export default UpdatePersonalDetails

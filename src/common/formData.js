@@ -18,7 +18,7 @@ const Formdata=(props,history)=>{
   obj.forEach(([key, value]) => arr.push(value));
   
   // compute items
-  
+     
     const a= arr.map(item => {
       return { 
         ...item, 
@@ -449,7 +449,7 @@ const HandlePDFChange=async(id)=>{
                   localStorage.setItem('formid',item._id)
                   dispatch(getUserDetails(item._id))
                   await timeout(2000);
-                  window.location.href="/personal"
+                  window.location.href="/update/personal"
                 }
                 }
               >

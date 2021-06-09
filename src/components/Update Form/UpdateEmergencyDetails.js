@@ -5,16 +5,16 @@ import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
 import {saveEmergencyDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
-const EmergencyForm = ({history}) => {
+const UpdateEmergencyForm = ({history}) => {
 
     
-    const form = useSelector(state=> state.form)
- 
+    const form1 = useSelector(state=>state.userDetails)
+    const { formDetails} = form1
     
-    const {emergencyDetails} = form
+     console.log("a",formDetails.data)
     
-    const [emergencyContactName, setEmerCon] = useState(emergencyDetails.emergencyContactName )
-    const [emergencyTelephone, setEmerTel] = useState(emergencyDetails.emergencyTelephone )
+    const [emergencyContactName, setEmerCon] = useState( formDetails.data.personalDetails.emergencyContactName)
+    const [emergencyTelephone, setEmerTel] = useState( formDetails.data.personalDetails.emergencyTelephone)
     const [validated, setValidated] = useState(false);
 
    const dispatch = useDispatch()
@@ -28,7 +28,7 @@ const EmergencyForm = ({history}) => {
         }else{
         e.preventDefault()
         dispatch(saveEmergencyDetails({emergencyContactName, emergencyTelephone}))
-        window.location.href="/employment"
+        window.location.href="/update/employment"
         }
         setValidated(true);
 
@@ -70,7 +70,7 @@ const EmergencyForm = ({history}) => {
           </Form.Control.Feedback>           
                 </Form.Group>
                 <Button onClick={e=>{
-                    history.push('/personal')
+                    history.push('/update/personal')
                 }} variant="primary"
                 className='mr-5'>Back</Button>
                 
@@ -80,4 +80,4 @@ const EmergencyForm = ({history}) => {
     )
 }
 
-export default EmergencyForm
+export default UpdateEmergencyForm

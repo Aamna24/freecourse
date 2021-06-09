@@ -35,7 +35,11 @@ import EmergencyForm from './components/Form/EmergencyDetails'
 import Success from './components/Form/Success'
 import SendEmail from './components/SendEmail';
 import AddCourse from './components/addCourse';
-
+import UpdatePersonalDetails from './components/Update Form/UpdatePersonalDetails'
+import UpdateEmergencyForm from './components/Update Form/UpdateEmergencyDetails';
+import UpdateQualification from './components/Update Form/UpdateQualificationForm';
+import UpdateEmployment from './components/Update Form/UpdateEmplyementForm';
+import UpdateEqualOpp from './components/Update Form/UpdateEqualOppurtunities';
 
 
 class App extends React.Component {
@@ -110,6 +114,13 @@ class App extends React.Component {
            <Route path="/emergencydetails" component={EmergencyForm}/>
 
              <Route path="/form" component={DetailsForm} />
+
+             <Route path="/update/qualification" component={UpdateQualification}/>
+             <Route path="/update/employment" component={UpdateEmployment}/>
+           <Route path="/update/personal" component={UpdatePersonalDetails}/>
+           <Route path="/update/emergencydetails" component={UpdateEmergencyForm}/>
+           <Route path="/update/oppurtunities" component={UpdateEqualOpp}/>
+
         </main>
         <Footer />  
       </React.Fragment>
