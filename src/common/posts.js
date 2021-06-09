@@ -10,23 +10,44 @@ const Posts=(props)=>{
 
     return(
         <React.Fragment>
-        <Container maxWidth="md" component="main">
+        <Container maxWidth="lg" component="main">
             <Grid container spacing={5} alignItems="flex-end">
                 {posts.data.map((post) => {
                     return (
                         // Enterprise card is full width at sm breakpoint
-                        <Grid item key={post.id} xs={12} md={4}>
+                        <Grid item key={post.id} xs={12} md={12}>
                              <div className="card " >
-                                <img className="card-img-top" src={post.img} alt="Card image cap"/>
-                                <div className="card-body">
-                                     <h5 className="card-title">{post.courseTitle}</h5>
+                                 <div className='row'>
+                                     <div className='col-md-2 hidden-xs'>
+                                     <img className="card-img-top" src={post.img} alt="Card image cap"/>
+
+                                     </div>
+                                     <div className='col-md-8 col-xs-12'>
+                                     <div className="card-body">
+                                     <h5 className="card-title">{post.courseTitle}
+
+                                     
+                                     </h5>
+
+                                     <br/>
+                                     <p className='desc'>{post.courseDescription}</p>
+                                     <br/>
                                      <p className="card-text">{post.funding}</p>
-                                <Button className="btn btn-course" onClick={e=>{
+
+
+                               
+                                </div>
+                                     </div>
+                                     
+                                     <div className='col cbutton'>
+                                     <Button className="co-button" onClick={e=>{
                                          window.location.href="/single?id="+post.courseTitle
                                     }}>
                                     View Course 
                                 </Button>
-                                </div>
+                                     </div>
+                                 </div>
+                               
                             </div>
 
                         </Grid>
