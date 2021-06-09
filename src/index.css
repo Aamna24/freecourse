@@ -296,3 +296,18 @@ p.card-text{
     overflow: hidden;
     -webkit-box-orient: vertical
 }
+
+.jumbotron {
+ /* background-image: url('/src/pics/jbt.PNG') ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  min-height: 700px;*/
+  background: url('/src/pics/jbt.PNG')  no-repeat center center; 
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  min-height: 700px;
+}

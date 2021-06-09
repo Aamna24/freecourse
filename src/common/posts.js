@@ -5,7 +5,7 @@ import {Button,Grid,Container} from '@material-ui/core/';
 const Posts=(props)=>{
     const {posts} = props;
     //const classes = useStyles();
-    if(!posts || posts.length===0) return <p>Cannot find any posts</p>;
+    if(!posts || posts.length===0) return <p className='text-center'>Cannot find any posts</p>;
 
 
     return(

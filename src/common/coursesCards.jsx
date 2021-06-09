@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Courses from "../components/Courses";
 
 const CoursesCards = () => {
@@ -8,11 +8,8 @@ const CoursesCards = () => {
         className="col-md-12 "
         style={{ padding: "50px", marginTop: "30px" }}
       >
-        <h2 style={{ textAlign: "center" }}>Popular Courses</h2>
-        <p style={{ textAlign: "center" }}>
-          If you are going to use a passage of Lorem Ipsum, you need to be sure
-          there isn't anything embarrassing hidden in the middle of text
-        </p>
+        <h2 style={{ textAlign: "center" }}>Course Listing</h2>
+       
       </div>
       <Courses />
     </div>
