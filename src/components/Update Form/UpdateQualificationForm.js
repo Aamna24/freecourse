@@ -6,18 +6,17 @@ import ScrollToMount from '../../common/ScrollToMount'
 import FormContainer from './FormContainer'
 import {saveQualificationDetails} from '../../actions/formActions'
 import FormCompletetionSteps from './FormCompletetionSteps'
-const QualificationForm = ({history}) => {
+const UpdateQualification
+ = ({history}) => {
 
     
-    const form = useSelector(state=> state.form)
     
-    const {qualificationDetails} = form
     const form1 = useSelector(state=>state.userDetails)
     const { formDetails} = form1
 
-    const [level, setLevel] = useState(qualificationDetails.level ) 
-    const [mathGrades, setMathGrades] = useState(qualificationDetails.mathGrades )
-    const [englishGrades, setEnglishGrades] = useState(qualificationDetails.englishGrades )
+    const [level, setLevel] = useState( formDetails.data.qualificationDetails.level) 
+    const [mathGrades, setMathGrades] = useState( formDetails.data.qualificationDetails.mathGrades)
+    const [englishGrades, setEnglishGrades] = useState( formDetails.data.qualificationDetails.englishGrades)
     const [showFields, setShowFields]=useState(true)
     const [validated, setValidated] = useState(false);
 
@@ -31,7 +30,7 @@ const QualificationForm = ({history}) => {
         e.preventDefault()
         dispatch(saveQualificationDetails({level, mathGrades,englishGrades}))
             //history.push('/oppurtunities')
-            window.location.href="/oppurtunities"
+            window.location.href="/update/oppurtunities"
       }
       setValidated(true)
 
@@ -151,4 +150,5 @@ const QualificationForm = ({history}) => {
     )
 }
 
-export default QualificationForm
+export default UpdateQualification
+

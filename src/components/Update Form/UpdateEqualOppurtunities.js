@@ -7,7 +7,7 @@ import {saveOppDetails, saveIdProof, updateForm} from '../../actions/formActions
 import {toast} from 'react-toastify'
 import FormCompletetionSteps from './FormCompletetionSteps'
 toast.configure()
-const EqualOppurtunities = ({history}) => {
+const UpdateEqualOpp = ({history}) => {
 
     
     const form = useSelector(state=> state.form)
@@ -20,32 +20,32 @@ const EqualOppurtunities = ({history}) => {
     const formCreate = useSelector(state=>state.updateForm)
   const {success} = formCreate
 
-    const [ethnicOrigin, setEthnicOrigin] = useState(oppDetails.ethnicOrigin ) 
-    const [disabilities, setDisablities] = useState(oppDetails.disabilities )
-    const [wheelchair, setWheelchair] = useState(oppDetails.wheelchair )
-    const [firstLang, setFirstLang] = useState(oppDetails.firstLang )
-    const [resident, setResident] = useState(oppDetails.resident )
-    const [nonEEACitizen, setNonEEACitizen] = useState(oppDetails.nonEEACitizen )
-    const [dValue1, setValue] = useState(oppDetails.dValue1 )
-    const [dValue2, setValue2] = useState(oppDetails.dValue2 )
-    const [dValue3, setValue3] = useState(oppDetails.dValue3 )
-    const [dValue4, setValue4] = useState(oppDetails.dValue4 )
-    const [dValue5, setValue5] = useState(oppDetails.dValue5)
-    const [dValue6, setValue6] = useState(oppDetails.dValue6)
-    const [dValue7, setValue7] = useState(oppDetails.dValue7)
-    const [dValue8, setValue8] = useState(oppDetails.dValue8)
-    const [dValue9, setValue9] = useState(oppDetails.dValue9)
-    const [dValue10, setValue10] = useState(oppDetails.dValue10)
-    const [dValue11, setValue11] = useState(oppDetails.dValue11)
-    const [dValue12, setValue12] = useState(oppDetails.dValue12)
-    const [dValue13, setValue13] = useState(oppDetails.dValue13)
-    const [dValue14, setValue14] = useState(oppDetails.dValue14)
-    const [dValue15, setValue15] = useState(oppDetails.dValue15)
-    const [dValue16, setValue16] = useState(oppDetails.dValue16)
-    const [dValue17, setValue17] = useState(oppDetails.dValue17)
-    const [dValue18, setValue18] = useState(oppDetails.dValue18)
+    const [ethnicOrigin, setEthnicOrigin] = useState( formDetails.data.oppDetails.ethnicOrigin) 
+    const [disabilities, setDisablities] = useState( formDetails.data.oppDetails.disabilities)
+    const [wheelchair, setWheelchair] = useState( formDetails.data.oppDetails.wheelchair)
+    const [firstLang, setFirstLang] = useState( formDetails.data.oppDetails.firstLang)
+    const [resident, setResident] = useState( formDetails.data.oppDetails.resident)
+    const [nonEEACitizen, setNonEEACitizen] = useState( formDetails.data.oppDetails.nonEEACitizen)
+    const [dValue1, setValue] = useState( formDetails.data.oppDetails.dValue1)
+    const [dValue2, setValue2] = useState( formDetails.data.oppDetails.dValue2)
+    const [dValue3, setValue3] = useState(formDetails.data.oppDetails.dValue3)
+    const [dValue4, setValue4] = useState( formDetails.data.oppDetails.dValue4)
+    const [dValue5, setValue5] = useState(formDetails.data.oppDetails.dValue5)
+    const [dValue6, setValue6] = useState(formDetails.data.oppDetails.dValue6)
+    const [dValue7, setValue7] = useState(formDetails.data.oppDetails.dValue7)
+    const [dValue8, setValue8] = useState(formDetails.data.oppDetails.dValue8)
+    const [dValue9, setValue9] = useState(formDetails.data.oppDetails.dValue9)
+    const [dValue10, setValue10] = useState(formDetails.data.oppDetails.dValue10)
+    const [dValue11, setValue11] = useState(formDetails.data.oppDetails.dValue11)
+    const [dValue12, setValue12] = useState(formDetails.data.oppDetails.dValue12)
+    const [dValue13, setValue13] = useState(formDetails.data.oppDetails.dValue13)
+    const [dValue14, setValue14] = useState(formDetails.data.oppDetails.dValue14)
+    const [dValue15, setValue15] = useState(formDetails.data.oppDetails.dValue15)
+    const [dValue16, setValue16] = useState(formDetails.data.oppDetails.dValue16)
+    const [dValue17, setValue17] = useState(formDetails.data.oppDetails.dValue17)
+    const [dValue18, setValue18] = useState(formDetails.data.oppDetails.dValue18)
 
-    const [criminalConv, setCriminalConvictions] = useState(oppDetails.criminalConv )
+    const [criminalConv, setCriminalConvictions] = useState( formDetails.data.oppDetails.criminalConv)
     const [show, setShow] = useState(false)
     const [showFileUpload, setFileUpload]=useState(false)
     const [validated, setValidated] = useState(false);
@@ -548,21 +548,16 @@ const EqualOppurtunities = ({history}) => {
           </Form.Control.Feedback>          
                 </Form.Group>
                 <Button onClick={e=>{
-                    history.push('/qualification')
+                    history.push('/update/qualification')
                 }} variant="primary"
                 className='mr-5'>Back</Button>
                 
-                {localStorage.getItem('user')==='admin' && (
-            <>
-            <Button onClick={handleUpdate}>UpdateApplication</Button>
-            </>
-          )}
             
-            {localStorage.getItem('user')!=='admin' && (
-            <>
-               <Button type="submit" variant="primary">Save Progress & Continue</Button>            </>
-          )}
-                
+            <Button onClick={handleUpdate}>UpdateApplication</Button>
+        
+          
+            
+               
                 
             </Form>
             
@@ -570,4 +565,4 @@ const EqualOppurtunities = ({history}) => {
     )
 }
 
-export default EqualOppurtunities
+export default UpdateEqualOpp
