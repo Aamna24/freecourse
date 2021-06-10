@@ -61,7 +61,7 @@ const EmergencyForm = ({history}) => {
                 <Form.Group controlId='emergencyTelephone'>
                     <Form.Label>Emergency Telephone</Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                      required
                       value={emergencyTelephone} 
                       onChange={(e)=> setEmerTel(e.target.value)}></Form.Control>   
@@ -74,7 +74,7 @@ const EmergencyForm = ({history}) => {
                 }} variant="primary"
                 className='mr-5'>Back</Button>
                 
-                <Button type="submit" variant="primary">Save Progress & Continue</Button>
+                <Button type="submit" variant="primary" style={{backgroundColor:'green',borderColor:'green'}}>Save Progress & Continue</Button>
                 </Form>
           </FormContainer>
     )

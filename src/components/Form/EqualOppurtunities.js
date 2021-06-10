@@ -499,12 +499,15 @@ const EqualOppurtunities = ({history}) => {
 
 <Form.Control
  type='file' 
- 
+ required
   
   onChange={(e)=> setID1(e.target.files[0])}
  
   >
-  </Form.Control>           
+  </Form.Control> 
+  <Form.Control.Feedback type="invalid">
+               Please upload required file.
+          </Form.Control.Feedback>            
 </Form.Group>
 <Form.Group controlId='id2'>
 
@@ -554,13 +557,13 @@ const EqualOppurtunities = ({history}) => {
                 
                 {localStorage.getItem('user')==='admin' && (
             <>
-            <Button onClick={handleUpdate}>UpdateApplication</Button>
+            <Button onClick={handleUpdate} style={{backgroundColor:'green',borderColor:'green'}}>UpdateApplication</Button>
             </>
           )}
             
             {localStorage.getItem('user')!=='admin' && (
             <>
-               <Button type="submit" variant="primary">Save Progress & Continue</Button>            </>
+               <Button type="submit" variant="primary" style={{backgroundColor:'green',borderColor:'green'}}>Save Progress & Continue</Button>            </>
           )}
                 
                 
