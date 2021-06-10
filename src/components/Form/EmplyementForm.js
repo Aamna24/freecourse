@@ -221,7 +221,7 @@ const EmployemntForm = ({history}) => {
                 <Form.Group controlId='ph'>
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                      required
                       value={ph} 
                       onChange={(e)=> setPh(e.target.value)}></Form.Control> 
@@ -377,9 +377,12 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
 <Form.Control
  type='file'   
   onChange={(e)=> setEvidence1(e.target.files[0])}
- 
+  required
   >
-  </Form.Control>           
+  </Form.Control>  
+  <Form.Control.Feedback type="invalid">
+               Please upload required file.
+          </Form.Control.Feedback>            
 </Form.Group>
 
                </>
@@ -471,7 +474,7 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
                 <Form.Group controlId='ph'>
                     <Form.Label>ph</Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                      required
                       value={ph} 
                       onChange={(e)=> setPh(e.target.value)}></Form.Control>  
@@ -487,12 +490,15 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
 
               <Form.Control
                type='file' 
-     
+              required
                 
                 onChange={(e)=>setEvidence(e.target.files[0])}
                
                 >
-                </Form.Control>           
+                </Form.Control>  
+                <Form.Control.Feedback type="invalid">
+               Please upload required file.
+          </Form.Control.Feedback>           
           </Form.Group>
           <Form.Group controlId='evidence'>
 
@@ -500,9 +506,12 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
 <Form.Control
  type='file'   
   onChange={(e)=> setEvidence1(e.target.files[0])}
- 
+ required
   >
-  </Form.Control>           
+  </Form.Control>  
+  <Form.Control.Feedback type="invalid">
+               Please upload required file.
+          </Form.Control.Feedback>           
 </Form.Group>
 <Form.Group controlId='evidence'>
 
@@ -510,9 +519,12 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
 <Form.Control
  type='file'   
   onChange={(e)=> setEvidence2(e.target.files[0])}
- 
+ required
   >
-  </Form.Control>           
+  </Form.Control>    
+  <Form.Control.Feedback type="invalid">
+               Please upload required file.
+          </Form.Control.Feedback>         
 </Form.Group>
                       </>
                     )}
@@ -524,7 +536,7 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
                 }} variant="primary"
                 className='mr-5'>Back</Button>
                 
-                <Button type="submit" variant="primary">Save Progress & Continue</Button>
+                <Button type="submit" variant="primary" style={{backgroundColor:'green',borderColor:'green'}}>Save Progress & Continue</Button>
                 
             </Form>
             

@@ -66,7 +66,6 @@ const UpdatePersonalDetails = ({history}) => {
             <p>The information you provide will be used to confirm your eligibility to be fully funded by the governments Adult Education Budget (AEB) via the ESFA. So you will be exempt from all course fees.</p>
            <p>Where your course is not eligible to be fully funded, one of our college partners can waive all course fees. So you can still do the course for FREE.</p>
            
-           <p>Please ensure you have ID proofs to hand to confirm your identity as you will be asked this at the end of the application. This is to make sure the funding goes to genuine UK or EU citizens that qualify for free/funded training. Acceptable ID proofs include a current passport, drivers licence or recent utility bill.</p>
            </div>
             <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='title'>
@@ -151,7 +150,7 @@ const UpdatePersonalDetails = ({history}) => {
                 <Form.Group controlId='age'>
                     <Form.Label>Age</Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                     required
                       value={age} 
                       onChange={(e)=> setAge(e.target.value)}></Form.Control>  

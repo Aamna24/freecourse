@@ -46,8 +46,10 @@ const Proof = ({history}) => {
       history.push("/success")
     }
   },[history,success])
-   
-    const submitHandler=(e)=>{
+  function timeout(delay) {
+    return new Promise( res => setTimeout(res, parseInt(delay)) );
+}
+    const submitHandler=async(e)=>{
      
      e.preventDefault()
      const data = new FormData();
@@ -57,8 +59,6 @@ const Proof = ({history}) => {
      data.append("nationalInsNo",personalDetails.nationalInsNo)
      dispatch(saveIdProof(data))
      dispatch(saveSignDetails(signature))
-     console.log("sifn is", signature)
-
      
 
 
@@ -147,14 +147,14 @@ const Proof = ({history}) => {
           }} variant="primary"
 
           className='mr-5'
-          
+          style={{backgroundColor:'#007bff',borderColor:'#007bff'}}
           >Back</Button>
 
 
 
          
 
-            <Button type="submit"> Send Application</Button>
+            <Button type="submit" style={{backgroundColor:'green',borderColor:'green'}}> Send Application</Button>
           
         
           

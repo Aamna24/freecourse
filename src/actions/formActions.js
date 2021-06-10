@@ -186,6 +186,7 @@ export const saveSignDetails =(data)=>async(dispatch)=>{
         payload: data
     })
     localStorage.setItem('sign', JSON.stringify(data))
+
 }
 catch(error){
     dispatch({

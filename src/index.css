@@ -272,7 +272,7 @@ input[type="checkbox"] {
 }
 
 p.card-text{
-  background-color: green;
+  background-color: rgb(13, 188, 241);
     padding: 5px;
     width: 80px;
     color: white;
@@ -287,8 +287,17 @@ p.card-text{
 
 .cbutton .co-button{
   border: 1px solid rgb(189, 189, 218);
-  padding: 10px
+  padding: 10px;
+  background-color: green;
+  color: white
 }
+.cbutton .co-button:hover{
+  border: 1px solid rgb(189, 189, 218);
+  padding: 10px;
+  background-color: green;
+  color: white
+}
+
 
 .card-body .desc{
   display: -webkit-box;

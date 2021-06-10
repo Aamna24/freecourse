@@ -54,6 +54,7 @@ const SecondForm = ({history}) => {
         
     }
 
+   
     return (
         <FormContainer>
             <ScrollToMount/>
@@ -62,12 +63,11 @@ const SecondForm = ({history}) => {
             <h3>Step 2: Personal Details</h3>
             <Form.Label as="legend" className="text-center mt-5 mb-3" style={{backgroundColor:"beige",
         padding:"5px"}}>Congratulations, it looks like you could be eligible for government funding or eligible to have the course fees waived by the college. </Form.Label>
-            <p className="text-center " style={{backgroundColor:"#e1e5ea", padding:"5px"}}>The next step is to complete your application.</p>
+            <p className="text-center " style={{backgroundColor:"green", color:"white",padding:"5px"}}>The next step is to complete your application.</p>
             <div className="text-center mb-5" style={{backgroundColor:"beige", padding:"5px"}}>
             <p>The information you provide will be used to confirm your eligibility to be fully funded by the governments Adult Education Budget (AEB) via the ESFA. So you will be exempt from all course fees.</p>
            <p>Where your course is not eligible to be fully funded, one of our college partners can waive all course fees. So you can still do the course for FREE.</p>
            
-           <p>Please ensure you have ID proofs to hand to confirm your identity as you will be asked this at the end of the application. This is to make sure the funding goes to genuine UK or EU citizens that qualify for free/funded training. Acceptable ID proofs include a current passport, drivers licence or recent utility bill.</p>
            </div>
             <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='title'>
@@ -152,7 +152,7 @@ const SecondForm = ({history}) => {
                 <Form.Group controlId='age'>
                     <Form.Label>Age</Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                     required
                       value={age} 
                       onChange={(e)=> setAge(e.target.value)}></Form.Control>  
@@ -198,7 +198,7 @@ const SecondForm = ({history}) => {
                 <Form.Group controlId='yearsAtAdd'>
                     <Form.Label>Years at Address</Form.Label>
                     <Form.Control
-                     type='text' 
+                     type='number' 
                     required
                       value={yearsAtAdd} 
                       onChange={(e)=> setYears(e.target.value)}></Form.Control> 
@@ -237,7 +237,7 @@ const SecondForm = ({history}) => {
                      type='text' 
                      required
                       value={nationalInsNo} 
-                      onChange={(e)=> setNIN(e.target.value)}></Form.Control>  
+                      onChange={(e)=>setNIN(e.target.value)}></Form.Control>  
                       <Form.Control.Feedback type="invalid">
                Please fill the required field.
           </Form.Control.Feedback>            
@@ -253,7 +253,7 @@ const SecondForm = ({history}) => {
                 >Back</Button>
                 
 
-                <Button type="submit" variant="primary">Save Progress & Continue</Button>
+                <Button type="submit" variant="primary" style={{backgroundColor:'green',borderColor:'green'}}>Save Progress & Continue</Button>
                 
             </Form>
             

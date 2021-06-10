@@ -553,7 +553,7 @@ const UpdateEqualOpp = ({history}) => {
                 className='mr-5'>Back</Button>
                 
             
-            <Button onClick={handleUpdate}>UpdateApplication</Button>
+            <Button onClick={handleUpdate} style={{backgroundColor:'green',borderColor:'green'}}>UpdateApplication</Button>
         
           
             
