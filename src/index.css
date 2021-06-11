@@ -216,11 +216,10 @@ canvas.sigCanvas {
 }
 img.card-img-top {
   background-size: auto;
-  height: 50%;
-  width: 80%;
-  margin: auto;
-  margin-top: 30px;
-  margin-left: 30px
+  height: 100%;
+  width: 100%;
+  border-radius: 0px;
+  margin: 0px;
 }
 
 .popup-content {
@@ -272,40 +271,45 @@ input[type="checkbox"] {
 }
 
 p.card-text{
-  background-color: rgb(13, 188, 241);
+  background-color: #008ab3;
     padding: 5px;
     width: 80px;
-    color: white;
-    border-radius: 7px;
+    color: #fff;
+    border-radius: 3px;
     text-align: center;
 }
 
-.cbutton{
-  padding: 1.25rem;
-  margin-left: 20px
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
-.cbutton .co-button{
-  border: 1px solid rgb(189, 189, 218);
-  padding: 10px;
-  background-color: green;
-  color: white
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
 }
-.cbutton .co-button:hover{
-  border: 1px solid rgb(189, 189, 218);
-  padding: 10px;
-  background-color: green;
-  color: white
-}
-
-
 .card-body .desc{
   display: -webkit-box;
     -webkit-line-clamp: 2;
     overflow: hidden;
     -webkit-box-orient: vertical
 }
-
+#header {
+  height: 100px;
+  width: 1280px;
+  margin: auto;
+}
+#header a {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Arial,Helvetica,sans-serif;
+  text-transform: capitalize !important;
+}
+#header a:hover {
+  color: #008ab3;
+}
 .jumbotron {
  /* background-image: url('/src/pics/jbt.PNG') ;
   -webkit-background-size: cover;
@@ -313,10 +317,139 @@ p.card-text{
   background-size: cover;
   -o-background-size: cover;
   min-height: 700px;*/
-  background: url('/src/pics/jbt.PNG')  no-repeat center center; 
+  background: url('/src/pics/header.png')  no-repeat center center; 
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
   min-height: 700px;
 }
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 130px 0 rgb(62 57 107 / 12%), 0 0 20px 0 rgb(62 57 107 / 12%);
+  padding: 25px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: .35s;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  transform: scale(1.05);
+transition: .35s;
+
+}
+
+.cbutton {
+  vertical-align: middle !important;
+  padding: 1.25rem;
+  margin: auto;
+}
+
+.cbutton .co-button, .cbutton{
+  border: 2px solid #47a547;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #47a547;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.co-button:hover {
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  background-color: #47a547 !important;
+  color: #ffffff;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+button.btn.btn-primary{
+  border: 2px solid #47a547;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #47a547;
+  font-weight: 700;
+  border-radius: 5px;
+}
+button.btn.btn-primary:hover {
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  background-color: #47a547 !important;
+  color: #ffffff;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+@media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1140px;
+    padding: 50px 0px;
+}
+}
+h2 {
+    FONT-WEIGHT: 500;
+    text-transform: uppercase;
+    font-size: 36px;
+    color: #333;
+}
+.card-body {
+    border-radius: 4px;
+    padding: 8%;
+    box-shadow: 0 0 130px 0 rgb(62 57 107 / 12%), 0 0 20px 0 rgb(62 57 107 / 12%);
+    background-color: #fff;
+}
+
+@media screen and (min-width: 1200px){
+  .form-group{
+  margin: 30px 0px;
+  }
+  .horizontal-form label.form-label {
+  width: 50%;
+  text-align: left;
+  }
+  .horizontal-form .form-control {
+  
+  float: right;
+  width: 50%;
+  }
+  }
+
+  .jumbotron-text{
+    color: #333;
+    top: 20%;
+    left: 15%;
+    position: absolute;
+    display: block;
+
+  }
+  .jumbotron-text p{
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    display: block;
+    line-height: 1.6;
+  }
+  .jumbotron-text h1{
+    font-size: 3vmax;
+    font-family: BebasNeueBold,Arial,sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .form-jumbotron{
+    background: url('/src/pics/form.jpg')  no-repeat center center; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    min-height: 110px;
+  }
+  .form-jumbotron h3{
+    color: #333;
+    position: absolute;
+    top: 25%;
+    left: 25%
+  }

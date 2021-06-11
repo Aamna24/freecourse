@@ -4,7 +4,7 @@ import { PDFDocument } from 'pdf-lib'
 import authService from '../services/authService';
 import {getUserDetails} from '../actions/formActions'
 import {useDispatch, useSelector} from 'react-redux'
-
+import moment from 'moment'
 const Formdata=(props,history)=>{
   const dispatch = useDispatch()
 
@@ -90,7 +90,7 @@ const HandlePDFChange=async(id)=>{
       signImageField1.setImage(emblemImage)
 
       
-
+     
 
 
       if(res.data.data.employmentDetails.unemployedLength==="0-5 months"){
@@ -171,6 +171,14 @@ const HandlePDFChange=async(id)=>{
     const emblemImage = await pdfDoc.embedPng(emblemImageBytes)
     const signImageField = form.getTextField('Text14')
     signImageField.setImage(emblemImage)
+
+    
+    const today = moment("2020-08-31", "YYYY-MM-DD");
+    //const today=moment()
+    console.log("today",today)
+    const dob = moment(res.data.data.personalDetails.dob)
+    console.log("dob is",dob)
+    const calculatedAge = today.diff(dob,'years')
   
     const ins = res.data.data.personalDetails.nationalInsNo
     const first = ins.substr(0,2)
@@ -201,6 +209,7 @@ const HandlePDFChange=async(id)=>{
     form.getTextField('Text19').setText(res.data.data.employmentDetails.hoursPerWeek)
     form.getTextField('Text17').setText(res.data.data.employmentDetails.employerName)
     form.getTextField('Text18').setText(res.data.data.employmentDetails.employerAdd)
+    form.getTextField('Text5').setText(calculatedAge.toString())
   
     if(res.data.data.personalDetails.gender==="Female"){
       form.getCheckBox('Check Box51').check()

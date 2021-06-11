@@ -4,6 +4,8 @@ import {LinkContainer} from 'react-router-bootstrap'
 const FormCompletetionSteps = ({step1, step2, step3, step4,
 step5, step6, step7,step8}) => {
     return (
+        <>
+        
         <Nav className="justify-content-center mb-4">
             <Nav.Item>
                 {step1 ? (
@@ -78,6 +80,7 @@ step5, step6, step7,step8}) => {
                     </Nav.Link>}
             </Nav.Item>
         </Nav>
+        </>
     )
 }
 

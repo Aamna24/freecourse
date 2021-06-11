@@ -138,6 +138,11 @@ const EqualOppurtunities = ({history}) => {
     }
 
     return (
+      
+      <>
+      <div className="form-jumbotron">
+          <h3>LEARNER APPLICATION FORM</h3>
+</div>
         <FormContainer>
           <ScrollToMount/>
             <FormCompletetionSteps step1 step2 step3 step4 step5 step6/>
@@ -570,6 +575,7 @@ const EqualOppurtunities = ({history}) => {
             </Form>
             
         </FormContainer>
+        </>
     )
 }
 

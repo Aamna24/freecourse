@@ -106,6 +106,10 @@ const EmployemntForm = ({history}) => {
     
    
     return (
+      <>
+         <div className="form-jumbotron">
+          <h3>LEARNER APPLICATION FORM</h3>
+</div>
         <FormContainer>
           <ScrollToMount/>
             <FormCompletetionSteps step1 step2 step3 step4/>
@@ -541,6 +545,7 @@ Acceptable documents include: Benefits letter or bank statement showing credit a
             </Form>
             
         </FormContainer>
+        </>
     )
 }
 

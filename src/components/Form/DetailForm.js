@@ -49,12 +49,23 @@ const DetailsForm = ({history}) => {
     }
 
     return (
+      <>
+         <div className="form-jumbotron">
+          <h3>LEARNER APPLICATION FORM</h3>
+</div>
         <FormContainer>
+        
           <FormCompletetionSteps step1 />
           
             <h1>Step 1: Eligibility Check</h1>
-            <p>
-The courses are funded by the governments Adult Education Budget (AEB) via the ESFA. So if you qualify you will be exempt from all course fees.
+            <p style={{padding: '15px',marginBottom: '20px',border: '1px solid transparent',
+borderRadius: '4px',
+color: '#8a6d3b',
+backgroundColor: '#fcf8e3',
+borderColor:' #faebcc'}}>
+              Many of the courses are provided without charger to learners. They are funded by the UK government;s Adult Education Budget (AEB)
+              via the Education and Skills Funding Agency (ESFA), and in some cases may match funding provided by the European Social Fund (ESF).
+              As a condition of claiming this government funding, we are required to gather certain data to carry out certain identity / Eligibilitychecks for your learners. 
 </p>
             <p>To see if you qualify please answer the following questions.</p>
             <Form noValidate validated={validated} onSubmit={submitHandler}>
@@ -252,6 +263,7 @@ The courses are funded by the governments Adult Education Budget (AEB) via the E
             </Form>
             
         </FormContainer>
+        </>
     )
 }
 
