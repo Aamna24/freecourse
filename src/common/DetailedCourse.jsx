@@ -36,10 +36,10 @@ const DetailedCourse = ({ product }) => {
   return (
     <div className="container-sm" xs={12}>
       <div className="row">
-        <div className="col-md-8" style={{ color: "black" }}>
+        <div className="col-md-8" style={{ color: "black", paddingRight: '80px' }}>
           <div className="row">
             <div className="col-md-2">
-              <img src={product.img} />
+              <img src={product.img} style={{height:"100px",width:"170px"}}/>
             </div>
             <div className="col-md-10">
               <h2>{product.courseTitle}</h2>

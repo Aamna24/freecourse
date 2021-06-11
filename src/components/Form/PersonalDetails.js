@@ -56,6 +56,10 @@ const SecondForm = ({history}) => {
 
    
     return (
+        <>
+           <div className="form-jumbotron">
+          <h3>LEARNER APPLICATION FORM</h3>
+</div>
         <FormContainer>
             <ScrollToMount/>
             <FormCompletetionSteps step1 step2/>
@@ -236,10 +240,11 @@ const SecondForm = ({history}) => {
                     <Form.Control
                      type='text' 
                      required
+                     pattern='^\s*[a-zA-Z]{2}(?:\s*\d\s*){6}[a-zA-Z]{1}?\s*$'
                       value={nationalInsNo} 
                       onChange={(e)=>setNIN(e.target.value)}></Form.Control>  
                       <Form.Control.Feedback type="invalid">
-               Please fill the required field.
+               Please fill the required field / Please enter valid national insurance number
           </Form.Control.Feedback>            
                 </Form.Group>
 
@@ -258,6 +263,7 @@ const SecondForm = ({history}) => {
             </Form>
             
         </FormContainer>
+        </>
     )
 }
 

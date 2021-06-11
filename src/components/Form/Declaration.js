@@ -40,8 +40,15 @@ const DeclarationForm = ({history}) => {
         <FormContainer>
             <ScrollToMount/>
             <FormCompletetionSteps step1 step2 step3 step4 step5 step6 step7/>
+            <div style={{padding: '15px',
+marginBottom: '20px',
 
-            <h1>Step 6: Declaration</h1>
+border: '1px solid transparent',
+borderRadius: '4px',
+color: '#8a6d3b',
+backgroundColor: '#fcf8e3',
+borderColor: '#faebcc'}}>
+            <h1 >Step 6: Declaration</h1>
             
             <Form noValidate validated={validated} onSubmit={submitHandler}>
             <Form.Group controlId='level'>
@@ -149,7 +156,7 @@ const DeclarationForm = ({history}) => {
                 <Button type="submit" variant="primary" style={{backgroundColor:'green',borderColor:'green'}}>Save Progress & Continue</Button>
                 
             </Form>
-            
+            </div>
         </FormContainer>
     )
 }
